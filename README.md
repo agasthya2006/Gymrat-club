@@ -51,7 +51,7 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
 | **Phase 4** | [`bb01cd8`](https://github.com/agasthya2006/Gymrat-club/commit/bb01cd8) | Completed | **Member Portal & QR Check-In**: Reactive demo pub/sub store, HUD navigation shell, athlete onboarding, member dashboard with live crowd radar, workout stopwatch logger, optical QR scanner. |
 | **Phase 5** | [`0c9d391`](https://github.com/agasthya2006/Gymrat-club/commit/0c9d391) | Completed | **Gamification & Passes**: Streak calculation engine, achievement badges, tiered pass purchasing (₹1,499 - ₹7,999), and class scheduling. |
 | **Phase 6** | [`0d5cc03`](https://github.com/agasthya2006/Gymrat-club/commit/0d5cc03) | Completed | **Coach & Admin Command Centers, Backend REST Engine & Coach Akhil 2-Way Booking Notifications**: Express.js REST backend, Supabase & Firebase auth, Coach & Owner portals, and private session booking with instant confirmation dispatch. |
-| **Phase 7** | [`3d93265`](https://github.com/agasthya2006/Gymrat-club/commit/3d93265) | Completed | **Production Cloud Deployment, Privacy-First Auth, Dynamic Personalization & Notification Segregation**: Live Firebase Hosting, zero autofill login security, athlete Agasthya Gade binding, recursive duplicate notification elimination, and clean role segregation across coaches and members. |
+| **Phase 7** | [`7e798fd`](https://github.com/agasthya2006/Gymrat-club/commit/7e798fd) | Completed | **Production Cloud Deployment, Privacy-First Auth, Dynamic Personalization & Notification Segregation**: Live Firebase Hosting, zero autofill login security, athlete Agasthya Gade binding, recursive duplicate notification elimination, and clean role segregation across coaches and members. |
 
 ---
 
