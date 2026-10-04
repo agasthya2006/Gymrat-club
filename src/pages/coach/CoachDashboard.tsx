@@ -74,7 +74,7 @@ export const CoachDashboard: React.FC = () => {
   const activeBookings = mergedBookings.filter(b => b.status === 'CONFIRMED');
 
   const coachNotifs = storeState.notifications.filter(
-    n => n.recipient_role === 'COACH' || n.recipient_id === 'coach-akhil' || n.type === 'BOOKING'
+    n => n.recipient_role === 'COACH' || n.title?.toLowerCase().includes('new session booked')
   );
 
   return (

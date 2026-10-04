@@ -27,8 +27,23 @@ export const MemberNotifications: React.FC = () => {
 
   const { notifications } = storeState;
 
-  // Filter out coach-only dispatches so members only see their alerts & confirmations
-  const memberNotifications = notifications.filter(n => n.recipient_role !== 'COACH');
+  // Deduplicate and filter notifications for Member:
+  // - Exclude coach-only booking alerts (recipient_role === 'COACH' or title containing 'New Session Booked')
+  // - Deduplicate confirmation notifications so identical session confirmations never repeat
+  const seenConfirmations = new Set<string>();
+  const memberNotifications = notifications.filter(n => {
+    if (n.recipient_role === 'COACH') return false;
+    if (n.title?.toLowerCase().includes('new session booked')) return false;
+
+    // Deduplicate booking confirmations
+    if (n.type === 'BOOKING') {
+      const dedupeKey = `${n.title}-${n.date || 'Today'}-${n.time_slot || 'slot'}`;
+      if (seenConfirmations.has(dedupeKey)) return false;
+      seenConfirmations.add(dedupeKey);
+    }
+    return true;
+  });
+
   const unreadCount = memberNotifications.filter(n => !n.read).length;
 
   const filteredNotifications = memberNotifications.filter(n => {
@@ -42,7 +57,7 @@ export const MemberNotifications: React.FC = () => {
   };
 
   const handleMarkAllRead = async () => {
-    await mockNotificationService.markAllAsRead();
+    await mockNotificationService.markAllAsRead('MEMBER');
   };
 
   const getIcon = (type: string) => {
@@ -58,6 +73,17 @@ export const MemberNotifications: React.FC = () => {
       default:
         return <Megaphone className="w-4 h-4 text-[#FF5500]" />;
     }
+  };
+
+  const getCategoryLabel = (notif: any) => {
+    if (notif.type === 'BOOKING') return 'SESSION CONFIRMED';
+    if (notif.type === 'WORKOUT') return 'WORKOUT UPDATE';
+    if (notif.type === 'ANNOUNCEMENT') {
+      return notif.title?.toLowerCase().includes('holiday') ? 'HOLIDAY NOTICE' : 'FACILITY BROADCAST';
+    }
+    if (notif.type === 'CLASS') return 'CLASS SCHEDULE';
+    if (notif.type === 'MEMBERSHIP') return 'MEMBERSHIP TIER';
+    return notif.type;
   };
 
   return (
@@ -77,7 +103,7 @@ export const MemberNotifications: React.FC = () => {
             )}
           </h1>
           <p className="text-xs text-zinc-400">
-            Real-time workout reminders, coach booking updates, and club announcements.
+            Session confirmations, owner holiday schedules, and coach workout updates.
           </p>
         </div>
 
@@ -94,18 +120,26 @@ export const MemberNotifications: React.FC = () => {
 
       {/* Filter Tabs */}
       <div className="flex flex-wrap gap-2">
-        {(['ALL', 'UNREAD', 'WORKOUT', 'BOOKING', 'CLASS', 'MEMBERSHIP', 'ANNOUNCEMENT'] as const).map(tab => (
+        {[
+          { id: 'ALL', label: 'ALL DISPATCHES' },
+          { id: 'UNREAD', label: 'UNREAD' },
+          { id: 'BOOKING', label: 'BOOKING CONFIRMATIONS' },
+          { id: 'WORKOUT', label: 'WORKOUTS' },
+          { id: 'ANNOUNCEMENT', label: 'HOLIDAYS & ANNOUNCEMENTS' },
+          { id: 'CLASS', label: 'CLASSES' },
+          { id: 'MEMBERSHIP', label: 'MEMBERSHIP' }
+        ].map(tab => (
           <button
-            key={tab}
-            onClick={() => setActiveFilter(tab)}
+            key={tab.id}
+            onClick={() => setActiveFilter(tab.id as any)}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wider border transition-all cursor-pointer ${
-              activeFilter === tab
+              activeFilter === tab.id
                 ? 'bg-[#FF5500] border-[#FF5500] text-black font-bold shadow-[0_0_12px_rgba(255,85,0,0.3)]'
                 : 'bg-[#14151C] border-[#27272A] text-zinc-400 hover:text-white hover:border-zinc-700'
             }`}
           >
-            {tab}
-            {tab === 'UNREAD' && unreadCount > 0 && ` (${unreadCount})`}
+            {tab.label}
+            {tab.id === 'UNREAD' && unreadCount > 0 && ` (${unreadCount})`}
           </button>
         ))}
       </div>
@@ -136,7 +170,7 @@ export const MemberNotifications: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 text-[10px] font-mono">
                     <span className="px-2 py-0.5 bg-[#070709] text-[#FF5500] border border-zinc-800 rounded font-bold uppercase">
-                      {n.type}
+                      {getCategoryLabel(n)}
                     </span>
                     <span className="text-zinc-600">•</span>
                     <span className="text-zinc-500 font-semibold">{n.time}</span>

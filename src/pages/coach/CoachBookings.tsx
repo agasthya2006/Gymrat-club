@@ -30,18 +30,32 @@ export const CoachBookings: React.FC = () => {
           target.status = status as any;
           if (status === 'CONFIRMED') {
             const coachName = target.coach_name || 'Coach Akhil Gandloji';
-            s.notifications.unshift({
-              id: `notif-confirm-${Date.now().toString(36)}`,
-              title: `✅ Session Confirmed by ${coachName}`,
-              message: `${coachName} has reviewed and confirmed your 1-on-1 private coaching session for ${target.date} at ${target.time_slot || (target as any).time || 'scheduled slot'}. Prepare for your session!`,
-              time: 'Just now',
-              read: false,
-              type: 'BOOKING' as const,
-              recipient_role: 'MEMBER' as const,
-              athlete_name: target.member_name || (target as any).athlete_name,
-              date: target.date,
-              time_slot: target.time_slot || (target as any).time
-            });
+            const dateStr = target.date || 'Today';
+            const timeSlotStr = target.time_slot || (target as any).time || 'scheduled slot';
+
+            // Check if confirmation notification already exists for this booking/session to prevent duplicates
+            const alreadyNotified = s.notifications.some(
+              n => n.recipient_role === 'MEMBER' && 
+                   n.type === 'BOOKING' &&
+                   (n.title.includes('Confirmed') || n.title.includes('Session Confirmed')) &&
+                   (n.date === dateStr || n.message.includes(dateStr)) &&
+                   (n.time_slot === timeSlotStr || n.message.includes(timeSlotStr))
+            );
+
+            if (!alreadyNotified) {
+              s.notifications.unshift({
+                id: `notif-confirm-${Date.now().toString(36)}`,
+                title: `✅ Session Confirmed by ${coachName}`,
+                message: `${coachName} has reviewed and confirmed your 1-on-1 private coaching session for ${dateStr} at ${timeSlotStr}. Prepare for your session!`,
+                time: 'Just now',
+                read: false,
+                type: 'BOOKING' as const,
+                recipient_role: 'MEMBER' as const,
+                athlete_name: target.member_name || (target as any).athlete_name,
+                date: dateStr,
+                time_slot: timeSlotStr
+              });
+            }
             // Mark any coach notification for this booking as read
             s.notifications.forEach(n => {
               if (n.recipient_role === 'COACH' && (n.message.includes(target.member_name || '') || n.id.includes(target.id))) {

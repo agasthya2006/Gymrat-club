@@ -436,7 +436,7 @@ export const MemberDashboard: React.FC = () => {
               ATHLETE COMMAND CENTER
             </h1>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1 font-sans">
-              Welcome back, <strong className="text-white font-semibold">Arjun</strong>. Ready to conquer your meso-cycle?
+              Welcome back, <strong className="text-white font-semibold">{user?.name || member.name || 'Agasthya'}</strong>. Ready to conquer your meso-cycle?
             </p>
           </div>
 

@@ -1,9 +1,12 @@
 // src/pages/admin/AdminAnnouncements.tsx
 import React, { useState } from 'react';
 import { useGymData } from '../../context/GymDataContext';
+import { useAuth } from '../../context/AuthContext';
+import { demoStore } from '../../demo/mockStore';
 import { Megaphone, Plus, Trash2, CheckCircle2, Pin } from 'lucide-react';
 
 export const AdminAnnouncements: React.FC = () => {
+  const { user } = useAuth();
   const { announcements, addAnnouncementAction } = useGymData();
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState('');
@@ -17,12 +20,25 @@ export const AdminAnnouncements: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      const authorName = user?.name || 'Owner Rohan Alluri';
       await addAnnouncementAction({
         title,
         category,
         content,
-        author: 'Chief Elena Rostova',
+        author: authorName,
         pinned
+      });
+      // Broadcast to members' notification feed
+      demoStore.update(s => {
+        s.notifications.unshift({
+          id: `notif-broadcast-${Date.now().toString(36)}`,
+          title: `📢 ${title}`,
+          message: `${content} — Broadcast by ${authorName}`,
+          time: 'Just now',
+          read: false,
+          type: 'ANNOUNCEMENT',
+          recipient_role: 'MEMBER'
+        });
       });
       setShowModal(false);
       setTitle('');

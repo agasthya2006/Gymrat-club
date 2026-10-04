@@ -11,16 +11,6 @@
       "created_at": "2026-01-15T08:00:00.000Z"
     },
     {
-      "id": "coach-akhil",
-      "name": "Akhil Gandloji",
-      "email": "akhilgandloji789@gmail.com",
-      "password_hash": "akhil@8998",
-      "role": "COACH",
-      "phone": "+91 98765 43210",
-      "avatar_url": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400",
-      "created_at": "2025-11-01T09:30:00.000Z"
-    },
-    {
       "id": "usr-coach-1",
       "name": "Viktor \"Ironclad\" Stone",
       "email": "coach@gymratclub.demo",
@@ -98,7 +88,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 100-2000",
       "avatar_url": "https://images.unsplash.com/photo-1500000000000?w=400",
-      "created_at": "2026-10-02T11:10:52.559Z"
+      "created_at": "2026-09-25T08:20:36.025Z"
     },
     {
       "id": "usr-member-3",
@@ -108,7 +98,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 123-2011",
       "avatar_url": "https://images.unsplash.com/photo-1500000100000?w=400",
-      "created_at": "2026-09-29T11:10:52.560Z"
+      "created_at": "2026-09-22T08:20:36.026Z"
     },
     {
       "id": "usr-member-4",
@@ -118,7 +108,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 146-2022",
       "avatar_url": "https://images.unsplash.com/photo-1500000200000?w=400",
-      "created_at": "2026-09-26T11:10:52.560Z"
+      "created_at": "2026-09-19T08:20:36.026Z"
     },
     {
       "id": "usr-member-5",
@@ -128,7 +118,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 169-2033",
       "avatar_url": "https://images.unsplash.com/photo-1500000300000?w=400",
-      "created_at": "2026-09-23T11:10:52.560Z"
+      "created_at": "2026-09-16T08:20:36.026Z"
     },
     {
       "id": "usr-member-6",
@@ -138,7 +128,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 192-2044",
       "avatar_url": "https://images.unsplash.com/photo-1500000400000?w=400",
-      "created_at": "2026-09-20T11:10:52.560Z"
+      "created_at": "2026-09-13T08:20:36.026Z"
     },
     {
       "id": "usr-member-7",
@@ -148,7 +138,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 215-2055",
       "avatar_url": "https://images.unsplash.com/photo-1500000500000?w=400",
-      "created_at": "2026-09-17T11:10:52.560Z"
+      "created_at": "2026-09-10T08:20:36.026Z"
     },
     {
       "id": "usr-member-8",
@@ -158,7 +148,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 238-2066",
       "avatar_url": "https://images.unsplash.com/photo-1500000600000?w=400",
-      "created_at": "2026-09-14T11:10:52.560Z"
+      "created_at": "2026-09-07T08:20:36.026Z"
     },
     {
       "id": "usr-member-9",
@@ -168,7 +158,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 261-2077",
       "avatar_url": "https://images.unsplash.com/photo-1500000700000?w=400",
-      "created_at": "2026-09-11T11:10:52.560Z"
+      "created_at": "2026-09-04T08:20:36.026Z"
     },
     {
       "id": "usr-member-10",
@@ -178,7 +168,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 284-2088",
       "avatar_url": "https://images.unsplash.com/photo-1500000800000?w=400",
-      "created_at": "2026-09-08T11:10:52.560Z"
+      "created_at": "2026-09-01T08:20:36.026Z"
     },
     {
       "id": "usr-member-11",
@@ -188,7 +178,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 307-2099",
       "avatar_url": "https://images.unsplash.com/photo-1500000900000?w=400",
-      "created_at": "2026-09-05T11:10:52.560Z"
+      "created_at": "2026-08-29T08:20:36.026Z"
     },
     {
       "id": "usr-member-12",
@@ -198,7 +188,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 330-2110",
       "avatar_url": "https://images.unsplash.com/photo-1500001000000?w=400",
-      "created_at": "2026-09-02T11:10:52.560Z"
+      "created_at": "2026-08-26T08:20:36.026Z"
     },
     {
       "id": "usr-member-13",
@@ -208,7 +198,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 353-2121",
       "avatar_url": "https://images.unsplash.com/photo-1500001100000?w=400",
-      "created_at": "2026-08-30T11:10:52.560Z"
+      "created_at": "2026-08-23T08:20:36.026Z"
     },
     {
       "id": "usr-member-14",
@@ -218,7 +208,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 376-2132",
       "avatar_url": "https://images.unsplash.com/photo-1500001200000?w=400",
-      "created_at": "2026-08-27T11:10:52.560Z"
+      "created_at": "2026-08-20T08:20:36.026Z"
     },
     {
       "id": "usr-member-15",
@@ -228,7 +218,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 399-2143",
       "avatar_url": "https://images.unsplash.com/photo-1500001300000?w=400",
-      "created_at": "2026-08-24T11:10:52.560Z"
+      "created_at": "2026-08-17T08:20:36.026Z"
     },
     {
       "id": "usr-member-16",
@@ -238,7 +228,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 422-2154",
       "avatar_url": "https://images.unsplash.com/photo-1500001400000?w=400",
-      "created_at": "2026-08-21T11:10:52.560Z"
+      "created_at": "2026-08-14T08:20:36.026Z"
     },
     {
       "id": "usr-member-17",
@@ -248,7 +238,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 445-2165",
       "avatar_url": "https://images.unsplash.com/photo-1500001500000?w=400",
-      "created_at": "2026-08-18T11:10:52.560Z"
+      "created_at": "2026-08-11T08:20:36.026Z"
     },
     {
       "id": "usr-member-18",
@@ -258,7 +248,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 468-2176",
       "avatar_url": "https://images.unsplash.com/photo-1500001600000?w=400",
-      "created_at": "2026-08-15T11:10:52.560Z"
+      "created_at": "2026-08-08T08:20:36.026Z"
     },
     {
       "id": "usr-member-19",
@@ -268,7 +258,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 491-2187",
       "avatar_url": "https://images.unsplash.com/photo-1500001700000?w=400",
-      "created_at": "2026-08-12T11:10:52.560Z"
+      "created_at": "2026-08-05T08:20:36.026Z"
     },
     {
       "id": "usr-member-20",
@@ -278,7 +268,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 514-2198",
       "avatar_url": "https://images.unsplash.com/photo-1500001800000?w=400",
-      "created_at": "2026-08-09T11:10:52.560Z"
+      "created_at": "2026-08-02T08:20:36.026Z"
     },
     {
       "id": "usr-member-21",
@@ -288,7 +278,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 537-2209",
       "avatar_url": "https://images.unsplash.com/photo-1500001900000?w=400",
-      "created_at": "2026-08-06T11:10:52.560Z"
+      "created_at": "2026-07-30T08:20:36.026Z"
     },
     {
       "id": "usr-member-22",
@@ -298,7 +288,7 @@
       "role": "MEMBER",
       "phone": "+1 (555) 560-2220",
       "avatar_url": "https://images.unsplash.com/photo-1500002000000?w=400",
-      "created_at": "2026-08-03T11:10:52.560Z"
+      "created_at": "2026-07-27T08:20:36.026Z"
     },
     {
       "id": "usr-member-23",
@@ -308,7 +298,107 @@
       "role": "MEMBER",
       "phone": "+1 (555) 583-2231",
       "avatar_url": "https://images.unsplash.com/photo-1500002100000?w=400",
-      "created_at": "2026-07-31T11:10:52.560Z"
+      "created_at": "2026-07-24T08:20:36.026Z"
+    },
+    {
+      "id": "usr-member-mujk5m9p-f1mk",
+      "name": "Test Athlete Zero",
+      "email": "testzero@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 000-0000",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:29:51.997Z"
+    },
+    {
+      "id": "usr-member-mujk5mau-kqgi",
+      "name": "Admin Added Athlete",
+      "email": "admin.added@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 234-5678",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:29:52.038Z"
+    },
+    {
+      "id": "usr-member-mujkhdll-30v5",
+      "name": "Test Athlete Zero",
+      "email": "testzero_1790498340606@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 000-0000",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:39:00.633Z"
+    },
+    {
+      "id": "usr-member-mujkhdmk-4n6s",
+      "name": "Admin Added Athlete",
+      "email": "admin.added@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 234-5678",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:39:00.668Z"
+    },
+    {
+      "id": "usr-member-mujkqrej-wnv1",
+      "name": "Test Athlete Zero",
+      "email": "testzero_1790498778402@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 000-0000",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:46:18.427Z"
+    },
+    {
+      "id": "usr-member-mujkqrfg-bfxa",
+      "name": "Admin Added Athlete",
+      "email": "admin.added@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 234-5678",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:46:18.460Z"
+    },
+    {
+      "id": "usr-member-mujl47zv-rxgi",
+      "name": "Test Athlete Zero",
+      "email": "testzero_1790499406435@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 000-0000",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:56:46.459Z"
+    },
+    {
+      "id": "usr-member-mujl480t-wqpy",
+      "name": "Admin Added Athlete",
+      "email": "admin.added@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 234-5678",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T08:56:46.493Z"
+    },
+    {
+      "id": "usr-member-mujlj618-3g3m",
+      "name": "Test Athlete Zero",
+      "email": "testzero_1790500103728@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 000-0000",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T09:08:23.756Z"
+    },
+    {
+      "id": "usr-member-mujlj628-tavc",
+      "name": "Admin Added Athlete",
+      "email": "admin.added@gymratclub.demo",
+      "password_hash": "password123",
+      "role": "MEMBER",
+      "phone": "+1 (555) 234-5678",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      "created_at": "2026-09-27T09:08:23.792Z"
     }
   ],
   "member_profiles": [
@@ -316,10 +406,10 @@
       "user_id": "usr-member-1",
       "athlete_code": "GRC-ATH-001",
       "status": "ACTIVE",
-      "plan_id": "plan-elite",
-      "plan_expiry": "2026-12-31T23:59:59.000Z",
-      "streak_days": 14,
-      "total_workouts": 48,
+      "plan_id": "plan-basic",
+      "plan_expiry": "2026-10-27T09:19:09.278Z",
+      "streak_days": 15,
+      "total_workouts": 49,
       "assigned_coach_id": "usr-coach-1"
     },
     {
@@ -327,7 +417,7 @@
       "athlete_code": "GRC-ATH-002",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 1,
       "total_workouts": 12,
       "assigned_coach_id": "usr-coach-1"
@@ -337,7 +427,7 @@
       "athlete_code": "GRC-ATH-003",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 4,
       "total_workouts": 19,
       "assigned_coach_id": "usr-coach-3"
@@ -347,7 +437,7 @@
       "athlete_code": "GRC-ATH-004",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 7,
       "total_workouts": 26,
       "assigned_coach_id": "usr-coach-1"
@@ -357,7 +447,7 @@
       "athlete_code": "GRC-ATH-005",
       "status": "EXPIRING",
       "plan_id": "plan-basic",
-      "plan_expiry": "2026-10-09T11:10:52.560Z",
+      "plan_expiry": "2026-10-02T08:20:36.026Z",
       "streak_days": 10,
       "total_workouts": 33,
       "assigned_coach_id": "usr-coach-2"
@@ -367,7 +457,7 @@
       "athlete_code": "GRC-ATH-006",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 13,
       "total_workouts": 40,
       "assigned_coach_id": "usr-coach-1"
@@ -377,7 +467,7 @@
       "athlete_code": "GRC-ATH-007",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 16,
       "total_workouts": 47,
       "assigned_coach_id": "usr-coach-3"
@@ -387,7 +477,7 @@
       "athlete_code": "GRC-ATH-008",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 19,
       "total_workouts": 54,
       "assigned_coach_id": "usr-coach-1"
@@ -397,7 +487,7 @@
       "athlete_code": "GRC-ATH-009",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 1,
       "total_workouts": 61,
       "assigned_coach_id": "usr-coach-3"
@@ -407,7 +497,7 @@
       "athlete_code": "GRC-ATH-010",
       "status": "EXPIRING",
       "plan_id": "plan-elite",
-      "plan_expiry": "2026-10-09T11:10:52.560Z",
+      "plan_expiry": "2026-10-02T08:20:36.026Z",
       "streak_days": 4,
       "total_workouts": 68,
       "assigned_coach_id": "usr-coach-1"
@@ -417,7 +507,7 @@
       "athlete_code": "GRC-ATH-011",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 7,
       "total_workouts": 75,
       "assigned_coach_id": "usr-coach-2"
@@ -427,7 +517,7 @@
       "athlete_code": "GRC-ATH-012",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 10,
       "total_workouts": 82,
       "assigned_coach_id": "usr-coach-1"
@@ -437,7 +527,7 @@
       "athlete_code": "GRC-ATH-013",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 13,
       "total_workouts": 89,
       "assigned_coach_id": "usr-coach-3"
@@ -447,7 +537,7 @@
       "athlete_code": "GRC-ATH-014",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 16,
       "total_workouts": 96,
       "assigned_coach_id": "usr-coach-1"
@@ -457,7 +547,7 @@
       "athlete_code": "GRC-ATH-015",
       "status": "EXPIRING",
       "plan_id": "plan-pro",
-      "plan_expiry": "2026-10-09T11:10:52.560Z",
+      "plan_expiry": "2026-10-02T08:20:36.026Z",
       "streak_days": 19,
       "total_workouts": 103,
       "assigned_coach_id": "usr-coach-3"
@@ -467,7 +557,7 @@
       "athlete_code": "GRC-ATH-016",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 1,
       "total_workouts": 110,
       "assigned_coach_id": "usr-coach-1"
@@ -477,7 +567,7 @@
       "athlete_code": "GRC-ATH-017",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 4,
       "total_workouts": 117,
       "assigned_coach_id": "usr-coach-2"
@@ -487,7 +577,7 @@
       "athlete_code": "GRC-ATH-018",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 7,
       "total_workouts": 124,
       "assigned_coach_id": "usr-coach-1"
@@ -497,7 +587,7 @@
       "athlete_code": "GRC-ATH-019",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 10,
       "total_workouts": 131,
       "assigned_coach_id": "usr-coach-3"
@@ -507,7 +597,7 @@
       "athlete_code": "GRC-ATH-020",
       "status": "EXPIRING",
       "plan_id": "plan-basic",
-      "plan_expiry": "2026-10-09T11:10:52.560Z",
+      "plan_expiry": "2026-10-02T08:20:36.026Z",
       "streak_days": 13,
       "total_workouts": 138,
       "assigned_coach_id": "usr-coach-1"
@@ -517,7 +607,7 @@
       "athlete_code": "GRC-ATH-021",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 16,
       "total_workouts": 145,
       "assigned_coach_id": "usr-coach-3"
@@ -527,7 +617,7 @@
       "athlete_code": "GRC-ATH-022",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 19,
       "total_workouts": 152,
       "assigned_coach_id": "usr-coach-1"
@@ -537,37 +627,113 @@
       "athlete_code": "GRC-ATH-023",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-02-01T11:10:52.560Z",
+      "plan_expiry": "2027-01-25T08:20:36.026Z",
       "streak_days": 1,
       "total_workouts": 159,
       "assigned_coach_id": "usr-coach-2"
+    },
+    {
+      "user_id": "usr-member-mujk5m9p-f1mk",
+      "athlete_code": "GRC-ATH-024",
+      "status": "ACTIVE",
+      "plan_id": "plan-pro",
+      "plan_expiry": "2026-10-27T08:29:52.028Z",
+      "streak_days": 2,
+      "total_workouts": 1,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujk5mau-kqgi",
+      "athlete_code": "GRC-ATH-025",
+      "status": "ACTIVE",
+      "plan_id": "plan-elite",
+      "plan_expiry": "2026-10-27T08:29:52.039Z",
+      "streak_days": 1,
+      "total_workouts": 0,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujkhdll-30v5",
+      "athlete_code": "GRC-ATH-026",
+      "status": "ACTIVE",
+      "plan_id": "plan-pro",
+      "plan_expiry": "2026-10-27T08:39:00.659Z",
+      "streak_days": 2,
+      "total_workouts": 1,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujkhdmk-4n6s",
+      "athlete_code": "GRC-ATH-027",
+      "status": "ACTIVE",
+      "plan_id": "plan-elite",
+      "plan_expiry": "2026-10-27T08:39:00.669Z",
+      "streak_days": 1,
+      "total_workouts": 0,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujkqrej-wnv1",
+      "athlete_code": "GRC-ATH-028",
+      "status": "ACTIVE",
+      "plan_id": "plan-pro",
+      "plan_expiry": "2026-10-27T08:46:18.452Z",
+      "streak_days": 2,
+      "total_workouts": 1,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujkqrfg-bfxa",
+      "athlete_code": "GRC-ATH-029",
+      "status": "ACTIVE",
+      "plan_id": "plan-elite",
+      "plan_expiry": "2026-10-27T08:46:18.461Z",
+      "streak_days": 1,
+      "total_workouts": 0,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujl47zv-rxgi",
+      "athlete_code": "GRC-ATH-030",
+      "status": "ACTIVE",
+      "plan_id": "plan-pro",
+      "plan_expiry": "2026-10-27T08:56:46.484Z",
+      "streak_days": 2,
+      "total_workouts": 1,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujl480t-wqpy",
+      "athlete_code": "GRC-ATH-031",
+      "status": "ACTIVE",
+      "plan_id": "plan-elite",
+      "plan_expiry": "2026-10-27T08:56:46.493Z",
+      "streak_days": 1,
+      "total_workouts": 0,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujlj618-3g3m",
+      "athlete_code": "GRC-ATH-032",
+      "status": "ACTIVE",
+      "plan_id": "plan-pro",
+      "plan_expiry": "2026-10-27T09:08:23.782Z",
+      "streak_days": 2,
+      "total_workouts": 1,
+      "assigned_coach_id": "usr-coach-1"
+    },
+    {
+      "user_id": "usr-member-mujlj628-tavc",
+      "athlete_code": "GRC-ATH-033",
+      "status": "ACTIVE",
+      "plan_id": "plan-elite",
+      "plan_expiry": "2026-10-27T09:08:23.793Z",
+      "streak_days": 1,
+      "total_workouts": 0,
+      "assigned_coach_id": "usr-coach-1"
     }
   ],
   "coach_profiles": [
-    {
-      "user_id": "coach-akhil",
-      "callsign": "TITAN ARCHITECT",
-      "bio": "Head Strength Coach & Biomechanics Specialist. Specializing in barbell kinematics, athletic longevity, and progressive hypertrophy protocols.",
-      "specialties": [
-        "Strength & Hypertrophy",
-        "Kinetic Biomechanics",
-        "Barbell Periodization",
-        "Functional Power"
-      ],
-      "certifications": [
-        "CSCS (NSCA)",
-        "USAPL Senior Coach",
-        "Kinesiology Specialist"
-      ],
-      "hourly_rate": 1500,
-      "experience_years": 8,
-      "rating": 4.98,
-      "session_types": [
-        "1-on-1 Biomechanical Audit",
-        "Barbell Kinematics Protocol",
-        "Hypertrophy Periodization"
-      ]
-    },
     {
       "user_id": "usr-coach-1",
       "callsign": "IRONCLAD",
@@ -716,19 +882,82 @@
     {
       "id": "goal-1",
       "user_id": "usr-member-1",
-      "primary_goal": "Strength & Hypertrophy",
-      "current_weight": 198.5,
-      "target_weight": 205,
+      "primary_goal": "STRENGTH",
+      "current_weight": 72,
+      "target_weight": 76,
       "weekly_target_sessions": 5,
-      "target_date": "2026-11-30",
+      "target_date": "2026-12-31",
       "preferred_days": [
         "Monday",
         "Tuesday",
         "Thursday",
-        "Friday",
-        "Saturday"
+        "Friday"
       ],
-      "preferred_time": "18:00 - 20:00"
+      "preferred_time": "EVENING"
+    },
+    {
+      "id": "goal-mujk5m9w-1oye",
+      "user_id": "usr-member-mujk5m9p-f1mk",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-mujkgy83-q5ou",
+      "user_id": "undefined",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-mujkhdlr-p4e9",
+      "user_id": "usr-member-mujkhdll-30v5",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-mujkqrep-yhuj",
+      "user_id": "usr-member-mujkqrej-wnv1",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-mujl4802-iru5",
+      "user_id": "usr-member-mujl47zv-rxgi",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-mujlj61h-jeyq",
+      "user_id": "usr-member-mujlj618-3g3m",
+      "primary_goal": "Olympic Weightlifting Precision",
+      "current_weight": 185,
+      "target_weight": 190,
+      "weekly_target_sessions": 5
+    },
+    {
+      "id": "goal-muttzmid-2ijn",
+      "user_id": "usr-member-gymratclub-de",
+      "primary_goal": "STRENGTH",
+      "current_weight": 72,
+      "target_weight": 76,
+      "weekly_target_sessions": 5,
+      "target_date": "2026-12-31",
+      "preferred_days": [
+        "Monday",
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ],
+      "preferred_time": "EVENING"
     }
   ],
   "membership_plans": [
@@ -787,7 +1016,7 @@
       "end_time": "08:15",
       "room": "Main Platform Zone A",
       "capacity": 12,
-      "registered_count": 9
+      "registered_count": 12
     },
     {
       "id": "cls-2",
@@ -942,6 +1171,76 @@
       "room": "Tactical Turf Arena",
       "capacity": 18,
       "registered_count": 13
+    },
+    {
+      "id": "cls-mujk5may-42ek",
+      "name": "ADMIN PROTOCOL: MAXIMUM RECOVERY & ICE",
+      "category": "RECOVERY",
+      "description": "Ice bath immersion & breathwork.",
+      "coach_id": "usr-coach-1",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-06",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "Recovery Lab",
+      "capacity": 10,
+      "registered_count": 0
+    },
+    {
+      "id": "cls-mujkhdmo-z6nk",
+      "name": "ADMIN PROTOCOL: MAXIMUM RECOVERY & ICE",
+      "category": "RECOVERY",
+      "description": "Ice bath immersion & breathwork.",
+      "coach_id": "usr-coach-1",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-06",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "Recovery Lab",
+      "capacity": 10,
+      "registered_count": 0
+    },
+    {
+      "id": "cls-mujkqrfi-2k0f",
+      "name": "ADMIN PROTOCOL: MAXIMUM RECOVERY & ICE",
+      "category": "RECOVERY",
+      "description": "Ice bath immersion & breathwork.",
+      "coach_id": "usr-coach-1",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-06",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "Recovery Lab",
+      "capacity": 10,
+      "registered_count": 0
+    },
+    {
+      "id": "cls-mujl480v-9g1u",
+      "name": "ADMIN PROTOCOL: MAXIMUM RECOVERY & ICE",
+      "category": "RECOVERY",
+      "description": "Ice bath immersion & breathwork.",
+      "coach_id": "usr-coach-1",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-06",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "Recovery Lab",
+      "capacity": 10,
+      "registered_count": 0
+    },
+    {
+      "id": "cls-mujlj62d-3pxh",
+      "name": "ADMIN PROTOCOL: MAXIMUM RECOVERY & ICE",
+      "category": "RECOVERY",
+      "description": "Ice bath immersion & breathwork.",
+      "coach_id": "usr-coach-1",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-06",
+      "start_time": "12:00",
+      "end_time": "13:00",
+      "room": "Recovery Lab",
+      "capacity": 10,
+      "registered_count": 0
     }
   ],
   "class_registrations": [
@@ -959,6 +1258,33 @@
       "member_id": "usr-member-1",
       "member_name": "Marcus \"Titan\" Vance",
       "registered_at": "2026-09-26T14:35:00.000Z",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "reg-mujk5ma7-o30f",
+      "class_id": "cls-1",
+      "class_name": "OLYMPIC LIFT PROTOCOL: SNATCH LAB",
+      "member_id": "usr-member-mujk5m9p-f1mk",
+      "member_name": "Test Athlete Zero",
+      "registered_at": "2026-09-27T08:29:52.015Z",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "reg-mujkhdm0-37v4",
+      "class_id": "cls-1",
+      "class_name": "OLYMPIC LIFT PROTOCOL: SNATCH LAB",
+      "member_id": "usr-member-mujkhdll-30v5",
+      "member_name": "Test Athlete Zero",
+      "registered_at": "2026-09-27T08:39:00.648Z",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "reg-mujkqrex-7wjj",
+      "class_id": "cls-1",
+      "class_name": "OLYMPIC LIFT PROTOCOL: SNATCH LAB",
+      "member_id": "usr-member-mujkqrej-wnv1",
+      "member_name": "Test Athlete Zero",
+      "registered_at": "2026-09-27T08:46:18.441Z",
       "status": "CONFIRMED"
     }
   ],
@@ -1035,6 +1361,61 @@
       "time_slot": "16:00 - 17:00",
       "status": "COMPLETED",
       "notes": "Bench press arch stabilization and grip width adjustment."
+    },
+    {
+      "id": "tb-mujk5ma2-kq31",
+      "coach_id": "usr-coach-1",
+      "member_id": "usr-member-mujk5m9p-f1mk",
+      "member_name": "Test Athlete Zero",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-05",
+      "time_slot": "10:00 - 11:00",
+      "status": "COMPLETED",
+      "notes": "Powerlifting squat audit"
+    },
+    {
+      "id": "tb-mujkhdlw-ah13",
+      "coach_id": "usr-coach-1",
+      "member_id": "usr-member-mujkhdll-30v5",
+      "member_name": "Test Athlete Zero",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-05",
+      "time_slot": "10:00 - 11:00",
+      "status": "COMPLETED",
+      "notes": "Powerlifting squat audit"
+    },
+    {
+      "id": "tb-mujkqreu-ikwt",
+      "coach_id": "usr-coach-1",
+      "member_id": "usr-member-mujkqrej-wnv1",
+      "member_name": "Test Athlete Zero",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-05",
+      "time_slot": "10:00 - 11:00",
+      "status": "COMPLETED",
+      "notes": "Powerlifting squat audit"
+    },
+    {
+      "id": "tb-mujl4807-gbld",
+      "coach_id": "usr-coach-1",
+      "member_id": "usr-member-mujl47zv-rxgi",
+      "member_name": "Test Athlete Zero",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-05",
+      "time_slot": "10:00 - 11:00",
+      "status": "COMPLETED",
+      "notes": "Powerlifting squat audit"
+    },
+    {
+      "id": "tb-mujlj61m-nnn2",
+      "coach_id": "usr-coach-1",
+      "member_id": "usr-member-mujlj618-3g3m",
+      "member_name": "Test Athlete Zero",
+      "coach_name": "Viktor \"Ironclad\" Stone",
+      "date": "2026-10-05",
+      "time_slot": "10:00 - 11:00",
+      "status": "COMPLETED",
+      "notes": "Powerlifting squat audit"
     }
   ],
   "workouts": [
@@ -1136,6 +1517,91 @@
           "target_weight_lbs": 160,
           "rest_seconds": 60,
           "notes": "Dorsiflex toes toward shins."
+        }
+      ]
+    },
+    {
+      "id": "wko-mujk5mao-5xwk",
+      "title": "CUSTOM ASSIGNED DEADLIFT DESTROYER",
+      "category": "STRENGTH",
+      "assigned_by": "usr-coach-1",
+      "assigned_to": "usr-member-mujk5m9p-f1mk",
+      "duration_minutes": 75,
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "target_sets": 4,
+          "target_reps": "4 reps",
+          "target_weight_lbs": 405,
+          "rest_seconds": 180
+        }
+      ]
+    },
+    {
+      "id": "wko-mujkhdme-2u2s",
+      "title": "CUSTOM ASSIGNED DEADLIFT DESTROYER",
+      "category": "STRENGTH",
+      "assigned_by": "usr-coach-1",
+      "assigned_to": "usr-member-mujkhdll-30v5",
+      "duration_minutes": 75,
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "target_sets": 4,
+          "target_reps": "4 reps",
+          "target_weight_lbs": 405,
+          "rest_seconds": 180
+        }
+      ]
+    },
+    {
+      "id": "wko-mujkqrfb-earg",
+      "title": "CUSTOM ASSIGNED DEADLIFT DESTROYER",
+      "category": "STRENGTH",
+      "assigned_by": "usr-coach-1",
+      "assigned_to": "usr-member-mujkqrej-wnv1",
+      "duration_minutes": 75,
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "target_sets": 4,
+          "target_reps": "4 reps",
+          "target_weight_lbs": 405,
+          "rest_seconds": 180
+        }
+      ]
+    },
+    {
+      "id": "wko-mujl480o-h3r0",
+      "title": "CUSTOM ASSIGNED DEADLIFT DESTROYER",
+      "category": "STRENGTH",
+      "assigned_by": "usr-coach-1",
+      "assigned_to": "usr-member-mujl47zv-rxgi",
+      "duration_minutes": 75,
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "target_sets": 4,
+          "target_reps": "4 reps",
+          "target_weight_lbs": 405,
+          "rest_seconds": 180
+        }
+      ]
+    },
+    {
+      "id": "wko-mujlj622-cojg",
+      "title": "CUSTOM ASSIGNED DEADLIFT DESTROYER",
+      "category": "STRENGTH",
+      "assigned_by": "usr-coach-1",
+      "assigned_to": "usr-member-mujlj618-3g3m",
+      "duration_minutes": 75,
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "target_sets": 4,
+          "target_reps": "4 reps",
+          "target_weight_lbs": 405,
+          "rest_seconds": 180
         }
       ]
     }
@@ -1257,6 +1723,257 @@
           ]
         }
       ]
+    },
+    {
+      "id": "log-mujk5mag-rvjy",
+      "member_id": "usr-member-mujk5m9p-f1mk",
+      "workout_id": "custom-wko",
+      "workout_title": "TEST OLYMPIC SNATCH WORKOUT",
+      "completed_at": "2026-09-27T08:29:52.024Z",
+      "total_volume_lbs": 14200,
+      "duration_minutes": 60,
+      "exercises_data": [
+        {
+          "name": "Snatch Full",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 3,
+              "weight": 185
+            },
+            {
+              "set": 2,
+              "reps": 3,
+              "weight": 195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log-mujkhdm8-lxam",
+      "member_id": "usr-member-mujkhdll-30v5",
+      "workout_id": "custom-wko",
+      "workout_title": "TEST OLYMPIC SNATCH WORKOUT",
+      "completed_at": "2026-09-27T08:39:00.656Z",
+      "total_volume_lbs": 14200,
+      "duration_minutes": 60,
+      "exercises_data": [
+        {
+          "name": "Snatch Full",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 3,
+              "weight": 185
+            },
+            {
+              "set": 2,
+              "reps": 3,
+              "weight": 195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log-mujkqrf5-sgk8",
+      "member_id": "usr-member-mujkqrej-wnv1",
+      "workout_id": "custom-wko",
+      "workout_title": "TEST OLYMPIC SNATCH WORKOUT",
+      "completed_at": "2026-09-27T08:46:18.449Z",
+      "total_volume_lbs": 14200,
+      "duration_minutes": 60,
+      "exercises_data": [
+        {
+          "name": "Snatch Full",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 3,
+              "weight": 185
+            },
+            {
+              "set": 2,
+              "reps": 3,
+              "weight": 195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log-mujl480g-616c",
+      "member_id": "usr-member-mujl47zv-rxgi",
+      "workout_id": "custom-wko",
+      "workout_title": "TEST OLYMPIC SNATCH WORKOUT",
+      "completed_at": "2026-09-27T08:56:46.480Z",
+      "total_volume_lbs": 14200,
+      "duration_minutes": 60,
+      "exercises_data": [
+        {
+          "name": "Snatch Full",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 3,
+              "weight": 185
+            },
+            {
+              "set": 2,
+              "reps": 3,
+              "weight": 195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log-mujlj61v-iq3t",
+      "member_id": "usr-member-mujlj618-3g3m",
+      "workout_id": "custom-wko",
+      "workout_title": "TEST OLYMPIC SNATCH WORKOUT",
+      "completed_at": "2026-09-27T09:08:23.779Z",
+      "total_volume_lbs": 14200,
+      "duration_minutes": 60,
+      "exercises_data": [
+        {
+          "name": "Snatch Full",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 3,
+              "weight": 185
+            },
+            {
+              "set": 2,
+              "reps": 3,
+              "weight": 195
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "log-mujm4r6u-m8y7",
+      "member_id": "usr-member-1",
+      "workout_id": "wko-1",
+      "workout_title": "HEAVY COMPOUND DESTRUCTION (UPPER PROTOCOL)",
+      "completed_at": "2026-09-27T09:25:10.950Z",
+      "total_volume_lbs": 17760,
+      "duration_minutes": 1,
+      "exercises_data": [
+        {
+          "name": "Barbell Flat Bench Press",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight": 285
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight": 285
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight": 285
+            },
+            {
+              "set": 4,
+              "reps": 8,
+              "weight": 285
+            }
+          ]
+        },
+        {
+          "name": "Incline Dumbbell Press (30 Deg)",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight": 100
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight": 100
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight": 100
+            }
+          ]
+        },
+        {
+          "name": "Weighted Chest Dips",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight": 45
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight": 45
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight": 45
+            }
+          ]
+        },
+        {
+          "name": "Standing Barbell Overhead Press",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight": 175
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight": 175
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight": 175
+            }
+          ]
+        },
+        {
+          "name": "Standing Cable Lateral Raises",
+          "sets": [
+            {
+              "set": 1,
+              "reps": 8,
+              "weight": 30
+            },
+            {
+              "set": 2,
+              "reps": 8,
+              "weight": 30
+            },
+            {
+              "set": 3,
+              "reps": 8,
+              "weight": 30
+            },
+            {
+              "set": 4,
+              "reps": 8,
+              "weight": 30
+            }
+          ]
+        }
+      ]
     }
   ],
   "attendance": [
@@ -1299,6 +2016,70 @@
       "checked_in_at": "2026-09-25T18:02:00.000Z",
       "location": "Main Turnstile Terminal 01",
       "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujk5mad-oacm",
+      "member_id": "usr-member-mujk5m9p-f1mk",
+      "member_name": "Test Athlete Zero",
+      "checked_in_at": "2026-09-27T08:29:52.021Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujkhdm5-fry0",
+      "member_id": "usr-member-mujkhdll-30v5",
+      "member_name": "Test Athlete Zero",
+      "checked_in_at": "2026-09-27T08:39:00.653Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujkqrf2-l2sh",
+      "member_id": "usr-member-mujkqrej-wnv1",
+      "member_name": "Test Athlete Zero",
+      "checked_in_at": "2026-09-27T08:46:18.446Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujl480d-zdoz",
+      "member_id": "usr-member-mujl47zv-rxgi",
+      "member_name": "Test Athlete Zero",
+      "checked_in_at": "2026-09-27T08:56:46.477Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujlj61t-2ro0",
+      "member_id": "usr-member-mujlj618-3g3m",
+      "member_name": "Test Athlete Zero",
+      "checked_in_at": "2026-09-27T09:08:23.777Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujlty0t-2cnk",
+      "member_id": "usr-member-1",
+      "member_name": "Marcus \"Titan\" Vance",
+      "checked_in_at": "2026-09-27T09:16:46.589Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujlx55t-ygb5",
+      "member_id": "usr-member-1",
+      "member_name": "Marcus \"Titan\" Vance",
+      "checked_in_at": "2026-09-27T09:19:15.809Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
+    },
+    {
+      "id": "att-mujm58t1-om0d",
+      "member_id": "usr-member-1",
+      "member_name": "Marcus \"Titan\" Vance",
+      "checked_in_at": "2026-09-27T09:25:33.781Z",
+      "location": "Main Turnstile Terminal 01",
+      "method": "QR_SCAN"
     }
   ],
   "equipment": [
@@ -1308,7 +2089,7 @@
       "name": "Rogue Monster Monolift Squat Rack 01",
       "category": "POWER_RACK",
       "location_zone": "Zone A (Heavy Barbell)",
-      "status": "OPERATIONAL",
+      "status": "MAINTENANCE_REQUIRED",
       "last_service_date": "2026-08-15",
       "notes": "J-cups and safety straps inspected. Lubrication optimal."
     },
@@ -1480,6 +2261,51 @@
       "author": "Viktor \"Ironclad\" Stone",
       "published_at": "2026-09-25T14:30:00.000Z",
       "pinned": true
+    },
+    {
+      "id": "anc-mujk5mb5-wrlj",
+      "title": "COMPETITION ALERT: ANNUAL POWER CLASH",
+      "category": "EVENT",
+      "content": "Full platform registration open for all weight classes.",
+      "author": "Chief Elena Rostova",
+      "published_at": "2026-09-27T08:29:52.049Z",
+      "pinned": true
+    },
+    {
+      "id": "anc-mujkhdmt-z71n",
+      "title": "COMPETITION ALERT: ANNUAL POWER CLASH",
+      "category": "EVENT",
+      "content": "Full platform registration open for all weight classes.",
+      "author": "Chief Elena Rostova",
+      "published_at": "2026-09-27T08:39:00.677Z",
+      "pinned": true
+    },
+    {
+      "id": "anc-mujkqrfo-j5v4",
+      "title": "COMPETITION ALERT: ANNUAL POWER CLASH",
+      "category": "EVENT",
+      "content": "Full platform registration open for all weight classes.",
+      "author": "Chief Elena Rostova",
+      "published_at": "2026-09-27T08:46:18.468Z",
+      "pinned": true
+    },
+    {
+      "id": "anc-mujl4811-4tk2",
+      "title": "COMPETITION ALERT: ANNUAL POWER CLASH",
+      "category": "EVENT",
+      "content": "Full platform registration open for all weight classes.",
+      "author": "Chief Elena Rostova",
+      "published_at": "2026-09-27T08:56:46.501Z",
+      "pinned": true
+    },
+    {
+      "id": "anc-mujlj62i-2wtn",
+      "title": "COMPETITION ALERT: ANNUAL POWER CLASH",
+      "category": "EVENT",
+      "content": "Full platform registration open for all weight classes.",
+      "author": "Chief Elena Rostova",
+      "published_at": "2026-09-27T09:08:23.802Z",
+      "pinned": true
     }
   ],
   "payments": [
@@ -1526,6 +2352,83 @@
       "date": "2026-09-10T16:45:00.000Z",
       "status": "SUCCESS",
       "receipt_no": "GRC-REC-90815"
+    },
+    {
+      "id": "pay-mujk5mal-8nwk",
+      "member_id": "usr-member-mujk5m9p-f1mk",
+      "member_name": "Test Athlete Zero",
+      "plan_id": "plan-pro",
+      "plan_name": "BLACK PROTOCOL",
+      "amount": 159,
+      "date": "2026-09-27T08:29:52.029Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-55750"
+    },
+    {
+      "id": "pay-mujkhdmb-ibxi",
+      "member_id": "usr-member-mujkhdll-30v5",
+      "member_name": "Test Athlete Zero",
+      "plan_id": "plan-pro",
+      "plan_name": "BLACK PROTOCOL",
+      "amount": 159,
+      "date": "2026-09-27T08:39:00.660Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-76925"
+    },
+    {
+      "id": "pay-mujkqrf9-y1lj",
+      "member_id": "usr-member-mujkqrej-wnv1",
+      "member_name": "Test Athlete Zero",
+      "plan_id": "plan-pro",
+      "plan_name": "BLACK PROTOCOL",
+      "amount": 159,
+      "date": "2026-09-27T08:46:18.453Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-92198"
+    },
+    {
+      "id": "pay-mujl480l-8kf2",
+      "member_id": "usr-member-mujl47zv-rxgi",
+      "member_name": "Test Athlete Zero",
+      "plan_id": "plan-pro",
+      "plan_name": "BLACK PROTOCOL",
+      "amount": 159,
+      "date": "2026-09-27T08:56:46.485Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-11315"
+    },
+    {
+      "id": "pay-mujlj61z-pu1n",
+      "member_id": "usr-member-mujlj618-3g3m",
+      "member_name": "Test Athlete Zero",
+      "plan_id": "plan-pro",
+      "plan_name": "BLACK PROTOCOL",
+      "amount": 159,
+      "date": "2026-09-27T09:08:23.783Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-67786"
+    },
+    {
+      "id": "pay-mujlwyii-p80a",
+      "member_id": "usr-member-1",
+      "member_name": "Marcus \"Titan\" Vance",
+      "plan_id": "plan-basic",
+      "plan_name": "STANDARD ARENA",
+      "amount": 89,
+      "date": "2026-09-27T09:19:07.194Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-56728"
+    },
+    {
+      "id": "pay-mujlx04g-o7sw",
+      "member_id": "usr-member-1",
+      "member_name": "Marcus \"Titan\" Vance",
+      "plan_id": "plan-basic",
+      "plan_name": "STANDARD ARENA",
+      "amount": 89,
+      "date": "2026-09-27T09:19:09.280Z",
+      "status": "SUCCESS",
+      "receipt_no": "GRC-REC-51401"
     }
   ],
   "messages": [

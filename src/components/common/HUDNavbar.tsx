@@ -57,16 +57,34 @@ export const HUDNavbar: React.FC = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const streakDays = role === 'MEMBER' ? liveStreak : ((profile as any)?.streak_days || 14);
+
+  // Strictly segregate notifications by role:
+  // - COACH: Receives ONLY booking alerts and session dispatches assigned to them
+  // - MEMBER: Receives confirmations, workouts, owner holidays/announcements, classes, memberships (NO coach-only booking alerts)
   const roleNotifications = storeState.notifications.filter(n => {
     if (role === 'COACH') {
-      return n.recipient_role === 'COACH' || n.recipient_id === 'coach-akhil' || n.type === 'BOOKING';
+      return n.recipient_role === 'COACH' || n.title?.toLowerCase().includes('new session booked');
     }
     if (role === 'MEMBER') {
-      return n.recipient_role === 'MEMBER' || !n.recipient_role;
+      if (n.recipient_role === 'COACH') return false;
+      if (n.title?.toLowerCase().includes('new session booked')) return false;
+      return true;
     }
     return true;
   });
-  const unreadNotifsCount = roleNotifications.filter(n => !n.read).length;
+
+  // Deduplicate booking confirmation notifications
+  const seenNavbarNotifs = new Set<string>();
+  const deduplicatedRoleNotifications = roleNotifications.filter(n => {
+    if (n.type === 'BOOKING') {
+      const key = `${n.title}-${n.date || 'Today'}-${n.time_slot || 'slot'}`;
+      if (seenNavbarNotifs.has(key)) return false;
+      seenNavbarNotifs.add(key);
+    }
+    return true;
+  });
+
+  const unreadNotifsCount = deduplicatedRoleNotifications.filter(n => !n.read).length;
 
   const handleRoleSwitch = async (newRole: 'MEMBER' | 'COACH' | 'ADMIN') => {
     setShowProfileMenu(false);
@@ -179,14 +197,14 @@ export const HUDNavbar: React.FC = () => {
                 <div className="absolute right-0 mt-2 w-80 bg-[#14151C] border border-[#27272A] rounded-xl shadow-2xl p-4 z-50 text-xs">
                   <div className="flex items-center justify-between pb-2 border-b border-[#27272A]">
                     <span className="font-display font-bold uppercase tracking-wider text-white">
-                      {role === 'COACH' ? 'COACH NOTIFICATIONS' : 'NOTIFICATIONS'}
+                      {role === 'COACH' ? 'COACH BOOKINGS' : 'NOTIFICATIONS'}
                     </span>
                     <div className="flex items-center gap-2">
                       {unreadNotifsCount > 0 && (
                         <button
                           type="button"
                           onClick={async () => {
-                            await mockNotificationService.markAllAsRead();
+                            await mockNotificationService.markAllAsRead(role as any);
                           }}
                           className="text-[10px] font-mono text-[#FF5500] hover:underline cursor-pointer"
                         >
@@ -197,11 +215,11 @@ export const HUDNavbar: React.FC = () => {
                     </div>
                   </div>
                   <div className="max-h-64 overflow-y-auto divide-y divide-[#27272A]/60 mt-2">
-                    {roleNotifications.slice(0, 4).map(a => (
+                    {deduplicatedRoleNotifications.slice(0, 5).map(a => (
                       <div key={a.id} className="py-2.5">
                         <div className="flex items-center justify-between text-[10px] text-zinc-500 mb-1 font-mono">
                           <span className={`uppercase font-bold ${a.recipient_role === 'COACH' ? 'text-amber-400 bg-amber-950/40 px-1 py-0.5 rounded border border-amber-500/30' : 'text-[#FF5500]'}`}>
-                            {a.recipient_role === 'COACH' ? 'COACH DISPATCH' : a.type}
+                            {a.recipient_role === 'COACH' ? 'BOOKING ALERT' : a.type}
                           </span>
                           <span>{a.time}</span>
                         </div>
@@ -219,13 +237,13 @@ export const HUDNavbar: React.FC = () => {
                               className="px-2 py-1 bg-[#070709] hover:bg-[#1E1F28] border border-zinc-800 hover:border-[#FF5500] text-zinc-300 hover:text-white rounded text-[10px] font-mono uppercase tracking-wider flex items-center gap-1 transition-colors cursor-pointer"
                             >
                               <Check className="w-3 h-3 text-[#FF5500]" />
-                              <span>{role === 'COACH' ? 'Mark Read & Confirm' : 'Mark as Read'}</span>
+                              <span>Mark Read</span>
                             </button>
                           </div>
                         )}
                       </div>
                     ))}
-                    {roleNotifications.length === 0 && (
+                    {deduplicatedRoleNotifications.length === 0 && (
                       <div className="py-4 text-center text-zinc-500 font-mono text-xs">
                         NO NEW NOTIFICATIONS
                       </div>

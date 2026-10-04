@@ -51,11 +51,11 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
 | **Phase 4** | [`bb01cd8`](https://github.com/agasthya2006/Gymrat-club/commit/bb01cd8) | Completed | **Member Portal & QR Check-In**: Reactive demo pub/sub store, HUD navigation shell, athlete onboarding, member dashboard with live crowd radar, workout stopwatch logger, optical QR scanner. |
 | **Phase 5** | [`0c9d391`](https://github.com/agasthya2006/Gymrat-club/commit/0c9d391) | Completed | **Gamification & Passes**: Streak calculation engine, achievement badges, tiered pass purchasing (₹1,499 - ₹7,999), and class scheduling. |
 | **Phase 6** | [`0d5cc03`](https://github.com/agasthya2006/Gymrat-club/commit/0d5cc03) | Completed | **Coach & Admin Command Centers, Backend REST Engine & Coach Akhil 2-Way Booking Notifications**: Express.js REST backend, Supabase & Firebase auth, Coach & Owner portals, and private session booking with instant confirmation dispatch. |
-| **Phase 7** | [`c354aa9`](https://github.com/agasthya2006/Gymrat-club/commit/c354aa9) | Completed | **Production Cloud Deployment & Live Verification**: Deployed and verified live on Firebase Hosting at [https://gymrat-club-04.web.app](https://gymrat-club-04.web.app). |
+| **Phase 7** | [`3d93265`](https://github.com/agasthya2006/Gymrat-club/commit/3d93265) | Completed | **Production Cloud Deployment, Privacy-First Auth, Dynamic Personalization & Notification Segregation**: Live Firebase Hosting, zero autofill login security, athlete Agasthya Gade binding, recursive duplicate notification elimination, and clean role segregation across coaches and members. |
 
 ---
 
-## ⚡ Implemented Features (Up to Part 6)
+## ⚡ Implemented Features (Parts 1–7 Complete)
 
 ### 1. 🌐 Multi-Gym Discovery & Geolocation Hub
 - **Multi-Arena Network**: Browse and compare 5 distinct partner arenas (*Ironforge Performance Arena*, *Olympus Strength Lab*, *Titan Combat & Boxing Hub*, *Apex Velocity Sports Complex*, *Vanguard Functional Arena*).
@@ -125,6 +125,24 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
   - Endpoints for `/api/coaches`, `/api/classes`, `/api/equipment`, `/api/memberships/plans`, `/api/attendance`, `/api/bookings`, and `/api/announcements`.
   - Seamless frontend integration via [`src/services/api.ts`](file:///c:/Users/gadea/OneDrive/Desktop/gymrat/src/services/api.ts) and [`src/context/GymDataContext.tsx`](file:///c:/Users/gadea/OneDrive/Desktop/gymrat/src/context/GymDataContext.tsx).
 
+### 8. 🔔 Intelligent Notification Hub & Role-Based Segregation (Part 7)
+- **Elimination of Duplicate Confirmation Loop**:
+  - Pruned recursive notification creation in `mockServices.ts` and `CoachBookings.tsx`.
+  - Automatic `localStorage` deduplication in `mockStore.ts` `loadState()` so legacy duplicate confirmations are cleaned down to 1.
+- **Strict Role-Based Dispatching**:
+  - **Coaches (Coach Akhil)**: Receive **only** incoming booking requests and session alerts (`🔥 New Session Booked: Agasthya Gade`), completely isolated from member-facing confirmations.
+  - **Members (Athlete Agasthya)**: Receive **only** single verified booking confirmations (`✅ Session Confirmed`), plus owner holiday/facility notices and coach workout routines.
+- **Dedicated Dispatch Filter Suite**:
+  - Clean filter tabs: `ALL DISPATCHES`, `UNREAD`, `BOOKING CONFIRMATIONS`, `WORKOUTS`, `HOLIDAYS & ANNOUNCEMENTS`, `CLASSES`, `MEMBERSHIP`.
+- **Real-Time Cross-Role Broadcasting**:
+  - Owner announcements broadcast directly from `AdminAnnouncements.tsx` to members' notification hubs.
+  - Coach assigned workouts in `CoachWorkouts.tsx` dispatch directly to members' workout notification feeds.
+
+### 9. 🚀 Live Production Cloud Deployment & Identity Hardening (Part 7)
+- **Firebase Production Hosting**: Verified and deployed live globally at [https://gymrat-club-04.web.app](https://gymrat-club-04.web.app).
+- **Privacy-First Blank Authentication**: Neutralized browser credential leakage on `LoginPage.tsx` with decoy anti-autofill handlers, ensuring login inputs always start 100% blank.
+- **Dynamic Session Identity Binding**: Unified athlete identity to **Agasthya Gade** (`gadeagasthya551@gmail.com`), dynamically bound across `AuthContext`, `MemberDashboard`, and `demoStore`.
+
 ---
 
 ## 🔑 Verified Demo Credentials
@@ -133,9 +151,10 @@ The platform features pre-configured credentials for manual and automated sign-i
 
 | Role | Name & Callsign | Email | Password | Assigned Portal |
 |---|---|---|---|---|
-| 🏋️ **MEMBER / ATHLETE** | Arjun Mehta (`GRC-PRO-022`) | `arjun@gymrat.club` | `password123` | [`/member/dashboard`](http://localhost:3000/member/dashboard) |
-| 🧑‍🏫 **HEAD COACH** | Coach Akhil Gandloji (`IRONCLAD`) | `akhilgandloji789@gmail.com` | `akhil@8998` | [`/coach/dashboard`](http://localhost:3000/coach/dashboard) |
-| 🛡️ **FACILITY OWNER** | Rohan Alluri (`OVERSEER`) | `allurirohan789@gmail.com` | `rohan@8998` | [`/admin/dashboard`](http://localhost:3000/admin/dashboard) |
+| 🏋️ **MEMBER / ATHLETE** | Agasthya Gade (`ATHLETE-01`) | `gadeagasthya551@gmail.com` | *(Manual)* | [`/member/dashboard`](https://gymrat-club-04.web.app/member/dashboard) |
+| 🏋️ **DEMO ATHLETE** | Arjun Mehta (`GRC-PRO-022`) | `arjun@gymrat.club` | `password123` | [`/member/dashboard`](https://gymrat-club-04.web.app/member/dashboard) |
+| 🧑‍🏫 **HEAD COACH** | Coach Akhil Gandloji (`IRONCLAD`) | `akhilgandloji789@gmail.com` | `akhil@8998` | [`/coach/dashboard`](https://gymrat-club-04.web.app/coach/dashboard) |
+| 🛡️ **FACILITY OWNER** | Rohan Alluri (`OVERSEER`) | `allurirohan789@gmail.com` | `rohan@8998` | [`/admin/dashboard`](https://gymrat-club-04.web.app/admin/dashboard) |
 
 ---
 

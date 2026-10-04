@@ -362,44 +362,61 @@ const getInitialState = (): DemoStoreState => ({
       time_slot: '08:30 AM'
     },
     {
-      id: 'notif-1',
-      title: 'Workout Reminder',
-      message: 'Upper Body // Strength protocol scheduled for today (75 MIN).',
-      time: '30m ago',
+      id: 'notif-confirm-1',
+      title: '✅ Session Confirmed by Coach Akhil Gandloji',
+      message: 'Coach Akhil Gandloji has reviewed and confirmed your 1-on-1 private coaching session for Today at 08:30 AM. Prepare for your session!',
+      time: '12m ago',
       read: false,
-      type: 'WORKOUT'
+      type: 'BOOKING',
+      recipient_role: 'MEMBER',
+      athlete_name: 'Agasthya Gade',
+      date: 'Today',
+      time_slot: '08:30 AM'
     },
     {
-      id: 'notif-2',
-      title: 'Trainer Booking Confirmed',
-      message: 'Private 1-on-1 coaching session confirmed with Rahul Sharma at 6:00 PM.',
+      id: 'notif-holiday-1',
+      title: '📢 Gym Holiday Schedule Notice',
+      message: 'Notice from Owner Rohan Alluri: Arena will operate on holiday hours (6:00 AM – 1:00 PM) this coming Sunday for biometric recalibration and deep sanitization.',
+      time: '45m ago',
+      read: false,
+      type: 'ANNOUNCEMENT',
+      recipient_role: 'MEMBER'
+    },
+    {
+      id: 'notif-workout-1',
+      title: '🏋️ Workout Assigned by Coach Akhil',
+      message: 'Coach Akhil Gandloji updated your routine: Upper Body // Kinetic Strength protocol scheduled for today (75 MIN). Focus on progressive eccentric control.',
       time: '2h ago',
       read: false,
-      type: 'BOOKING'
+      type: 'WORKOUT',
+      recipient_role: 'MEMBER'
     },
     {
       id: 'notif-3',
-      title: 'Class Reminder',
+      title: '🧘 Class Open: Yoga Recovery',
       message: 'Yoga Recovery with Priya Nair is open for reservations this Friday at 6:00 PM.',
       time: '1d ago',
       read: true,
-      type: 'CLASS'
+      type: 'CLASS',
+      recipient_role: 'MEMBER'
     },
     {
       id: 'notif-4',
-      title: 'Membership Active',
+      title: '💳 Membership Active: GYMRAT PRO',
       message: 'Your GYMRAT PRO tier is verified and active through 18 DEC 2026.',
       time: '2d ago',
       read: true,
-      type: 'MEMBERSHIP'
+      type: 'MEMBERSHIP',
+      recipient_role: 'MEMBER'
     },
     {
       id: 'notif-5',
-      title: 'Gym Announcement',
-      message: 'Main Arena turnstiles upgraded with 256-bit optical RFID scanning.',
+      title: '📢 Gym Announcement: Optical Turnstiles Live',
+      message: 'Main Arena turnstiles upgraded with 256-bit optical RFID scanning. Contact management for wristband sync.',
       time: '3d ago',
       read: true,
-      type: 'ANNOUNCEMENT'
+      type: 'ANNOUNCEMENT',
+      recipient_role: 'MEMBER'
     }
   ],
   messages: [
@@ -446,15 +463,53 @@ class MockStore {
           if (!hasAkhil) {
             parsed.coaches = [...initial.coaches.filter(c => c.id === 'coach-akhil'), ...parsed.coaches];
           }
+
           if (Array.isArray(parsed.notifications)) {
-            const hasCoachNotif = parsed.notifications.some((n: any) => n.id?.includes('coach-akhil'));
+            // 1. Ensure Coach Akhil booking notification is present for coach
+            const hasCoachNotif = parsed.notifications.some((n: any) => n.id?.includes('coach-akhil') || (n.recipient_role === 'COACH' && n.title?.includes('New Session Booked')));
             if (!hasCoachNotif) {
               parsed.notifications = [
-                ...initial.notifications.filter(n => n.id?.includes('coach-akhil')),
+                ...initial.notifications.filter(n => n.recipient_role === 'COACH'),
                 ...parsed.notifications
               ];
             }
+
+            // 2. Ensure owner holiday announcement exists
+            const hasHoliday = parsed.notifications.some((n: any) => n.title?.toLowerCase().includes('holiday'));
+            if (!hasHoliday) {
+              const holidayNotif = initial.notifications.find(n => n.id === 'notif-holiday-1');
+              if (holidayNotif) parsed.notifications.push(holidayNotif);
+            }
+
+            // 3. Ensure coach workout update exists
+            const hasWorkoutNotif = parsed.notifications.some((n: any) => n.title?.toLowerCase().includes('workout assigned'));
+            if (!hasWorkoutNotif) {
+              const workoutNotif = initial.notifications.find(n => n.id === 'notif-workout-1');
+              if (workoutNotif) parsed.notifications.push(workoutNotif);
+            }
+
+            // 4. Strict Deduplication: Remove all duplicate confirmation notifications
+            const seenConfirmations = new Set<string>();
+            parsed.notifications = parsed.notifications.filter((n: any) => {
+              // Ensure correct role assignment
+              if (n.title?.toLowerCase().includes('new session booked')) {
+                n.recipient_role = 'COACH';
+              } else if (!n.recipient_role) {
+                n.recipient_role = 'MEMBER';
+              }
+
+              // Deduplicate member booking confirmation notifications
+              if (n.type === 'BOOKING' && (n.title?.includes('Confirmed') || n.title?.includes('Session Confirmed'))) {
+                const dedupeKey = `${n.title}-${n.date || 'Today'}-${n.time_slot || 'default'}`;
+                if (seenConfirmations.has(dedupeKey)) {
+                  return false; // drop duplicate!
+                }
+                seenConfirmations.add(dedupeKey);
+              }
+              return true;
+            });
           }
+
           this.saveState(parsed);
           return parsed;
         }

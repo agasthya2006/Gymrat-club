@@ -1,6 +1,7 @@
 // src/pages/coach/CoachWorkouts.tsx
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { demoStore } from '../../demo/mockStore';
 import { api } from '../../services/api';
 import { Dumbbell, Plus, Trash2, CheckCircle2, Save, Send } from 'lucide-react';
 
@@ -70,6 +71,19 @@ export const CoachWorkouts: React.FC = () => {
         assigned_to: selectedMemberId,
         duration_minutes: Number(duration),
         exercises
+      });
+
+      // Broadcast workout notification to member
+      demoStore.update(s => {
+        s.notifications.unshift({
+          id: `notif-workout-${Date.now().toString(36)}`,
+          title: `🏋️ Workout Assigned: ${title}`,
+          message: `${user?.name || 'Coach Akhil Gandloji'} assigned a new workout protocol "${title}" to your routine. Check your Workout tab!`,
+          time: 'Just now',
+          read: false,
+          type: 'WORKOUT',
+          recipient_role: 'MEMBER'
+        });
       });
 
       const memberObj = members.find(m => m.id === selectedMemberId);

@@ -43,7 +43,13 @@ export const HUDSidebar: React.FC = () => {
     return () => unsub();
   }, []);
 
-  const unreadNotifs = storeState.notifications.filter(n => !n.read).length;
+  const memberUnreadCount = storeState.notifications.filter(
+    n => !n.read && n.recipient_role !== 'COACH' && !n.title?.toLowerCase().includes('new session booked')
+  ).length;
+
+  const coachBookingUnreadCount = storeState.notifications.filter(
+    n => !n.read && (n.recipient_role === 'COACH' || n.title?.toLowerCase().includes('new session booked'))
+  ).length;
 
   // Clean, intuitive navigation for Member
   const memberLinks: SidebarLink[] = [
@@ -63,7 +69,7 @@ export const HUDSidebar: React.FC = () => {
       to: '/member/notifications',
       label: 'Notifications',
       icon: Bell,
-      badge: unreadNotifs > 0 ? `${unreadNotifs}` : undefined
+      badge: memberUnreadCount > 0 ? `${memberUnreadCount}` : undefined
     },
     { to: '/member/settings', label: 'Settings', icon: Settings },
   ];
@@ -73,7 +79,12 @@ export const HUDSidebar: React.FC = () => {
     { to: '/coach/athletes', label: 'Clients', icon: Users },
     { to: '/coach/workouts', label: 'Workout Plans', icon: Dumbbell, highlight: true },
     { to: '/coach/availability', label: 'Availability', icon: Clock },
-    { to: '/coach/bookings', label: 'Bookings', icon: Calendar },
+    { 
+      to: '/coach/bookings', 
+      label: 'Bookings', 
+      icon: Calendar,
+      badge: coachBookingUnreadCount > 0 ? `${coachBookingUnreadCount}` : undefined
+    },
     { to: '/coach/attendance', label: 'Attendance', icon: CheckSquare },
     { to: '/coach/messages', label: 'Messages', icon: MessageSquare },
     { to: '/coach/profile', label: 'Profile', icon: Settings },
