@@ -10,11 +10,12 @@
 [![Express](https://img.shields.io/badge/Express-4.21-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![Firebase](https://img.shields.io/badge/Firebase-Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Firebase Hosting](https://img.shields.io/badge/Live_Deployment-gymrat--club--04.web.app-FF5500?style=for-the-badge&logo=firebase&logoColor=white)](https://gymrat-club-04.web.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br/>
 
-**[🚀 Quickstart](#-getting-started-locally)** • **[🔑 Verified Demo Credentials](#-verified-demo-credentials)** • **[📈 Development Architecture](#-development-milestones--commit-history)** • **[⚡ Implemented Features (Parts 1–6)](#-implemented-features-up-to-part-6)** • **[🏛️ Tri-Cohort Architecture](#-the-tri-cohort-fitness-problem)**
+**[🌐 Live Web App](https://gymrat-club-04.web.app)** • **[🚀 Quickstart](#-getting-started-locally)** • **[🔑 Verified Demo Credentials](#-verified-demo-credentials)** • **[📈 Development Architecture](#-development-milestones--commit-history)** • **[⚡ Implemented Features](#-implemented-features-all-phases-complete)**
 
 <br/>
 
@@ -50,7 +51,7 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
 | **Phase 4** | [`bb01cd8`](https://github.com/agasthya2006/Gymrat-club/commit/bb01cd8) | Completed | **Member Portal & QR Check-In**: Reactive demo pub/sub store, HUD navigation shell, athlete onboarding, member dashboard with live crowd radar, workout stopwatch logger, optical QR scanner. |
 | **Phase 5** | [`0c9d391`](https://github.com/agasthya2006/Gymrat-club/commit/0c9d391) | Completed | **Gamification & Passes**: Streak calculation engine, achievement badges, tiered pass purchasing (₹1,499 - ₹7,999), and class scheduling. |
 | **Phase 6** | [`0d5cc03`](https://github.com/agasthya2006/Gymrat-club/commit/0d5cc03) | Completed | **Coach & Admin Command Centers, Backend REST Engine & Coach Akhil 2-Way Booking Notifications**: Express.js REST backend, Supabase & Firebase auth, Coach & Owner portals, and private session booking with instant confirmation dispatch. |
-| **Phase 7** | *Upcoming* | Final Part | **Production Deployment & Final Verification**: Cloud hosting, live edge deployment, and system verification audit. |
+| **Phase 7** | [`c354aa9`](https://github.com/agasthya2006/Gymrat-club/commit/c354aa9) | Completed | **Production Cloud Deployment & Live Verification**: Deployed and verified live on Firebase Hosting at [https://gymrat-club-04.web.app](https://gymrat-club-04.web.app). |
 
 ---
 
