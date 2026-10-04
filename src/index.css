@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gym-void: #070709;
+  --gym-surface: #0D0D11;
+  --gym-panel: #14151C;
+  --gym-elevated: #1E1F28;
+  --gym-border: #27272A;
+  --gym-orange: #E1601B;
+  --gym-glow: #FF7728;
+}
+
+body {
+  background-color: var(--gym-void);
+  color: #F4F4F5;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scanline and Grid effect */
+.bg-scanlines {
+  background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%), linear-gradient(90deg, rgba(255, 119, 40, 0.03), rgba(0, 0, 0, 0) 2%, rgba(0, 0, 0, 0) 98%);
+  background-size: 100% 4px, 60px 100%;
+}
+
+.hud-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D11;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E1601B;
+}
+
+/* Tactical glowing animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(225, 96, 27, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(225, 96, 27, 0.6);
+  }
+}
+
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes scanVertical {
+  0% { top: 0%; opacity: 0.8; }
+  50% { opacity: 0.3; }
+  100% { top: 100%; opacity: 0.8; }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseAura {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.08); }
+}
+
+.glow-orange {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.active-card-glow {
+  box-shadow: 0 0 0 2px #E1601B, 0 10px 35px -5px rgba(225, 96, 27, 0.4) !important;
+}
+
+.active-glow {
+  box-shadow: 0 0 0 1.5px #E1601B, 0 6px 20px -3px rgba(225, 96, 27, 0.35) !important;
+}
+
+.orbit-scan-cw {
+  animation: spinClockwise 16s linear infinite;
+}
+
+.orbit-scan-ccw {
+  animation: spinCounterClockwise 22s linear infinite;
+}
+
+.scan-beam {
+  animation: scanVertical 3s ease-in-out infinite alternate;
+}
+
+.radar-arm {
+  transform-origin: center center;
+  animation: radarSweep 4s linear infinite;
+}
+
+.reticle-corner {
+  position: relative;
+}
+.reticle-corner::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #E1601B;
+  border-left: 2px solid #E1601B;
+}
+.reticle-corner::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #E1601B;
+  border-right: 2px solid #E1601B;
+}
+
