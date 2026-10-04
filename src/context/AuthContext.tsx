@@ -20,9 +20,34 @@ interface AuthContextType {
   loginAsCoach: () => Promise<void>;
   loginAsAdmin: () => Promise<void>;
   refreshProfile: () => Promise<void>;
+  updateUser: (data: Partial<User>) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+// Helper to intelligently resolve member name from explicit input, localStorage, or email
+const resolveMemberName = (email: string, explicitName?: string): string => {
+  if (explicitName && explicitName.trim() && !explicitName.toLowerCase().includes('alex morgan')) {
+    return explicitName.trim();
+  }
+  const stored = localStorage.getItem('gymrat_user_name');
+  if (stored && stored.trim() && !stored.toLowerCase().includes('alex morgan')) {
+    return stored.trim();
+  }
+  const lower = (email || '').toLowerCase();
+  if (lower.includes('agasthya')) return 'Agasthya Gade';
+  if (lower.includes('arjun')) return 'Arjun Mehta';
+
+  const userPart = (email || '').split('@')[0].replace(/[0-9._-]+/g, ' ').trim();
+  if (userPart) {
+    return userPart
+      .split(' ')
+      .filter(Boolean)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(' ');
+  }
+  return 'Agasthya';
+};
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -32,7 +57,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Helper to construct a Member User & Profile
   const buildMemberSession = (email: string, name?: string): { user: User; profile: MemberProfile } => {
     const storeData = demoStore.getState();
-    const memberName = name || (email.toLowerCase().includes('arjun') ? 'Arjun Mehta' : 'Alex Morgan');
+    const memberName = resolveMemberName(email, name);
     const memberUser: User = {
       id: `usr-${email.replace(/[^a-zA-Z0-9]/g, '-').slice(0, 20)}`,
       name: memberName,
@@ -294,8 +319,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw new Error('PASSWORD REQUIRED // Please enter your password to authenticate.');
       }
 
-      const { user: memUser, profile: memProf } = buildMemberSession(normalizedEmail);
-      saveSessionToStorage(memUser.id, 'MEMBER', normalizedEmail);
+      const savedName = localStorage.getItem('gymrat_user_name') || undefined;
+      const { user: memUser, profile: memProf } = buildMemberSession(normalizedEmail, savedName);
+      saveSessionToStorage(memUser.id, 'MEMBER', normalizedEmail, memUser.name);
       setUser(memUser);
       setProfile(memProf);
       setIsLoading(false);
@@ -307,13 +333,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     throw new Error('INVALID CREDENTIALS // Use a Gmail address for members, akhilgandloji789@gmail.com for coach, or allurirohan789@gmail.com for owner.');
   };
 
-  const saveSessionToStorage = (userId: string, role: UserRole, email: string) => {
+  const saveSessionToStorage = (userId: string, role: UserRole, email: string, name?: string) => {
     const sessionToken = `grpc_token_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
     localStorage.setItem(DEMO_CONFIG.sessionKey, sessionToken);
     localStorage.setItem('gymrat_token', sessionToken);
     localStorage.setItem('gymrat_user_id', userId);
     localStorage.setItem('gymrat_user_role', role);
     localStorage.setItem('gymrat_user_email', email);
+    if (name) {
+      localStorage.setItem('gymrat_user_name', name);
+    }
   };
 
   // Google / Gmail Authentication (Firebase Google Popup + In-App Account Selection + Supabase Sync)
@@ -323,9 +352,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // 1. If an email was explicitly selected or typed
     if (customEmail) {
       const targetEmail = customEmail.trim().toLowerCase();
-      const targetName = customName || (targetEmail.includes('agasthya') ? 'Agasthya Gade' : 'Alex Morgan');
+      const targetName = customName || resolveMemberName(targetEmail);
       const { user: memUser, profile: memProf } = buildMemberSession(targetEmail, targetName);
-      saveSessionToStorage(memUser.id, 'MEMBER', targetEmail);
+      saveSessionToStorage(memUser.id, 'MEMBER', targetEmail, memUser.name);
       setUser(memUser);
       setProfile(memProf);
       setIsLoading(false);
@@ -441,6 +470,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const updateUser = (data: Partial<User>) => {
+    if (data.name) {
+      localStorage.setItem('gymrat_user_name', data.name);
+      demoStore.update(s => {
+        s.member.name = data.name!;
+      });
+    }
+    setUser(prev => prev ? ({ ...prev, ...data }) : null);
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -456,7 +495,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loginAsMember,
         loginAsCoach,
         loginAsAdmin,
-        refreshProfile
+        refreshProfile,
+        updateUser
       }}
     >
       {children}

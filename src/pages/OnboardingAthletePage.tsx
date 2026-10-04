@@ -2,14 +2,20 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { demoStore } from '../demo/mockStore';
 import { api } from '../services/api';
 
 export const OnboardingAthletePage: React.FC = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const navigate = useNavigate();
 
   // Form State
-  const [fullName, setFullName] = useState(user?.name || 'Alex Morgan');
+  const [fullName, setFullName] = useState(() => {
+    if (user?.name && !user.name.toLowerCase().includes('alex morgan')) return user.name;
+    const stored = localStorage.getItem('gymrat_user_name');
+    if (stored && !stored.toLowerCase().includes('alex morgan')) return stored;
+    return 'Agasthya';
+  });
   const [age, setAge] = useState('21');
   const [height, setHeight] = useState('178 cm');
   const [weight, setWeight] = useState('72 kg');
@@ -28,6 +34,18 @@ export const OnboardingAthletePage: React.FC = () => {
     setIsLoading(true);
     setLoadingProgress(0);
     setLoadingStatus(`CONFIGURING ${objective.toUpperCase()} MESO-CYCLE... 0%`);
+
+    const finalName = fullName.trim() || 'Agasthya';
+    localStorage.setItem('gymrat_user_name', finalName);
+    if (updateUser) {
+      updateUser({ name: finalName });
+    }
+    demoStore.update(s => {
+      s.member.name = finalName;
+      const weightNum = parseFloat(weight.replace(/[^0-9.]/g, '')) || 72;
+      s.member.weight = weightNum;
+      s.member.goal = objective.charAt(0).toUpperCase() + objective.slice(1);
+    });
 
     // Persist to backend if user is authenticated
     if (user) {
