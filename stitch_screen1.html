@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-fixed-dim":"#ffb4ab","surface-container-highest":"#33343c","primary-fixed":"#ffdad6","on-tertiary-fixed-variant":"#930013","on-tertiary-fixed":"#410004","inverse-surface":"#e2e1eb","surface-variant":"#33343c","on-tertiary":"#68000a","surface-container-high":"#282a31","surface-container-low":"#1a1b22","outline":"#af8783","on-primary-container":"#5c0005","on-secondary-container":"#b6b4b8","on-primary-fixed":"#410002","on-error":"#690005","primary-container":"#FF5500","surface-tint":"#ffb4ab","secondary-fixed-dim":"#c8c5ca","surface":"#0D0D11","inverse-primary":"#c00014","error-container":"#93000a","on-primary":"#ffffff","secondary-fixed":"#e4e1e6","on-secondary":"#303033","on-secondary-fixed-variant":"#47464a","surface-bright":"#383940","on-secondary-fixed":"#1b1b1e","tertiary":"#ffb3ad","on-tertiary-container":"#5c0008","background":"#070709","tertiary-container":"#ff5451","surface-container-lowest":"#070709","error":"#ffb4ab","on-surface-variant":"#e9bcb7","tertiary-fixed":"#ffdad7","on-primary-fixed-variant":"#93000c","on-surface":"#e2e1eb","tertiary-fixed-dim":"#ffb3ad","surface-dim":"#0D0D11","surface-container":"#14151c","outline-variant":"#27272A","on-background":"#e2e1eb","secondary":"#c8c5ca","on-error-container":"#ffdad6","secondary-container":"#47464a","primary":"#FF5500","inverse-on-surface":"#2f3037"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1.5rem","space-sm":"0.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","margin-mobile":"1.25rem","space-xs":"0.25rem"},"fontFamily":{"label-sm":["Space Grotesk"],"mono":["JetBrains Mono","monospace"],"display-mobile":["Oswald"],"headline-lg":["Oswald"],"body-md":["Space Grotesk"],"stat-counter":["Oswald"],"headline-md":["Oswald"],"display":["Oswald"],"headline-lg-mobile":["Oswald"],"body-sm":["Space Grotesk"],"label-md":["Space Grotesk"],"body-lg":["Space Grotesk"],"headline-sm":["Oswald"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"600"}],"display-mobile":["44px",{"lineHeight":"48px","letterSpacing":"0.03em","fontWeight":"700"}],"headline-lg":["48px",{"lineHeight":"52px","letterSpacing":"0.03em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"stat-counter":["36px",{"lineHeight":"40px","letterSpacing":"0.01em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"32px","letterSpacing":"0.02em","fontWeight":"600"}],"display":["80px",{"lineHeight":"84px","letterSpacing":"0.04em","fontWeight":"700"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-[#070709] text-on-surface font-body-md text-body-md antialiased min-h-screen relative selection:bg-[#FF5500] selection:text-white"><div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(#27272A_1px,transparent_1px)] [background-size:24px_24px] opacity-25"></div><div class="pointer-events-none fixed inset-0 z-0 border-[1px] border-[#27272A]/40 m-space-sm"></div><main class="relative z-10 w-full min-h-screen flex flex-col justify-center items-center"><div class="flex flex-col w-full relative min-h-screen justify-between overflow-hidden select-none">
+<!-- Dynamic Atmospheric Background Glows -->
+<div class="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+<div class="w-[680px] h-[680px] rounded-full bg-[#FF5500]/15 blur-[140px] animate-pulse"></div>
+<div class="absolute w-[360px] h-[360px] rounded-full bg-[#FF5500]/20 blur-[90px]"></div>
+</div>
+<!-- Subtle Tactical Crosshair & Coordinates Layer -->
+<div class="pointer-events-none absolute inset-0 z-0 opacity-40">
+<div class="absolute top-24 left-10 text-on-surface-variant font-label-sm text-label-sm tracking-widest flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-[#FF5500] rounded-full"></span>
+      LAT 34.0522° N // LON 118.2437° W
+    </div>
+<div class="absolute top-24 right-10 text-on-surface-variant font-label-sm text-label-sm tracking-widest text-right">
+      SYS.CLK: <span id="telemetry-clock">00:00:00:00</span>
+</div>
+<div class="absolute bottom-20 left-10 text-on-surface-variant font-label-sm text-label-sm tracking-widest">
+      GRID: AXIS-9 // SECTOR-7
+    </div>
+<div class="absolute bottom-20 right-10 text-on-surface-variant font-label-sm text-label-sm tracking-widest text-right">
+      BANDWIDTH: 982.4 GB/S [ACTIVE]
+    </div>
+</div>
+<!-- 1. Header (Tactical HUD Top Bar) -->
+<header class="relative z-20 w-full px-6 md:px-10 py-5 flex flex-row items-center justify-between">
+<!-- Top Left: Protocol & Version Readout -->
+<div class="flex items-center gap-4">
+<div class="relative flex items-center justify-center">
+<span class="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[#FF5500] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#FF5500] shadow-[0_0_8px_#FF5500]"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-[#A1A1AA] tracking-[0.2em] uppercase font-semibold">SYSTEM // PROTOCOL</span>
+<span class="font-headline-sm text-headline-sm text-white tracking-widest font-bold">GR-CLUB.V3.4 <span class="text-[#FF5500] [text-shadow:0_0_12px_rgba(255,85,0,0.6)]">[LIVE]</span></span>
+</div>
+</div>
+<!-- Top Right: Ghost Tactical Actions with 1px border (#27272A) -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-2.5 px-4 py-2 bg-[#0D0D11]/80 hover:bg-[#18181B] border border-[#27272A] hover:border-[#3F3F46] transition-all duration-200 rounded-lg text-white font-label-md text-label-md tracking-wider shadow-sm" id="btn-replay">
+<span class="material-symbols-outlined text-[16px] text-[#FF5500]">sync</span>
+<span class="font-semibold text-xs tracking-wider">REPLAY INTRO</span>
+</button>
+<button class="flex items-center gap-2.5 px-4 py-2 bg-[#0D0D11]/80 hover:bg-[#18181B] border border-[#27272A] hover:border-[#FF5500] hover:shadow-[0_0_15px_rgba(255,85,0,0.25)] transition-all duration-200 rounded-lg text-white font-label-md text-label-md tracking-wider group shadow-sm" id="btn-skip">
+<span class="font-semibold text-xs tracking-wider">SKIP TO SIGN IN</span>
+<span class="material-symbols-outlined text-[16px] text-[#FF5500] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</header>
+<!-- 2 & 3. Central Hero + Typography & Action Zone -->
+<div class="relative z-10 flex flex-col items-center justify-center my-auto w-full max-w-5xl mx-auto px-4 text-center">
+<!-- 3D Holographic Reticle Arena with animated SVG -->
+<div class="relative flex items-center justify-center w-full max-w-[540px] py-2">
+<!-- HUD Target Reticle Accents (Glowing Orange Corner Brackets) -->
+<div class="absolute -top-2 -left-2 w-7 h-7 border-t-2 border-l-2 border-[#FF5500] shadow-[0_0_10px_rgba(255,85,0,0.5)]"></div>
+<div class="absolute -top-2 -right-2 w-7 h-7 border-t-2 border-r-2 border-[#FF5500] shadow-[0_0_10px_rgba(255,85,0,0.5)]"></div>
+<div class="absolute -bottom-2 -left-2 w-7 h-7 border-b-2 border-l-2 border-[#FF5500] shadow-[0_0_10px_rgba(255,85,0,0.5)]"></div>
+<div class="absolute -bottom-2 -right-2 w-7 h-7 border-b-2 border-r-2 border-[#FF5500] shadow-[0_0_10px_rgba(255,85,0,0.5)]"></div>
+<!-- Crosshair Tick Marks -->
+<div class="absolute top-1/2 left-0 -translate-x-3 w-2.5 h-0.5 bg-[#FF5500]"></div>
+<div class="absolute top-1/2 right-0 translate-x-3 w-2.5 h-0.5 bg-[#FF5500]"></div>
+<div class="absolute top-0 left-1/2 -translate-y-3 w-0.5 h-2.5 bg-[#FF5500]"></div>
+<div class="absolute bottom-0 left-1/2 translate-y-3 w-0.5 h-2.5 bg-[#FF5500]"></div>
+<!-- Telemetry Tags overlaying Box -->
+<div class="absolute top-1 left-2 font-mono text-[10px] text-[#FF5500] tracking-widest font-semibold drop-shadow-[0_0_8px_rgba(255,85,0,0.6)]">
+        SEC-01 // ACTIVE
+      </div>
+<div class="absolute top-1 right-2 font-mono text-[10px] text-[#A1A1AA] tracking-widest font-medium">
+        ROT: 360° HOLO
+      </div>
+<!-- High-Intensity Background Radial Scrim -->
+<div class="absolute inset-0 bg-[radial-gradient(circle,rgba(255,85,0,0.22)_0%,rgba(255,85,0,0.05)_50%,transparent_75%)] rounded-xl pointer-events-none"></div>
+<!-- Holographic Animated SVG Orbitals and Emblem -->
+<!-- STITCH_SVG_START:ANIMATION_55 class="w-[500px] h-[500px] max-w-full drop-shadow-[0_0_40px_rgba(255,85,0,0.45)] relative z-10 flex items-center justify-center" --><div class="w-[500px] h-[500px] max-w-full drop-shadow-[0_0_40px_rgba(255,85,0,0.45)] relative z-10 flex items-center justify-center" id="animated-svg-ANIMATION_55" style="display:block;"><svg height="600" style="background: transparent;" viewbox="0 0 600 600" width="600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Glow filters -->
+<filter height="200%" id="neonGlowOrange" width="200%" x="-50%" y="-50%">
+<fegaussianblur result="blur1" stddeviation="6"></fegaussianblur>
+<fegaussianblur result="blur2" stddeviation="15"></fegaussianblur>
+<femerge>
+<femergenode in="blur2"></femergenode>
+<femergenode in="blur1"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+<radialgradient cx="40%" cy="35%" id="badgeRadialOrange" r="65%">
+<stop offset="0%" stop-color="#ff7700"></stop>
+<stop offset="50%" stop-color="#ff5500"></stop>
+<stop offset="85%" stop-color="#d63b00"></stop>
+<stop offset="100%" stop-color="#991d00"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="50%" id="centerBackBloom" r="50%">
+<stop offset="0%" stop-color="#ff5500" stop-opacity="0.3"></stop>
+<stop offset="60%" stop-color="#ff3300" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#000000" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<style>
+    @keyframes spinClockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spinCounterClockwise {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.6; transform: scale(0.98); }
+      50% { opacity: 0.95; transform: scale(1.02); }
+    }
+    @keyframes satelliteOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes radarScan {
+      0% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.2; }
+    }
+
+    .orbit-cw-fast { transform-origin: 300px 300px; animation: spinClockwise 18s linear infinite; }
+    .orbit-cw-slow { transform-origin: 300px 300px; animation: spinClockwise 34s linear infinite; }
+    .orbit-ccw { transform-origin: 300px 300px; animation: spinCounterClockwise 24s linear infinite; }
+    .pulse-glow { transform-origin: 300px 300px; animation: pulseAura 4s ease-in-out infinite; }
+    .satellite-track { transform-origin: 300px 300px; animation: satelliteOrbit 12s linear infinite; }
+  </style>
+<!-- Ambient Radial Aura -->
+<circle class="pulse-glow" cx="300" cy="300" fill="url(#centerBackBloom)" r="280"></circle>
+<!-- Outer HUD Calibration Ring (Cardinal markers 0, 90, 180, 270) -->
+<g class="orbit-cw-slow">
+<circle cx="300" cy="300" fill="none" opacity="0.45" r="248" stroke="#ff5500" stroke-dasharray="16 12 4 12" stroke-width="1.5"></circle>
+<circle cx="300" cy="300" fill="none" opacity="0.35" r="240" stroke="#ffa040" stroke-dasharray="2 10" stroke-width="1"></circle>
+<!-- Outer Brackets -->
+<path d="M 270 52 L 300 52 L 300 62" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 330 52 L 300 52" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 548 270 L 548 300 L 538 300" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 548 330 L 548 300" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 270 548 L 300 548 L 300 538" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 330 548 L 300 548" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 52 270 L 52 300 L 62 300" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<path d="M 52 330 L 52 300" fill="none" stroke="#ff5500" stroke-width="2.5"></path>
+<!-- Cardinal Degree Labels -->
+<text fill="#ffaa00" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" text-anchor="middle" x="300" y="44">000° // NOR</text>
+<text fill="#ffaa00" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" text-anchor="start" x="565" y="303">090°</text>
+<text fill="#ffaa00" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" text-anchor="middle" x="300" y="572">180° // SOU</text>
+<text fill="#ffaa00" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" text-anchor="end" x="35" y="303">270°</text>
+</g>
+<!-- Mid Segmented Telemetry Ring (Counter-rotating) -->
+<g class="orbit-ccw">
+<circle cx="300" cy="300" fill="none" filter="url(#neonGlowOrange)" opacity="0.65" r="215" stroke="#ff6600" stroke-dasharray="60 30 15 30 40 40" stroke-width="3"></circle>
+<circle cx="300" cy="300" fill="none" opacity="0.3" r="202" stroke="#ffffff" stroke-dasharray="4 8" stroke-width="1"></circle>
+<!-- Orbiting Accent Pips -->
+<rect fill="#ff5500" height="6" rx="1" width="8" x="296" y="82"></rect>
+<rect fill="#ff5500" height="6" rx="1" width="8" x="296" y="512"></rect>
+<rect fill="#ffffff" height="8" rx="1" width="6" x="82" y="296"></rect>
+<rect fill="#ffffff" height="8" rx="1" width="6" x="512" y="296"></rect>
+</g>
+<!-- Inner High-Velocity Tactical Dash Ring -->
+<g class="orbit-cw-fast">
+<circle cx="300" cy="300" fill="none" opacity="0.8" r="176" stroke="#ffaa00" stroke-dasharray="35 15 8 15" stroke-width="2"></circle>
+<circle cx="300" cy="300" fill="none" opacity="0.5" r="166" stroke="#ff3b00" stroke-dasharray="10 20" stroke-width="1.5"></circle>
+<!-- Segment node markers -->
+<circle cx="476" cy="300" fill="#ffeedd" r="3.5"></circle>
+<circle cx="124" cy="300" fill="#ffeedd" r="3.5"></circle>
+</g>
+<!-- Orbiting Satellite Energy Node -->
+<g class="satellite-track">
+<circle cx="515" cy="300" fill="#ffffff" filter="url(#neonGlowOrange)" r="5"></circle>
+<circle cx="515" cy="300" fill="none" opacity="0.75" r="12" stroke="#ff5500" stroke-width="1.5"></circle>
+<line opacity="0.8" stroke="#ffaa00" stroke-width="1" x1="515" x2="515" y1="282" y2="318"></line>
+</g>
+<!-- ================= CENTRAL 3D METALLIC COIN & GYMRAT EMBLEM ================= -->
+<!-- Outer glowing rim bevel -->
+<circle cx="300" cy="300" fill="#14151c" filter="url(#neonGlowOrange)" r="148" stroke="#ff5500" stroke-width="4"></circle>
+<circle cx="300" cy="300" fill="none" opacity="0.9" r="142" stroke="#ffaa00" stroke-width="1.5"></circle>
+<!-- Inner Athletic Orange Solid Coin Face -->
+<circle cx="300" cy="300" fill="url(#badgeRadialOrange)" r="136" stroke="#ff7700" stroke-width="2"></circle>
+<!-- Subtle perimeter radar ticks on coin -->
+<circle cx="300" cy="300" fill="none" r="128" stroke="rgba(255,255,255,0.3)" stroke-dasharray="4 6" stroke-width="1.5"></circle>
+<circle cx="300" cy="300" fill="none" r="122" stroke="rgba(0,0,0,0.35)" stroke-width="1"></circle>
+<!-- Center GymRat Muscle Mascot (Crisp Solid Pure Black Silhouette with White Precision Accents) -->
+<g fill="#090a0f" id="gymrat-mascot" transform="translate(300, 275) scale(0.68) translate(-250, -235)">
+<!-- Tail -->
+<path d="M 180 260 C 160 250 145 220 150 190 C 153 170 162 155 160 140 C 158 125 142 110 135 125 C 130 135 136 155 138 170 C 141 198 128 230 150 255 C 160 268 175 272 188 274 Z"></path>
+<!-- Left Ear -->
+<ellipse cx="205" cy="115" rx="30" ry="34" transform="rotate(-15 205 115)"></ellipse>
+<ellipse cx="203" cy="116" fill="#FF5500" rx="18" ry="22" transform="rotate(-15 203 116)"></ellipse>
+<!-- Right Ear -->
+<ellipse cx="245" cy="100" rx="16" ry="24" transform="rotate(10 245 100)"></ellipse>
+<!-- Head & Snout -->
+<path d="M 215 120 C 230 115 260 118 285 135 C 305 148 322 155 330 168 C 322 172 312 175 305 174 C 295 188 275 192 255 190 C 240 188 225 180 215 170 C 205 155 205 135 215 120 Z"></path>
+<!-- Snout Teeth (White) -->
+<polygon fill="#FFFFFF" points="308,173 318,171 312,180"></polygon>
+<polygon fill="#FFFFFF" points="300,174 308,173 304,179"></polygon>
+<!-- Fierce Eye (White) -->
+<polygon fill="#FFFFFF" points="255,138 278,142 265,148"></polygon>
+<!-- Traps / Neck -->
+<path d="M 215 165 C 200 175 185 195 180 220 L 250 225 Z"></path>
+<!-- Torso / Pecs -->
+<path d="M 210 210 C 230 205 270 205 290 215 C 285 240 270 258 245 260 C 225 258 212 238 210 210 Z"></path>
+<path d="M 250 210 L 250 256" stroke="#FF5500" stroke-width="3"></path>
+<!-- Flexing Left Bicep & Arm -->
+<path d="M 290 200 C 305 180 330 165 355 175 C 375 185 385 210 375 235 C 365 255 340 262 315 258 C 300 252 288 238 285 220 Z"></path>
+<!-- Muscle Cut Accents -->
+<path d="M 330 178 Q 348 200 338 225" fill="none" stroke="#FFFFFF" stroke-width="3.5"></path>
+<path d="M 350 215 Q 365 225 358 242" fill="none" stroke="#FFFFFF" stroke-width="2.5"></path>
+<!-- Forearm & Clenched Fist -->
+<path d="M 345 180 C 352 165 358 148 350 138 C 342 128 328 132 325 142 C 322 150 330 160 335 168 Z"></path>
+<circle cx="338" cy="142" r="14"></circle>
+<!-- Barbell / Dumbbell in Grip -->
+<rect fill="#090a0f" height="12" rx="3" width="70" x="210" y="222"></rect>
+<path d="M 235 218 C 245 218 250 225 250 234 C 250 242 242 244 235 244 C 228 244 225 238 225 230 Z" fill="#090a0f" stroke="#FFFFFF" stroke-width="1.5"></path>
+<!-- Weight Plates -->
+<rect fill="#090a0f" height="56" rx="4" width="16" x="175" y="200"></rect>
+<rect fill="#090a0f" height="44" rx="3" width="14" x="193" y="206"></rect>
+<rect fill="#090a0f" height="32" rx="2" width="11" x="162" y="212"></rect>
+<line opacity="0.6" stroke="#FFFFFF" stroke-width="1.5" x1="183" x2="183" y1="202" y2="254"></line>
+<rect fill="#090a0f" height="56" rx="4" width="16" x="275" y="200"></rect>
+<rect fill="#090a0f" height="44" rx="3" width="14" x="293" y="206"></rect>
+<rect fill="#090a0f" height="44" rx="3" width="11" x="262" y="206"></rect>
+<line opacity="0.6" stroke="#FFFFFF" stroke-width="1.5" x1="283" x2="283" y1="202" y2="254"></line>
+<path d="M 140 282 Q 250 274 360 282 L 350 288 Q 250 280 150 288 Z"></path>
+</g>
+<!-- Typography Inside Coin: Curved / Arch GYMRAT CLUB -->
+<text fill="#090a0f" font-family="'Oswald', 'Bebas Neue', sans-serif" font-size="34" font-weight="900" letter-spacing="3" text-anchor="middle" x="300" y="365">
+    GYMRAT
+  </text>
+<text fill="#090a0f" font-family="'Oswald', 'Bebas Neue', sans-serif" font-size="18" font-weight="800" letter-spacing="7" text-anchor="middle" x="300" y="388">
+    CLUB
+  </text>
+<line stroke="#090a0f" stroke-linecap="round" stroke-width="2" x1="240" x2="278" y1="399" y2="399"></line>
+<circle cx="300" cy="399" fill="#090a0f" r="2.5"></circle>
+<line stroke="#090a0f" stroke-linecap="round" stroke-width="2" x1="322" x2="360" y1="399" y2="399"></line>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_55 -->
+</div>
+<!-- Typography & Action Zone Directly Below -->
+<div class="mt-2 flex flex-col items-center">
+<div class="flex items-baseline tracking-tight select-none">
+<h1 class="font-display text-6xl md:text-display text-white uppercase font-bold tracking-wider drop-shadow-md">GYMRAT</h1>
+<span class="font-display text-6xl md:text-display text-[#FF5500] uppercase font-bold tracking-wider ml-3.5 drop-shadow-[0_0_35px_rgba(255,85,0,0.7)] [text-shadow:0_0_40px_rgba(255,85,0,0.85)]">CLUB</span>
+</div>
+<!-- Subtitle with tiny orange divider dots -->
+<div class="mt-2 flex items-center gap-3 font-label-md text-xs md:text-sm text-[#A1A1AA] tracking-[0.3em] uppercase font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+<span>YOUR GYM</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+<span>YOUR JOURNEY</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+</div>
+<!-- Primary Tactical Pill CTA -->
+<div class="mt-7 relative group cursor-pointer" id="cta-container">
+<!-- Dynamic Pulse Shadow Ring -->
+<div class="absolute -inset-1 rounded-full bg-[#FF5500] opacity-45 blur-lg group-hover:opacity-85 group-hover:blur-xl transition-all duration-300"></div>
+<button class="relative flex items-center justify-between gap-6 px-9 py-4 bg-[#FF5500] hover:bg-[#ff661a] active:scale-[0.98] transition-all duration-200 rounded-full text-white shadow-[0_0_30px_rgba(255,85,0,0.5)] border border-[#ff7733]" id="btn-sanctuary">
+<span class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-white tracking-widest uppercase font-bold">ENTER SANCTUARY</span>
+<span class="bg-black/25 text-white font-mono text-xs px-2.5 py-0.5 rounded-full font-semibold border border-white/10">[02]</span>
+</span>
+<span class="flex items-center -space-x-1 text-white">
+<span class="material-symbols-outlined text-xl leading-none transition-transform group-hover:translate-x-0.5">chevron_right</span>
+<span class="material-symbols-outlined text-xl leading-none transition-transform group-hover:translate-x-1">chevron_right</span>
+</span>
+</button>
+</div>
+<!-- Micro-interaction Helper -->
+<div class="mt-4 flex items-center gap-2 text-[#71717A] font-label-sm text-label-sm tracking-wider font-medium">
+<span>TAP BUTTON OR PRESS</span>
+<kbd class="px-2.5 py-0.5 bg-[#14151c] border border-[#27272A] rounded text-[#E4E4E7] font-mono text-[11px] font-semibold shadow-sm">ENTER</kbd>
+<span>TO PROCEED</span>
+</div>
+</div>
+</div>
+<!-- 4. Footer Telemetry Strip (HUD Edge Dock) -->
+<footer class="relative z-20 w-full bg-[#070709]/90 border-t border-[#27272A]/50 backdrop-blur-md px-6 md:px-10 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Left: Animated Orange Audio Equalizer Bars -->
+<div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
+<div class="flex items-center gap-1.5 h-4">
+<span class="w-1 bg-[#FF5500] rounded-full animate-bounce [animation-delay:-0.4s] h-3 shadow-[0_0_6px_#FF5500]"></span>
+<span class="w-1 bg-[#FF5500] rounded-full animate-bounce [animation-delay:-0.2s] h-5 shadow-[0_0_6px_#FF5500]"></span>
+<span class="w-1 bg-[#FF5500] rounded-full animate-bounce [animation-delay:-0.5s] h-2 shadow-[0_0_6px_#FF5500]"></span>
+<span class="w-1 bg-[#FF5500] rounded-full animate-bounce [animation-delay:-0.1s] h-4 shadow-[0_0_6px_#FF5500]"></span>
+<span class="w-1 bg-[#FF5500] rounded-full animate-bounce [animation-delay:-0.3s] h-6 shadow-[0_0_6px_#FF5500]"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-[#71717A] tracking-wider uppercase font-semibold">ATHLETIC AUDIO ENGINE</span>
+<span class="font-label-sm text-[11px] text-[#FF5500] font-bold tracking-wider [text-shadow:0_0_8px_rgba(255,85,0,0.5)]">STATUS // ARMED &amp; SYNCED</span>
+</div>
+</div>
+<!-- Center: Session Telemetry -->
+<div class="flex items-center gap-3 font-mono text-[11px] text-[#A1A1AA] tracking-widest text-center">
+<span>LOC: <strong class="text-white font-semibold">PR-CORE LABS</strong></span>
+<span class="text-[#3F3F46]">|</span>
+<span>SESSION: <strong class="text-[#FF5500] font-semibold">0x9924-ALPHA</strong></span>
+<span class="text-[#3F3F46]">|</span>
+<span>FPS: <strong class="text-white font-semibold" id="fps-counter">120.0</strong></span>
+</div>
+<!-- Right: Shield Security Badge in Monospace -->
+<div class="flex items-center gap-2 bg-[#0D0D11] border border-[#27272A] px-3.5 py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-[#FF5500]">shield</span>
+<span class="font-mono text-[11px] text-[#E4E4E7] tracking-wider uppercase font-semibold">TIER 1 ATHLETIC NETWORK</span>
+</div>
+</footer>
+</div>
+<script>
+  // High-Fidelity HUD Clock Updates
+  function updateTelemetryClock() {
+    const clockEl = document.getElementById('telemetry-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    const ms = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
+    clockEl.innerText = `${h}:${m}:${s}:${ms}`;
+  }
+  setInterval(updateTelemetryClock, 45);
+
+  // Micro FPS Fluctuations for realistic HUD
+  setInterval(() => {
+    const fpsEl = document.getElementById('fps-counter');
+    if (!fpsEl) return;
+    const fps = (119.4 + Math.random() * 0.8).toFixed(1);
+    fpsEl.innerText = fps;
+  }, 1200);
+
+  // Action Handling with Trigger Feedback
+  function triggerEntry() {
+    const btn = document.getElementById('btn-sanctuary');
+    const ctaContainer = document.getElementById('cta-container');
+    if (!btn) return;
+
+    btn.classList.add('scale-95');
+    if (ctaContainer) {
+      ctaContainer.classList.add('ring-4', 'ring-[#FF5500]');
+    }
+
+    setTimeout(() => {
+      btn.classList.remove('scale-95');
+      if (ctaContainer) {
+        ctaContainer.classList.remove('ring-4', 'ring-[#FF5500]');
+      }
+      // Tactical feedback ripple / redirection toast
+      const notice = document.createElement('div');
+      notice.className = 'fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-[#FF5500] text-white px-6 py-2.5 rounded-full font-label-md text-label-md tracking-wider uppercase shadow-[0_0_30px_rgba(255,85,0,0.6)] animate-fade-in flex items-center gap-2 border border-white/20';
+      notice.innerHTML = '<span class="material-symbols-outlined text-base">lock_open</span> BIOMETRICS VERIFIED // WELCOME ATHLETE';
+      document.body.appendChild(notice);
+      setTimeout(() => notice.remove(), 2400);
+    }, 180);
+  }
+
+  // Keyboard shortcut listener for Enter
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      triggerEntry();
+    }
+  });
+
+  document.getElementById('btn-sanctuary')?.addEventListener('click', triggerEntry);
+  document.getElementById('btn-replay')?.addEventListener('click', () => {
+    const animSvg = document.querySelector('animated-svg');
+    if (animSvg) {
+      animSvg.classList.add('opacity-40');
+      setTimeout(() => animSvg.classList.remove('opacity-40'), 400);
+    }
+  });
+</script></main></body></html>

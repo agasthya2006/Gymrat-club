@@ -1,11 +1,13 @@
 // src/pages/member/MemberTrainers.tsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { demoStore } from '../../demo/mockStore';
 import { mockTrainerService } from '../../demo/mockServices';
 import { Search, Star, Clock, Calendar, CheckCircle2, AlertCircle, ArrowRight, ShieldCheck, X } from 'lucide-react';
 
 export const MemberTrainers: React.FC = () => {
+  const { user } = useAuth();
   const [storeState, setStoreState] = useState(demoStore.getState());
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSpecialty, setSelectedSpecialty] = useState<string>('ALL');
@@ -28,9 +30,30 @@ export const MemberTrainers: React.FC = () => {
 
   const { coaches } = storeState;
 
+  // Guarantee Coach Akhil Gandloji is always positioned first
+  const akhilCoach = {
+    id: 'coach-akhil',
+    name: 'Akhil Gandloji',
+    email: 'akhilgandloji789@gmail.com',
+    specialization: 'Strength & Hypertrophy',
+    experience: '8 years experience',
+    experience_years: 8,
+    rating: 4.98,
+    reviews_count: 142,
+    hourly_rate: 1500,
+    bio: 'Head Strength Coach & Biomechanics Specialist. Focuses on barbell kinematics, progressive overload periodization, and athletic longevity.',
+    avatar_url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400',
+    availability: ['06:00 AM', '08:30 AM', '11:00 AM', '04:00 PM', '06:00 PM']
+  };
+
+  const allCoaches = [
+    akhilCoach,
+    ...coaches.filter(c => c.id !== 'coach-akhil' && !c.name.toLowerCase().includes('akhil'))
+  ];
+
   const specialties = ['ALL', 'Strength & Hypertrophy', 'Functional Training & Mobility', 'Performance & Conditioning'];
 
-  const filteredCoaches = coaches.filter(c => {
+  const filteredCoaches = allCoaches.filter(c => {
     const matchesSearch = c.name.toLowerCase().includes(searchTerm.toLowerCase()) || c.specialization.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesSpecialty = selectedSpecialty === 'ALL' || c.specialization.includes(selectedSpecialty);
     return matchesSearch && matchesSpecialty;
@@ -54,7 +77,10 @@ export const MemberTrainers: React.FC = () => {
         coach_id: selectedCoach.id,
         date: bookingDate,
         time: bookingTime || selectedCoach.availability[0],
-        notes: bookingNotes
+        notes: bookingNotes,
+        member_id: user?.id || 'usr-member-1',
+        member_name: user?.name || 'Agasthya Gade',
+        member_email: user?.email || 'gadeagasthya551@gmail.com'
       });
       setBookingMessage(`CONFIRMED: Session booked with ${selectedCoach.name} for ${bookingDate} at ${bookingTime || selectedCoach.availability[0]}`);
       setTimeout(() => {

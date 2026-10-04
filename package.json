@@ -12,6 +12,7 @@
     "seed": "node server/seed.cjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "express": "^4.21.2",

@@ -25,30 +25,87 @@ export const mockTrainerService = {
     return coach;
   },
 
-  bookSession: async (data: { coach_id: string; date: string; time: string; notes?: string }) => {
+  bookSession: async (data: {
+    coach_id: string;
+    date: string;
+    time: string;
+    notes?: string;
+    member_name?: string;
+    member_email?: string;
+    member_id?: string;
+  }) => {
     const coach = demoStore.getState().coaches.find(c => c.id === data.coach_id);
+    const coachName = coach ? coach.name : 'Certified Coach';
+    const memberName = data.member_name || 'Agasthya Gade';
+    const memberEmail = data.member_email || 'gadeagasthya551@gmail.com';
+    const bookingDate = data.date || 'Today';
+    const bookingTime = data.time || (coach?.availability?.[0] || '06:00 AM');
+
     const newBooking = {
       id: `bk-${Date.now().toString(36)}`,
       coach_id: data.coach_id,
-      coach_name: coach ? coach.name : 'Certified Coach',
-      date: data.date,
-      time: data.time,
+      coach_name: coachName,
+      member_id: data.member_id || 'usr-member-1',
+      member_name: memberName,
+      member_email: memberEmail,
+      date: bookingDate,
+      time: bookingTime,
+      time_slot: bookingTime,
       status: 'CONFIRMED' as const,
-      notes: data.notes || '1-on-1 Performance Consultation'
+      notes: data.notes || '1-on-1 Performance Consultation',
+      created_at: new Date().toISOString()
     };
 
     demoStore.update(state => {
       state.bookings.unshift(newBooking);
-      // Also add a confirmation notification
+
+      // 1. Notification for Member / Athlete
       state.notifications.unshift({
         id: `notif-${Date.now().toString(36)}`,
         title: 'Trainer Booking Confirmed',
         message: `Session confirmed with ${newBooking.coach_name} on ${newBooking.date} at ${newBooking.time}.`,
         time: 'Just now',
         read: false,
-        type: 'BOOKING'
+        type: 'BOOKING',
+        recipient_role: 'MEMBER'
+      });
+
+      // 2. High-Priority Notification for Coach (Coach Akhil)
+      state.notifications.unshift({
+        id: `notif-coach-${Date.now().toString(36)}`,
+        title: `⚡ New Session Booked: ${memberName}`,
+        message: `${memberName} booked a 1-on-1 session with you for ${newBooking.date} at ${newBooking.time}. Notes: ${newBooking.notes}`,
+        time: 'Just now',
+        read: false,
+        type: 'BOOKING',
+        recipient_role: 'COACH',
+        recipient_id: data.coach_id,
+        athlete_name: memberName,
+        date: bookingDate,
+        time_slot: bookingTime
       });
     });
+
+    // Cross-sync with localStorage and dispatch event
+    try {
+      const stored = JSON.parse(localStorage.getItem('gymrat_coach_bookings') || '[]');
+      stored.unshift(newBooking);
+      localStorage.setItem('gymrat_coach_bookings', JSON.stringify(stored));
+
+      const coachNotifs = JSON.parse(localStorage.getItem('gymrat_coach_notifications') || '[]');
+      coachNotifs.unshift({
+        id: `notif-coach-${Date.now()}`,
+        title: `⚡ New Session Booked: ${memberName}`,
+        message: `${memberName} booked a 1-on-1 session with you for ${newBooking.date} at ${newBooking.time}.`,
+        time: 'Just now',
+        read: false,
+        type: 'BOOKING',
+        coach_id: data.coach_id
+      });
+      localStorage.setItem('gymrat_coach_notifications', JSON.stringify(coachNotifs));
+
+      window.dispatchEvent(new CustomEvent('gymrat-booking-created', { detail: newBooking }));
+    } catch (_) {}
 
     return newBooking;
   },
@@ -227,17 +284,88 @@ export const mockNotificationService = {
   },
 
   markAsRead: async (id: string) => {
+    let confirmationForMember: any = null;
+
     demoStore.update(state => {
       const n = state.notifications.find(item => item.id === id);
-      if (n) n.read = true;
+      if (n) {
+        const wasUnread = !n.read;
+        n.read = true;
+
+        // When a coach marks a booking alert as read, send confirmation notification to member
+        if (wasUnread && (n.recipient_role === 'COACH' || n.type === 'BOOKING' || n.id.includes('coach'))) {
+          const athleteName = n.athlete_name || 'Athlete';
+          const sessionDate = n.date || 'Today';
+          const sessionTime = n.time_slot || 'your scheduled slot';
+          const coachName = 'Coach Akhil Gandloji';
+
+          confirmationForMember = {
+            id: `notif-confirm-${Date.now().toString(36)}`,
+            title: `✅ Session Confirmed by ${coachName}`,
+            message: `${coachName} has reviewed and confirmed your 1-on-1 private coaching session for ${sessionDate} at ${sessionTime}. Prepare for your session!`,
+            time: 'Just now',
+            read: false,
+            type: 'BOOKING' as const,
+            recipient_role: 'MEMBER' as const,
+            athlete_name: athleteName,
+            date: sessionDate,
+            time_slot: sessionTime
+          };
+
+          state.notifications.unshift(confirmationForMember);
+        }
+      }
     });
+
+    if (confirmationForMember) {
+      try {
+        window.dispatchEvent(new CustomEvent('gymrat-member-session-confirmed', {
+          detail: confirmationForMember
+        }));
+      } catch (_) {}
+    }
+
     return demoStore.getState().notifications;
   },
 
   markAllAsRead: async () => {
+    const confirmations: any[] = [];
+
     demoStore.update(state => {
-      state.notifications.forEach(n => { n.read = true; });
+      state.notifications.forEach(n => {
+        if (!n.read && (n.recipient_role === 'COACH' || n.type === 'BOOKING' || n.id.includes('coach'))) {
+          const athleteName = n.athlete_name || 'Athlete';
+          const sessionDate = n.date || 'Today';
+          const sessionTime = n.time_slot || 'your scheduled slot';
+          const coachName = 'Coach Akhil Gandloji';
+
+          confirmations.push({
+            id: `notif-confirm-${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 6)}`,
+            title: `✅ Session Confirmed by ${coachName}`,
+            message: `${coachName} has reviewed and confirmed your 1-on-1 private coaching session for ${sessionDate} at ${sessionTime}. Prepare for your session!`,
+            time: 'Just now',
+            read: false,
+            type: 'BOOKING' as const,
+            recipient_role: 'MEMBER' as const,
+            athlete_name: athleteName,
+            date: sessionDate,
+            time_slot: sessionTime
+          });
+        }
+        n.read = true;
+      });
+
+      confirmations.forEach(c => state.notifications.unshift(c));
     });
+
+    if (confirmations.length > 0) {
+      try {
+        window.dispatchEvent(new CustomEvent('gymrat-member-session-confirmed', {
+          detail: confirmations[0]
+        }));
+      } catch (_) {}
+    }
+
     return demoStore.getState().notifications;
   }
 };

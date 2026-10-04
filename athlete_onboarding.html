@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GymRat Club — Athlete Profile Initialization</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#E1601B',
+              orangeGlow: '#FF7728',
+              orangeLight: '#FFA055',
+              dark: '#070709',
+              surface: '#0D0D11',
+              card: '#14151C',
+              cardHigh: '#1E1F28',
+              border: '#27272A',
+            }
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; overscroll-behavior: none; }
+      ::-webkit-scrollbar { display: none; }
+    }
+    .active-glow {
+      box-shadow: 0 0 0 1.5px #E1601B, 0 6px 20px -3px rgba(225, 96, 27, 0.35) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#070709] text-white font-sans antialiased min-h-screen relative flex flex-col justify-between selection:bg-[#E1601B] selection:text-white select-none">
+
+  <!-- Cinematic Background & Grid -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <img src="hero_bg.png" onerror="this.src='hero_bg.jpg'" alt="Gym Atmosphere" class="w-full h-full object-cover object-center opacity-25 filter grayscale contrast-125 brightness-75"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/85 to-[#070709]/95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(7,7,9,0.9)_100%)]"></div>
+  </div>
+
+  <div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(#27272A_1px,transparent_1px)] [background-size:28px_28px] opacity-20"></div>
+  <div class="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+    <div class="w-[700px] h-[550px] rounded-full bg-[#E1601B]/10 blur-[150px] animate-pulse"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col justify-between min-h-screen">
+    
+    <!-- 1. TOP SYSTEM NAVIGATION & TELEMETRY -->
+    <header class="w-full flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-zinc-800/50">
+      <!-- Brand Lockup -->
+      <a href="role_selection.html" class="flex items-center gap-3 group" title="Return to Role Selection">
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-[#14151C] border border-[#27272A] shadow-md overflow-hidden group-hover:border-[#E1601B] transition-colors">
+          <img src="gymrat_badge.png" alt="GymRat Mascot" class="w-9 h-9 object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"/>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-display text-lg tracking-wider uppercase text-white font-bold">GYMRAT CLUB</span>
+            <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#1E1F28] text-[#E1601B] border border-[#E1601B]/40 uppercase tracking-widest font-bold">ATHLETE</span>
+          </div>
+          <span class="font-mono text-[10px] text-zinc-400 tracking-widest uppercase">PERFORMANCE PROTOCOL</span>
+        </div>
+      </a>
+
+      <!-- Progress Track (Stage 02 of 04 - ATHLETE INITIALIZATION) -->
+      <div class="flex flex-col items-center gap-2 w-full md:w-80">
+        <div class="flex items-center justify-between w-full font-mono text-[11px] text-zinc-400">
+          <span class="flex items-center gap-1.5 uppercase font-medium">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#E1601B] animate-ping"></span>
+            Stage 02 of 04
+          </span>
+          <span class="text-white font-semibold tracking-wider flex items-center gap-1">
+            <span class="material-symbols-outlined text-xs text-[#E1601B]">fingerprint</span>
+            PROFILE SETUP
+          </span>
+        </div>
+        <!-- Progress Bar: 2/4 (50%) filled -->
+        <div class="w-full h-1.5 bg-[#1E1F28] rounded-full overflow-hidden flex">
+          <div class="w-1/2 h-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] rounded-full shadow-[0_0_12px_rgba(225,96,27,0.8)] transition-all duration-500"></div>
+          <div class="w-1/2 h-full bg-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-end gap-3 w-full md:w-auto">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#14151C] hover:bg-[#1E1F28] text-zinc-400 hover:text-white font-mono text-xs border border-zinc-800 transition-colors" type="button">
+          <span class="material-symbols-outlined text-sm text-[#E1601B]">language</span>
+          <span>EN-US</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#14151C] hover:bg-[#1E1F28] text-zinc-400 hover:text-white font-mono text-xs border border-zinc-800 transition-colors" type="button">
+          <span class="material-symbols-outlined text-sm text-[#E1601B]">help</span>
+          <span>SYS.HELP</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. MAIN HEADER & DIRECTIVE -->
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto pt-5 pb-3 space-y-2">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#14151C] border border-zinc-800 shadow-inner">
+        <span class="w-2 h-2 rounded-full bg-[#E1601B] animate-pulse"></span>
+        <span class="font-mono text-xs tracking-widest text-[#E1601B] uppercase font-semibold">MEMBER PROTOCOL // STAGE 02 OF 04</span>
+      </div>
+      
+      <h1 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white font-bold leading-tight">
+        BUILD YOUR <span class="text-[#E1601B] drop-shadow-[0_0_28px_rgba(225,96,27,0.6)] [text-shadow:0_0_30px_rgba(225,96,27,0.7)]">ATHLETE PROFILE</span>
+      </h1>
+      
+      <p class="font-sans text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
+        Configure your personal performance profile before entering the GYMRAT CLUB arena.
+      </p>
+    </div>
+
+    <!-- 3. CENTERED WIDE PROFILE SETUP INTERFACE -->
+    <main class="w-full max-w-5xl mx-auto my-auto py-2">
+      <div class="relative bg-[#14151C]/90 backdrop-blur-md border border-[#27272A] rounded-2xl p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden space-y-6">
+        
+        <!-- Reticle Corner Accents -->
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#E1601B]"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#E1601B]"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#E1601B]"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#E1601B]"></div>
+
+        <!-- TOP TWO SECTIONS GRID (LEFT & RIGHT) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- ================= LEFT SECTION: IDENTITY DATA ================= -->
+          <div class="lg:col-span-5 space-y-4 text-left">
+            <div class="flex items-center gap-2 border-b border-zinc-800 pb-2.5">
+              <span class="material-symbols-outlined text-[#E1601B] text-lg">badge</span>
+              <span class="font-mono text-xs text-white uppercase font-bold tracking-wider">IDENTITY DATA</span>
+            </div>
+
+            <!-- Full Name -->
+            <div class="space-y-1">
+              <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                FULL NAME
+              </label>
+              <input 
+                type="text" 
+                value="Alex Morgan" 
+                class="w-full bg-[#0D0D11] border border-[#27272A] rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E1601B] focus:ring-1 focus:ring-[#E1601B] transition-all font-sans"
+              />
+            </div>
+
+            <!-- Age, Height, Weight in 3 Columns -->
+            <div class="grid grid-cols-3 gap-3">
+              <div class="space-y-1">
+                <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                  AGE
+                </label>
+                <input 
+                  type="text" 
+                  value="21" 
+                  class="w-full bg-[#0D0D11] border border-[#27272A] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#E1601B] font-mono text-center"
+                />
+              </div>
+
+              <div class="space-y-1">
+                <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                  HEIGHT
+                </label>
+                <input 
+                  type="text" 
+                  value="178 cm" 
+                  class="w-full bg-[#0D0D11] border border-[#27272A] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#E1601B] font-mono text-center"
+                />
+              </div>
+
+              <div class="space-y-1">
+                <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                  CURRENT WEIGHT
+                </label>
+                <input 
+                  type="text" 
+                  value="72 kg" 
+                  class="w-full bg-[#0D0D11] border border-[#27272A] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#E1601B] font-mono text-center"
+                />
+              </div>
+            </div>
+
+            <!-- Fitness Experience Selector -->
+            <div class="space-y-1.5 pt-1">
+              <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                FITNESS EXPERIENCE
+              </label>
+              <div class="grid grid-cols-3 gap-2" id="exp-group">
+                <button type="button" onclick="selectExp('beginner')" class="exp-btn py-2 px-2 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs uppercase font-semibold transition-all" id="exp-beginner">
+                  BEGINNER
+                </button>
+                <button type="button" onclick="selectExp('intermediate')" class="exp-btn active-glow py-2 px-2 rounded-lg bg-[#1E1F28] border border-[#E1601B] text-white font-mono text-xs uppercase font-bold transition-all" id="exp-intermediate">
+                  INTERMEDIATE
+                </button>
+                <button type="button" onclick="selectExp('advanced')" class="exp-btn py-2 px-2 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs uppercase font-semibold transition-all" id="exp-advanced">
+                  ADVANCED
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= RIGHT SECTION: PERFORMANCE OBJECTIVE ================= -->
+          <div class="lg:col-span-7 space-y-3 text-left">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#E1601B] text-lg">track_changes</span>
+                <span class="font-mono text-xs text-white uppercase font-bold tracking-wider">PERFORMANCE OBJECTIVE</span>
+              </div>
+              <span class="font-mono text-[10px] text-zinc-500">SELECT ONE PRIMARY GOAL</span>
+            </div>
+
+            <p class="font-display text-sm tracking-wider uppercase text-zinc-300 font-bold">
+              WHAT ARE YOU TRAINING FOR?
+            </p>
+
+            <!-- Objective Selectable Cards Group -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="objective-group">
+              
+              <!-- 1. MUSCLE -->
+              <div onclick="selectObjective('muscle')" id="obj-muscle" class="obj-card p-3 rounded-xl bg-[#0D0D11] border border-[#27272A] hover:border-zinc-700 cursor-pointer transition-all flex items-start gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-[#14151C] flex items-center justify-center text-zinc-400 group-hover:text-white shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-base">fitness_center</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-sm uppercase text-white font-bold tracking-wide">MUSCLE</h3>
+                  <p class="font-sans text-xs text-zinc-400 leading-tight">Build lean muscle and size</p>
+                </div>
+              </div>
+
+              <!-- 2. STRENGTH (DEFAULT ACTIVE) -->
+              <div onclick="selectObjective('strength')" id="obj-strength" class="obj-card active-glow p-3 rounded-xl bg-[#1E1F28] border border-[#E1601B] cursor-pointer transition-all flex items-start gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-[#14151C] flex items-center justify-center text-[#E1601B] shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-base">bolt</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-sm uppercase text-white font-bold tracking-wide flex items-center gap-1.5">
+                    STRENGTH
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#E1601B]"></span>
+                  </h3>
+                  <p class="font-sans text-xs text-zinc-300 leading-tight">Increase power and lifting performance</p>
+                </div>
+              </div>
+
+              <!-- 3. CUT -->
+              <div onclick="selectObjective('cut')" id="obj-cut" class="obj-card p-3 rounded-xl bg-[#0D0D11] border border-[#27272A] hover:border-zinc-700 cursor-pointer transition-all flex items-start gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-[#14151C] flex items-center justify-center text-zinc-400 group-hover:text-white shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-base">local_fire_department</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-sm uppercase text-white font-bold tracking-wide">CUT</h3>
+                  <p class="font-sans text-xs text-zinc-400 leading-tight">Reduce body fat and improve definition</p>
+                </div>
+              </div>
+
+              <!-- 4. ENDURANCE -->
+              <div onclick="selectObjective('endurance')" id="obj-endurance" class="obj-card p-3 rounded-xl bg-[#0D0D11] border border-[#27272A] hover:border-zinc-700 cursor-pointer transition-all flex items-start gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-[#14151C] flex items-center justify-center text-zinc-400 group-hover:text-white shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-base">cardiology</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-sm uppercase text-white font-bold tracking-wide">ENDURANCE</h3>
+                  <p class="font-sans text-xs text-zinc-400 leading-tight">Improve stamina and conditioning</p>
+                </div>
+              </div>
+
+              <!-- 5. GENERAL (Spans 2 columns on sm+) -->
+              <div onclick="selectObjective('general')" id="obj-general" class="obj-card sm:col-span-2 p-3 rounded-xl bg-[#0D0D11] border border-[#27272A] hover:border-zinc-700 cursor-pointer transition-all flex items-start gap-3 group">
+                <div class="w-8 h-8 rounded-lg bg-[#14151C] flex items-center justify-center text-zinc-400 group-hover:text-white shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-base">accessibility_new</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-sm uppercase text-white font-bold tracking-wide">GENERAL FITNESS</h3>
+                  <p class="font-sans text-xs text-zinc-400 leading-tight">Improve overall functional health, mobility, and everyday energy</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= LOWER SECTION: TRAINING FREQUENCY & WINDOW ================= -->
+        <div class="pt-5 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+          
+          <!-- Frequency -->
+          <div class="space-y-2">
+            <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm text-[#E1601B]">event_repeat</span>
+              PREFERRED TRAINING FREQUENCY
+            </label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" onclick="selectFreq('2-3')" class="freq-btn py-2.5 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs font-semibold transition-all" id="freq-2-3">
+                2–3 DAYS
+              </button>
+              <button type="button" onclick="selectFreq('4-5')" class="freq-btn active-glow py-2.5 rounded-lg bg-[#1E1F28] border border-[#E1601B] text-white font-mono text-xs font-bold transition-all" id="freq-4-5">
+                4–5 DAYS
+              </button>
+              <button type="button" onclick="selectFreq('6+')" class="freq-btn py-2.5 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs font-semibold transition-all" id="freq-6+">
+                6+ DAYS
+              </button>
+            </div>
+          </div>
+
+          <!-- Time Window -->
+          <div class="space-y-2">
+            <label class="block font-mono text-[10px] uppercase tracking-wider text-zinc-400 font-semibold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm text-[#E1601B]">schedule</span>
+              PREFERRED TRAINING WINDOW
+            </label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" onclick="selectWindow('morning')" class="win-btn py-2.5 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs font-semibold transition-all" id="win-morning">
+                MORNING
+              </button>
+              <button type="button" onclick="selectWindow('afternoon')" class="win-btn py-2.5 rounded-lg bg-[#0D0D11] border border-[#27272A] text-zinc-400 hover:text-white font-mono text-xs font-semibold transition-all" id="win-afternoon">
+                AFTERNOON
+              </button>
+              <button type="button" onclick="selectWindow('evening')" class="win-btn active-glow py-2.5 rounded-lg bg-[#1E1F28] border border-[#E1601B] text-white font-mono text-xs font-bold transition-all" id="win-evening">
+                EVENING
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= SYSTEM STATUS TELEMETRY & PROGRESS BAR ================= -->
+        <div class="pt-4 border-t border-zinc-800/80 bg-[#0D0D11]/60 -mx-6 sm:-mx-8 -mb-6 sm:-mb-8 p-4 sm:p-5 rounded-b-2xl space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between font-mono text-[10px] text-zinc-400 gap-2">
+            <div>ATHLETE ID: <span class="text-white font-semibold">PENDING</span></div>
+            <div>PROFILE SYNC: <span class="text-[#E1601B] font-semibold">READY</span></div>
+            <div>TELEMETRY: <span class="text-zinc-300 font-semibold">WAITING</span></div>
+            <div>PROFILE COMPLETION: <span class="text-emerald-400 font-bold">35%</span></div>
+          </div>
+
+          <!-- Thin Orange Progress Bar -->
+          <div class="w-full h-1.5 bg-[#1E1F28] rounded-full overflow-hidden">
+            <div class="w-[35%] h-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] shadow-[0_0_10px_rgba(225,96,27,0.7)] transition-all duration-300"></div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- 4. PRIMARY ACTIONS FOOTER -->
+    <footer class="w-full flex flex-col items-center gap-3 pt-3 pb-3">
+      <div class="w-full max-w-md flex flex-col items-center gap-2.5">
+        <button onclick="handleContinue()" class="w-full py-4 px-8 rounded-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] hover:from-[#F06A22] hover:to-[#FF8838] text-white font-display text-lg uppercase tracking-wider font-bold transition-all duration-200 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(225,96,27,0.5)] hover:shadow-[0_0_45px_rgba(225,96,27,0.7)] active:scale-[0.98] cursor-pointer group">
+          <span>CONTINUE TO PERFORMANCE TARGETS</span>
+          <span class="material-symbols-outlined text-xl group-hover:translate-x-1.5 transition-transform">arrow_forward</span>
+        </button>
+
+        <a href="role_selection.html" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 tracking-wider uppercase transition-colors">
+          SAVE &amp; COMPLETE LATER
+        </a>
+      </div>
+
+      <div class="text-zinc-600 font-mono text-[10px] uppercase tracking-widest pt-1">
+        GYMRAT CLUB BIOMETRICS PROTOCOL • LOCAL TERMINAL ENCRYPTED
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- FULLSCREEN TACTICAL 3D DUMBBELL LOADING OVERLAY -->
+  <div id="loader-overlay" class="fixed inset-0 z-50 bg-[#070709]/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative flex flex-col items-center justify-center">
+      <div class="w-48 h-48 rounded-full border-2 border-dashed border-[#E1601B]/50 animate-spin p-2 flex items-center justify-center">
+        <div class="w-full h-full rounded-full border-2 border-[#E1601B] shadow-[0_0_40px_rgba(225,96,27,0.7)] overflow-hidden bg-white flex items-center justify-center relative p-3">
+          <video id="loader-video" class="w-full h-full object-contain" autoplay loop muted playsinline>
+            <source src="dumbbell_loader.mp4" type="video/mp4">
+            <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/dumbbell-animation-gif-download-8083241.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col items-center gap-2.5 text-center">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#E1601B] animate-ping"></span>
+          <span class="font-display text-lg tracking-[0.2em] text-white uppercase font-bold">SAVING ATHLETE PROFILE &amp; TARGETS</span>
+        </div>
+        <div class="w-64 h-1.5 bg-[#1E1F28] rounded-full overflow-hidden mt-1 border border-zinc-800">
+          <div id="loading-bar" class="h-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] shadow-[0_0_12px_#E1601B] transition-all duration-150 w-0"></div>
+        </div>
+        <span id="loading-status" class="font-mono text-xs text-zinc-400 tracking-widest mt-1">CONFIGURING PERFORMANCE TARGETS... 0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT: INTERACTIVE SELECTION LOGIC -->
+  <script>
+    let selectedExperience = 'intermediate';
+    let selectedObjective = 'strength';
+    let selectedFrequency = '4-5';
+    let selectedWindow = 'evening';
+
+    function selectExp(exp) {
+      document.querySelectorAll('.exp-btn').forEach(btn => {
+        btn.classList.remove('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        btn.classList.add('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      });
+      const el = document.getElementById(`exp-${exp}`);
+      if (el) {
+        el.classList.add('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        el.classList.remove('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      }
+      selectedExperience = exp;
+    }
+
+    function selectObjective(obj) {
+      document.querySelectorAll('.obj-card').forEach(card => {
+        card.classList.remove('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]');
+        card.classList.add('bg-[#0D0D11]', 'border-[#27272A]');
+        const iconBox = card.querySelector('.w-8');
+        if (iconBox) iconBox.classList.remove('text-[#E1601B]');
+        const dot = card.querySelector('h3 span');
+        if (dot) dot.remove();
+      });
+      const el = document.getElementById(`obj-${obj}`);
+      if (el) {
+        el.classList.add('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]');
+        el.classList.remove('bg-[#0D0D11]', 'border-[#27272A]');
+        const iconBox = el.querySelector('.w-8');
+        if (iconBox) iconBox.classList.add('text-[#E1601B]');
+        const h3 = el.querySelector('h3');
+        if (h3 && !h3.querySelector('span')) {
+          h3.innerHTML += '<span class="w-1.5 h-1.5 rounded-full bg-[#E1601B] inline-block ml-1"></span>';
+        }
+      }
+      selectedObjective = obj;
+    }
+
+    function selectFreq(freq) {
+      document.querySelectorAll('.freq-btn').forEach(btn => {
+        btn.classList.remove('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        btn.classList.add('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      });
+      const el = document.getElementById(`freq-${freq}`);
+      if (el) {
+        el.classList.add('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        el.classList.remove('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      }
+      selectedFrequency = freq;
+    }
+
+    function selectWindow(win) {
+      document.querySelectorAll('.win-btn').forEach(btn => {
+        btn.classList.remove('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        btn.classList.add('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      });
+      const el = document.getElementById(`win-${win}`);
+      if (el) {
+        el.classList.add('active-glow', 'bg-[#1E1F28]', 'border-[#E1601B]', 'text-white', 'font-bold');
+        el.classList.remove('bg-[#0D0D11]', 'border-[#27272A]', 'text-zinc-400', 'font-semibold');
+      }
+      selectedWindow = win;
+    }
+
+    function handleContinue() {
+      const overlay = document.getElementById('loader-overlay');
+      const bar = document.getElementById('loading-bar');
+      const status = document.getElementById('loading-status');
+      const video = document.getElementById('loader-video');
+
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      if (video) video.play();
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 20) + 15;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          bar.style.width = '100%';
+          status.innerText = 'PROFILE INITIALIZED // PROCEEDING TO TARGETS';
+          status.classList.add('text-[#E1601B]', 'font-bold');
+
+          setTimeout(() => {
+            alert('Profile Initialized!\nObjective: ' + selectedObjective.toUpperCase() + '\nExperience: ' + selectedExperience.toUpperCase() + '\nFrequency: ' + selectedFrequency + ' days\nWindow: ' + selectedWindow.toUpperCase());
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+          }, 700);
+        } else {
+          bar.style.width = progress + '%';
+          status.innerText = 'CONFIGURING ' + selectedObjective.toUpperCase() + ' MESO-CYCLE... ' + progress + '%';
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>

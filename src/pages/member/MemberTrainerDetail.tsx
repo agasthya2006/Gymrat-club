@@ -1,12 +1,14 @@
 // src/pages/member/MemberTrainerDetail.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import { demoStore } from '../../demo/mockStore';
 import { mockTrainerService } from '../../demo/mockServices';
 import { Star, Clock, Calendar, ArrowLeft, CheckCircle2, ArrowRight, ShieldCheck, Dumbbell } from 'lucide-react';
 
 export const MemberTrainerDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { user } = useAuth();
   const [storeState, setStoreState] = useState(demoStore.getState());
   const [date, setDate] = useState('Today');
   const [timeSlot, setTimeSlot] = useState('');
@@ -21,7 +23,22 @@ export const MemberTrainerDetail: React.FC = () => {
     return () => unsub();
   }, []);
 
-  const coach = storeState.coaches.find(c => c.id === id) || storeState.coaches[0];
+  const akhilCoach = {
+    id: 'coach-akhil',
+    name: 'Akhil Gandloji',
+    email: 'akhilgandloji789@gmail.com',
+    specialization: 'Strength & Hypertrophy',
+    experience: '8 years experience',
+    experience_years: 8,
+    rating: 4.98,
+    reviews_count: 142,
+    hourly_rate: 1500,
+    bio: 'Head Strength Coach & Biomechanics Specialist. Focuses on barbell kinematics, progressive overload periodization, and athletic longevity.',
+    avatar_url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400',
+    availability: ['06:00 AM', '08:30 AM', '11:00 AM', '04:00 PM', '06:00 PM']
+  };
+
+  const coach = (id === 'coach-akhil' ? akhilCoach : storeState.coaches.find(c => c.id === id)) || storeState.coaches[0] || akhilCoach;
 
   useEffect(() => {
     if (coach && !timeSlot) {
@@ -40,7 +57,10 @@ export const MemberTrainerDetail: React.FC = () => {
         coach_id: coach.id,
         date,
         time: timeSlot || coach.availability[0],
-        notes
+        notes,
+        member_id: user?.id || 'usr-member-1',
+        member_name: user?.name || 'Agasthya Gade',
+        member_email: user?.email || 'gadeagasthya551@gmail.com'
       });
       setSuccessMsg(`CONFIRMED: Session booked with ${coach.name} for ${date} at ${timeSlot}. Check your Schedule!`);
     } catch (err: any) {

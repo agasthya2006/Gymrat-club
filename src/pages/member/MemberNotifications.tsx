@@ -27,9 +27,11 @@ export const MemberNotifications: React.FC = () => {
 
   const { notifications } = storeState;
 
-  const unreadCount = notifications.filter(n => !n.read).length;
+  // Filter out coach-only dispatches so members only see their alerts & confirmations
+  const memberNotifications = notifications.filter(n => n.recipient_role !== 'COACH');
+  const unreadCount = memberNotifications.filter(n => !n.read).length;
 
-  const filteredNotifications = notifications.filter(n => {
+  const filteredNotifications = memberNotifications.filter(n => {
     if (activeFilter === 'ALL') return true;
     if (activeFilter === 'UNREAD') return !n.read;
     return n.type === activeFilter;

@@ -24,6 +24,7 @@ export interface DemoStoreState {
   coaches: Array<{
     id: string;
     name: string;
+    email?: string;
     specialization: string;
     experience: string;
     experience_years: number;
@@ -49,10 +50,15 @@ export interface DemoStoreState {
     id: string;
     coach_id: string;
     coach_name: string;
+    member_id?: string;
+    member_name?: string;
+    member_email?: string;
     date: string;
     time: string;
+    time_slot?: string;
     status: 'CONFIRMED' | 'PENDING' | 'CANCELLED';
     notes: string;
+    created_at?: string;
   }>;
   workout: {
     id: string;
@@ -104,6 +110,11 @@ export interface DemoStoreState {
     time: string;
     read: boolean;
     type: 'WORKOUT' | 'BOOKING' | 'CLASS' | 'MEMBERSHIP' | 'ANNOUNCEMENT';
+    recipient_role?: 'MEMBER' | 'COACH' | 'ADMIN' | 'ALL';
+    recipient_id?: string;
+    athlete_name?: string;
+    date?: string;
+    time_slot?: string;
   }>;
   messages: Array<{
     id: string;
@@ -137,10 +148,24 @@ const getInitialState = (): DemoStoreState => ({
     weeklyCompleted: 4,
     streak: 12,
     performanceScore: 87,
-    trainer: 'Rahul Sharma',
+    trainer: 'Akhil Gandloji',
     avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400'
   },
   coaches: [
+    {
+      id: 'coach-akhil',
+      name: 'Akhil Gandloji',
+      email: 'akhilgandloji789@gmail.com',
+      specialization: 'Strength & Hypertrophy',
+      experience: '8 years experience',
+      experience_years: 8,
+      rating: 4.98,
+      reviews_count: 142,
+      hourly_rate: 1500,
+      bio: 'Head Strength Coach & Biomechanics Specialist. Focuses on barbell kinematics, progressive overload periodization, and athletic longevity.',
+      avatar_url: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400',
+      availability: ['06:00 AM', '08:30 AM', '11:00 AM', '04:00 PM', '06:00 PM']
+    },
     {
       id: 'coach-rahul',
       name: 'Rahul Sharma',
@@ -229,11 +254,25 @@ const getInitialState = (): DemoStoreState => ({
   ],
   bookings: [
     {
+      id: 'bk-akhil-1',
+      coach_id: 'coach-akhil',
+      coach_name: 'Akhil Gandloji',
+      member_name: 'Agasthya Gade',
+      member_email: 'gadeagasthya551@gmail.com',
+      date: 'Today',
+      time: '08:30 AM',
+      time_slot: '08:30 AM',
+      status: 'CONFIRMED',
+      notes: '1-on-1 Kinetic Assessment & Barbell Mechanics Audit'
+    },
+    {
       id: 'bk-1',
       coach_id: 'coach-rahul',
       coach_name: 'Rahul Sharma',
+      member_name: 'Marcus Vance',
       date: 'Today',
       time: '6:00 PM',
+      time_slot: '6:00 PM',
       status: 'CONFIRMED',
       notes: '1-on-1 Upper Body Biomechanics Assessment'
     }
@@ -310,6 +349,19 @@ const getInitialState = (): DemoStoreState => ({
   },
   notifications: [
     {
+      id: 'notif-coach-akhil-1',
+      title: '🔥 New Session Booked: Agasthya Gade',
+      message: 'Agasthya Gade booked a 1-on-1 Kinetic Assessment session with you for Today at 08:30 AM.',
+      time: '10m ago',
+      read: false,
+      type: 'BOOKING',
+      recipient_role: 'COACH',
+      recipient_id: 'coach-akhil',
+      athlete_name: 'Agasthya Gade',
+      date: 'Today',
+      time_slot: '08:30 AM'
+    },
+    {
       id: 'notif-1',
       title: 'Workout Reminder',
       message: 'Upper Body // Strength protocol scheduled for today (75 MIN).',
@@ -383,13 +435,31 @@ class MockStore {
   }
 
   private loadState(): DemoStoreState {
+    const initial = getInitialState();
     try {
       const saved = localStorage.getItem(DEMO_CONFIG.storeKey);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (parsed && Array.isArray(parsed.coaches)) {
+          // Always ensure Coach Akhil is present at the front
+          const hasAkhil = parsed.coaches.some((c: any) => c.id === 'coach-akhil' || c.name?.includes('Akhil'));
+          if (!hasAkhil) {
+            parsed.coaches = [...initial.coaches.filter(c => c.id === 'coach-akhil'), ...parsed.coaches];
+          }
+          if (Array.isArray(parsed.notifications)) {
+            const hasCoachNotif = parsed.notifications.some((n: any) => n.id?.includes('coach-akhil'));
+            if (!hasCoachNotif) {
+              parsed.notifications = [
+                ...initial.notifications.filter(n => n.id?.includes('coach-akhil')),
+                ...parsed.notifications
+              ];
+            }
+          }
+          this.saveState(parsed);
+          return parsed;
+        }
       }
     } catch (_) {}
-    const initial = getInitialState();
     this.saveState(initial);
     return initial;
   }

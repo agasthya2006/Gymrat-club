@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GymRat Club — Sanctuary</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF5500',
+              orangeGlow: '#FF6600',
+              amber: '#FFAA00',
+              dark: '#070709',
+              card: '#0D0D11',
+              border: '#27272A',
+            }
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @keyframes spinClockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spinCounterClockwise {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.5; transform: scale(0.96); }
+      50% { opacity: 0.85; transform: scale(1.04); }
+    }
+    @keyframes satelliteOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .orbit-cw-fast { transform-origin: 250px 250px; animation: spinClockwise 18s linear infinite; }
+    .orbit-cw-slow { transform-origin: 250px 250px; animation: spinClockwise 36s linear infinite; }
+    .orbit-ccw { transform-origin: 250px 250px; animation: spinCounterClockwise 26s linear infinite; }
+    .pulse-glow { transform-origin: 250px 250px; animation: pulseAura 4s ease-in-out infinite; }
+    .satellite-track { transform-origin: 250px 250px; animation: satelliteOrbit 14s linear infinite; }
+
+    /* Custom scrollbar reset */
+    ::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-[#070709] text-white font-sans antialiased min-h-screen relative overflow-hidden flex flex-col justify-between select-none selection:bg-[#FF5500] selection:text-white">
+
+  <!-- Cinematic Powerlifter Atmospheric Background -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <img src="hero_bg.png" onerror="this.src='hero_bg.jpg'" alt="Athletic Sanctuary Background" class="w-full h-full object-cover object-center opacity-65 filter contrast-110 brightness-90"/>
+    <!-- Subtle Vignette Frame for Edge Integration -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-black/25 to-[#070709]/75"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(7,7,9,0.75)_100%)]"></div>
+  </div>
+
+  <!-- Subtle Ambient Background Glows & Dot Grid -->
+  <div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(#27272A_1px,transparent_1px)] [background-size:28px_28px] opacity-20"></div>
+  <div class="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+    <div class="w-[620px] h-[620px] rounded-full bg-[#E1601B]/14 blur-[130px] animate-pulse"></div>
+    <div class="absolute w-[320px] h-[320px] rounded-full bg-[#E1601B]/18 blur-[80px]"></div>
+  </div>
+
+  <!-- 1. CLEAN TOP HEADER -->
+  <header class="relative z-20 w-full px-6 md:px-12 py-6 flex items-center justify-between">
+    <!-- Left: Protocol & Version Readout -->
+    <div class="flex items-center gap-3">
+      <div class="relative flex items-center justify-center">
+        <span class="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[#FF5500] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#FF5500] shadow-[0_0_8px_#FF5500]"></span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-mono text-xs text-[#A1A1AA] tracking-[0.2em] uppercase font-semibold">SYSTEM // PROTOCOL</span>
+        <span class="font-display text-sm text-white tracking-widest font-bold">GR-CLUB.V3.4 <span class="text-[#FF5500] [text-shadow:0_0_12px_rgba(255,85,0,0.6)]">[LIVE]</span></span>
+      </div>
+    </div>
+
+    <!-- Right: Minimalist Tactical Ghost Buttons -->
+    <div class="flex items-center gap-3">
+      <button class="hidden sm:flex items-center gap-2 px-4 py-2 bg-[#0D0D11]/70 hover:bg-[#18181B] border border-[#27272A] hover:border-[#3F3F46] transition-all duration-200 rounded-lg text-zinc-300 font-mono text-xs tracking-wider shadow-sm" onclick="location.reload()">
+        <span class="material-symbols-outlined text-[15px] text-[#FF5500]">sync</span>
+        <span>REPLAY INTRO</span>
+      </button>
+      <button class="flex items-center gap-2 px-4 py-2 bg-[#0D0D11]/70 hover:bg-[#18181B] border border-[#27272A] hover:border-[#FF5500] hover:shadow-[0_0_15px_rgba(255,85,0,0.25)] transition-all duration-200 rounded-lg text-white font-mono text-xs tracking-wider group shadow-sm">
+        <span>SKIP TO SIGN IN</span>
+        <span class="material-symbols-outlined text-[15px] text-[#FF5500] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. CENTRAL HERO ZONE: PERFECTLY CENTERED EMBLEM + GLOWING ORBITAL RINGS -->
+  <main class="relative z-10 flex flex-col items-center justify-center my-auto w-full max-w-4xl mx-auto px-4 text-center">
+    
+    <!-- Central Assembly Container -->
+    <div class="relative flex items-center justify-center w-[480px] h-[480px] max-w-full">
+      
+      <!-- High-Intensity Background Radial Scrim -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle,rgba(255,85,0,0.2)_0%,rgba(255,85,0,0.03)_55%,transparent_75%)] rounded-full pointer-events-none"></div>
+
+      <!-- Concentric Rotating Orbital Rings (Clean - No clutter text) -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none drop-shadow-[0_0_35px_rgba(255,85,0,0.4)]" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur1" />
+            <feGaussianBlur stdDeviation="12" result="blur2" />
+            <feMerge>
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur1" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Ambient Pulsing Glow Circle -->
+        <circle class="pulse-glow" cx="250" cy="250" r="230" fill="none" stroke="#FF5500" stroke-width="1" opacity="0.15" />
+
+        <!-- Outer Segmented Ring (Slow Clockwise) -->
+        <g class="orbit-cw-slow">
+          <circle cx="250" cy="250" r="220" fill="none" stroke="#FF5500" stroke-width="1.5" stroke-dasharray="14 12 4 12" opacity="0.45" />
+          <circle cx="250" cy="250" r="212" fill="none" stroke="#FFA040" stroke-width="1" stroke-dasharray="3 9" opacity="0.3" />
+          <!-- Symmetrical Cardinal Accent Ticks -->
+          <circle cx="250" cy="30" r="3" fill="#FF5500" />
+          <circle cx="470" cy="250" r="3" fill="#FF5500" />
+          <circle cx="250" cy="470" r="3" fill="#FF5500" />
+          <circle cx="30" cy="250" r="3" fill="#FF5500" />
+        </g>
+
+        <!-- Mid Segmented Telemetry Ring (Counter-Clockwise) -->
+        <g class="orbit-ccw">
+          <circle cx="250" cy="250" r="185" fill="none" stroke="#FF6600" stroke-width="2.5" stroke-dasharray="45 25 12 25" filter="url(#orangeGlow)" opacity="0.65" />
+          <circle cx="250" cy="250" r="172" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="4 8" opacity="0.25" />
+          <!-- Orbiting Rectangular Pips -->
+          <rect x="247" y="65" width="6" height="5" rx="1" fill="#FF5500" />
+          <rect x="247" y="430" width="6" height="5" rx="1" fill="#FF5500" />
+          <rect x="65" y="247" width="5" height="6" rx="1" fill="#FFFFFF" opacity="0.8" />
+          <rect x="430" y="247" width="5" height="6" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </g>
+
+        <!-- Inner High-Velocity Dash Ring (Fast Clockwise) -->
+        <g class="orbit-cw-fast">
+          <circle cx="250" cy="250" r="150" fill="none" stroke="#FFAA00" stroke-width="2" stroke-dasharray="28 14 6 14" opacity="0.75" />
+          <circle cx="395" cy="250" r="3" fill="#FFEEDD" />
+          <circle cx="105" cy="250" r="3" fill="#FFEEDD" />
+        </g>
+
+        <!-- Orbiting Satellite Node -->
+        <g class="satellite-track">
+          <circle cx="435" cy="250" r="4.5" fill="#FFFFFF" filter="url(#orangeGlow)" />
+          <circle cx="435" cy="250" r="10" fill="none" stroke="#FF5500" stroke-width="1.5" opacity="0.7" />
+        </g>
+      </svg>
+
+      <!-- Center Metallic Glow Rim & Authentic Masked Emblem -->
+      <div class="relative z-10 w-[240px] h-[240px] md:w-[260px] md:h-[260px] rounded-full p-1.5 bg-gradient-to-tr from-[#FF3D00] via-[#FF5500] to-[#FFAA00] shadow-[0_0_50px_rgba(255,85,0,0.55),inset_0_0_20px_rgba(255,170,0,0.3)] flex items-center justify-center transition-transform duration-300 hover:scale-[1.03]">
+        <div class="w-full h-full rounded-full bg-[#0D0D11] p-1 flex items-center justify-center overflow-hidden border border-[#FF6600]/80">
+          <img src="gymrat_badge.png" alt="GymRat Club Logo" class="w-full h-full object-cover rounded-full drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"/>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. TYPOGRAPHY & CALL TO ACTION -->
+    <div class="mt-4 flex flex-col items-center">
+      <!-- Main Brand Headline -->
+      <div class="flex items-center justify-center select-none">
+        <h1 class="font-display text-5xl md:text-7xl text-white uppercase font-bold tracking-wider drop-shadow-md">GYMRAT</h1>
+        <span class="font-display text-5xl md:text-7xl text-[#FF5500] uppercase font-bold tracking-wider ml-3.5 drop-shadow-[0_0_35px_rgba(255,85,0,0.7)] [text-shadow:0_0_35px_rgba(255,85,0,0.85)]">CLUB</span>
+      </div>
+
+      <!-- Tagline -->
+      <div class="mt-2.5 flex items-center gap-3 font-mono text-xs md:text-sm text-[#A1A1AA] tracking-[0.3em] uppercase font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+        <span>YOUR GYM</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+        <span>YOUR JOURNEY</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF5500] shadow-[0_0_6px_#FF5500]"></span>
+      </div>
+
+      <!-- High-Energy Tactical Pill Button (Navigates with 3D Dumbbell Loading Transition) -->
+      <button onclick="launchSanctuary()" class="mt-7 group relative inline-flex items-center justify-center gap-3 px-9 py-3.5 bg-gradient-to-r from-[#E1601B] to-[#FF7728] hover:from-[#F06A22] hover:to-[#FF8838] active:scale-[0.98] text-white font-display text-lg md:text-xl font-bold uppercase tracking-wider rounded-full shadow-[0_0_30px_rgba(225,96,27,0.5)] hover:shadow-[0_0_45px_rgba(225,96,27,0.8)] transition-all duration-200 border border-white/20 cursor-pointer">
+        <span>ENTER SANCTUARY</span>
+        <span class="px-2 py-0.5 rounded-full bg-black/30 text-white/90 text-xs font-mono font-semibold">02</span>
+        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">keyboard_double_arrow_right</span>
+      </button>
+
+      <!-- Micro-interaction Helper -->
+      <div class="mt-3.5 flex items-center gap-2 font-mono text-[11px] text-zinc-500 tracking-wider">
+        <span>TAP BUTTON OR PRESS</span>
+        <kbd class="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 text-[10px] font-semibold">ENTER</kbd>
+        <span>TO PROCEED</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 4. CLEAN FOOTER TELEMETRY -->
+  <footer class="relative z-20 w-full px-6 md:px-12 py-5 flex flex-col sm:flex-row items-center justify-between text-zinc-500 font-mono text-xs border-t border-zinc-800/40 bg-[#070709]/80 backdrop-blur-sm gap-3 sm:gap-0">
+    <div class="flex items-center gap-2">
+      <span class="flex gap-0.5 items-end h-3">
+        <span class="w-0.5 h-3 bg-[#E1601B] animate-pulse"></span>
+        <span class="w-0.5 h-2 bg-[#E1601B]/70"></span>
+        <span class="w-0.5 h-3.5 bg-[#E1601B]"></span>
+        <span class="w-0.5 h-1.5 bg-[#E1601B]/60"></span>
+      </span>
+      <span class="text-zinc-400">ATHLETIC AUDIO ENGINE</span>
+      <span class="text-zinc-600">//</span>
+      <span class="text-[#E1601B] font-semibold">ARMED & SYNCED</span>
+    </div>
+
+    <div class="text-center text-zinc-400">
+      LOC: <span class="text-white">PR-CORE LABS</span> &nbsp;|&nbsp; SESSION: <span class="text-[#E1601B]">0x9924-ALPHA</span> &nbsp;|&nbsp; FPS: <span class="text-white">120.0</span>
+    </div>
+
+    <div class="flex items-center gap-1.5 text-zinc-400">
+      <span class="material-symbols-outlined text-[15px] text-[#E1601B]">verified_user</span>
+      <span>TIER 1 ATHLETIC NETWORK</span>
+    </div>
+  </footer>
+
+  <!-- FULLSCREEN TACTICAL 3D DUMBBELL LOADING OVERLAY -->
+  <div id="loader-overlay" class="fixed inset-0 z-50 bg-[#070709]/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative flex flex-col items-center justify-center">
+      
+      <!-- Outer Glowing Rotating Radar Ring -->
+      <div class="w-48 h-48 rounded-full border-2 border-dashed border-[#E1601B]/50 animate-spin p-2 flex items-center justify-center">
+        <!-- Inner Circular Portal Housing the 3D Dumbbell Video -->
+        <div class="w-full h-full rounded-full border-2 border-[#E1601B] shadow-[0_0_40px_rgba(225,96,27,0.7)] overflow-hidden bg-white flex items-center justify-center relative p-3">
+          <video id="loader-video" class="w-full h-full object-contain" autoplay loop muted playsinline>
+            <source src="dumbbell_loader.mp4" type="video/mp4">
+            <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/dumbbell-animation-gif-download-8083241.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Telemetry Text & Dynamic Progress Bar -->
+      <div class="mt-8 flex flex-col items-center gap-2.5 text-center">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#E1601B] animate-ping"></span>
+          <span class="font-display text-lg tracking-[0.2em] text-white uppercase font-bold">INITIALIZING ARENA SANCTUARY</span>
+        </div>
+        
+        <div class="w-64 h-1.5 bg-[#1E1F28] rounded-full overflow-hidden mt-1 border border-zinc-800">
+          <div id="loading-bar" class="h-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] shadow-[0_0_12px_#E1601B] transition-all duration-150 w-0"></div>
+        </div>
+
+        <span id="loading-status" class="font-mono text-xs text-zinc-400 tracking-widest mt-1">CALIBRATING BIOMETRICS... 0%</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Transition to Sanctuary with 3D Dumbbell Loader
+    function launchSanctuary() {
+      const overlay = document.getElementById('loader-overlay');
+      const bar = document.getElementById('loading-bar');
+      const status = document.getElementById('loading-status');
+      const video = document.getElementById('loader-video');
+
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      if (video) video.play();
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 10;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          bar.style.width = '100%';
+          status.innerText = 'ARENA ACCESS GRANTED // 100%';
+          status.classList.add('text-[#E1601B]', 'font-bold');
+
+          setTimeout(() => {
+            window.location.href = 'role_selection.html';
+          }, 350);
+        } else {
+          bar.style.width = progress + '%';
+          if (progress < 40) {
+            status.innerText = 'CALIBRATING BIOMETRICS... ' + progress + '%';
+          } else if (progress < 80) {
+            status.innerText = 'SYNCHRONIZING TELEMETRY... ' + progress + '%';
+          } else {
+            status.innerText = 'AUTHENTICATING ATHLETE CLEARANCE... ' + progress + '%';
+          }
+        }
+      }, 120);
+    }
+
+    // Keyboard 'Enter' shortcut handler
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        launchSanctuary();
+      }
+    });
+  </script>
+</body>
+</html>

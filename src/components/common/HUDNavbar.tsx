@@ -22,8 +22,10 @@ import {
   TrendingUp, 
   QrCode,
   CheckCircle2,
+  Check,
   Award
 } from 'lucide-react';
+import { mockNotificationService } from '../../demo/mockServices';
 import { loadStreakData } from '../../services/streakService';
 
 export const HUDNavbar: React.FC = () => {
@@ -55,7 +57,16 @@ export const HUDNavbar: React.FC = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const streakDays = role === 'MEMBER' ? liveStreak : ((profile as any)?.streak_days || 14);
-  const unreadNotifsCount = storeState.notifications.filter(n => !n.read).length;
+  const roleNotifications = storeState.notifications.filter(n => {
+    if (role === 'COACH') {
+      return n.recipient_role === 'COACH' || n.recipient_id === 'coach-akhil' || n.type === 'BOOKING';
+    }
+    if (role === 'MEMBER') {
+      return n.recipient_role === 'MEMBER' || !n.recipient_role;
+    }
+    return true;
+  });
+  const unreadNotifsCount = roleNotifications.filter(n => !n.read).length;
 
   const handleRoleSwitch = async (newRole: 'MEMBER' | 'COACH' | 'ADMIN') => {
     setShowProfileMenu(false);
@@ -121,7 +132,7 @@ export const HUDNavbar: React.FC = () => {
           {/* MOBILE RIGHT: DIRECT NOTIFICATIONS LINK */}
           <div className="flex md:hidden items-center gap-2">
             <Link
-              to="/member/notifications"
+              to={role === 'COACH' ? '/coach/bookings' : '/member/notifications'}
               className="relative p-2 bg-[#14151C] border border-[#27272A] rounded-lg text-zinc-300"
               aria-label="Notifications"
             >
@@ -167,27 +178,65 @@ export const HUDNavbar: React.FC = () => {
               {showNotifPopover && (
                 <div className="absolute right-0 mt-2 w-80 bg-[#14151C] border border-[#27272A] rounded-xl shadow-2xl p-4 z-50 text-xs">
                   <div className="flex items-center justify-between pb-2 border-b border-[#27272A]">
-                    <span className="font-display font-bold uppercase tracking-wider text-white">NOTIFICATIONS</span>
-                    <span className="text-[10px] font-mono text-[#FF5500]">{unreadNotifsCount} UNREAD</span>
+                    <span className="font-display font-bold uppercase tracking-wider text-white">
+                      {role === 'COACH' ? 'COACH NOTIFICATIONS' : 'NOTIFICATIONS'}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      {unreadNotifsCount > 0 && (
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            await mockNotificationService.markAllAsRead();
+                          }}
+                          className="text-[10px] font-mono text-[#FF5500] hover:underline cursor-pointer"
+                        >
+                          MARK ALL READ
+                        </button>
+                      )}
+                      <span className="text-[10px] font-mono text-zinc-400 font-bold">{unreadNotifsCount} NEW</span>
+                    </div>
                   </div>
-                  <div className="max-h-60 overflow-y-auto divide-y divide-[#27272A]/60 mt-2">
-                    {storeState.notifications.slice(0, 3).map(a => (
+                  <div className="max-h-64 overflow-y-auto divide-y divide-[#27272A]/60 mt-2">
+                    {roleNotifications.slice(0, 4).map(a => (
                       <div key={a.id} className="py-2.5">
                         <div className="flex items-center justify-between text-[10px] text-zinc-500 mb-1 font-mono">
-                          <span className="text-[#FF5500] uppercase font-bold">{a.type}</span>
+                          <span className={`uppercase font-bold ${a.recipient_role === 'COACH' ? 'text-amber-400 bg-amber-950/40 px-1 py-0.5 rounded border border-amber-500/30' : 'text-[#FF5500]'}`}>
+                            {a.recipient_role === 'COACH' ? 'COACH DISPATCH' : a.type}
+                          </span>
                           <span>{a.time}</span>
                         </div>
                         <div className="font-bold text-zinc-200">{a.title}</div>
                         <p className="text-[11px] text-zinc-400 font-sans mt-0.5 line-clamp-2">{a.message}</p>
+
+                        {!a.read && (
+                          <div className="mt-2 flex justify-end">
+                            <button
+                              type="button"
+                              onClick={async (e) => {
+                                e.stopPropagation();
+                                await mockNotificationService.markAsRead(a.id);
+                              }}
+                              className="px-2 py-1 bg-[#070709] hover:bg-[#1E1F28] border border-zinc-800 hover:border-[#FF5500] text-zinc-300 hover:text-white rounded text-[10px] font-mono uppercase tracking-wider flex items-center gap-1 transition-colors cursor-pointer"
+                            >
+                              <Check className="w-3 h-3 text-[#FF5500]" />
+                              <span>{role === 'COACH' ? 'Mark Read & Confirm' : 'Mark as Read'}</span>
+                            </button>
+                          </div>
+                        )}
                       </div>
                     ))}
+                    {roleNotifications.length === 0 && (
+                      <div className="py-4 text-center text-zinc-500 font-mono text-xs">
+                        NO NEW NOTIFICATIONS
+                      </div>
+                    )}
                   </div>
                   <Link
-                    to="/member/notifications"
+                    to={role === 'COACH' ? '/coach/bookings' : '/member/notifications'}
                     onClick={() => setShowNotifPopover(false)}
                     className="block text-center mt-3 pt-2 border-t border-[#27272A] text-xs font-mono text-[#E1601B] hover:text-[#FFA055]"
                   >
-                    VIEW ALL NOTIFICATIONS →
+                    {role === 'COACH' ? 'VIEW ALL COACH BOOKINGS →' : 'VIEW ALL NOTIFICATIONS →'}
                   </Link>
                 </div>
               )}

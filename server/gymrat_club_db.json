@@ -1,4 +1,4 @@
-export const initialMockDb = {
+{
   "users": [
     {
       "id": "usr-member-1",
@@ -98,7 +98,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 100-2000",
       "avatar_url": "https://images.unsplash.com/photo-1500000000000?w=400",
-      "created_at": "2026-09-25T09:53:51.824Z"
+      "created_at": "2026-10-02T11:10:52.559Z"
     },
     {
       "id": "usr-member-3",
@@ -108,7 +108,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 123-2011",
       "avatar_url": "https://images.unsplash.com/photo-1500000100000?w=400",
-      "created_at": "2026-09-22T09:53:51.825Z"
+      "created_at": "2026-09-29T11:10:52.560Z"
     },
     {
       "id": "usr-member-4",
@@ -118,7 +118,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 146-2022",
       "avatar_url": "https://images.unsplash.com/photo-1500000200000?w=400",
-      "created_at": "2026-09-19T09:53:51.825Z"
+      "created_at": "2026-09-26T11:10:52.560Z"
     },
     {
       "id": "usr-member-5",
@@ -128,7 +128,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 169-2033",
       "avatar_url": "https://images.unsplash.com/photo-1500000300000?w=400",
-      "created_at": "2026-09-16T09:53:51.825Z"
+      "created_at": "2026-09-23T11:10:52.560Z"
     },
     {
       "id": "usr-member-6",
@@ -138,7 +138,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 192-2044",
       "avatar_url": "https://images.unsplash.com/photo-1500000400000?w=400",
-      "created_at": "2026-09-13T09:53:51.825Z"
+      "created_at": "2026-09-20T11:10:52.560Z"
     },
     {
       "id": "usr-member-7",
@@ -148,7 +148,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 215-2055",
       "avatar_url": "https://images.unsplash.com/photo-1500000500000?w=400",
-      "created_at": "2026-09-10T09:53:51.825Z"
+      "created_at": "2026-09-17T11:10:52.560Z"
     },
     {
       "id": "usr-member-8",
@@ -158,7 +158,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 238-2066",
       "avatar_url": "https://images.unsplash.com/photo-1500000600000?w=400",
-      "created_at": "2026-09-07T09:53:51.825Z"
+      "created_at": "2026-09-14T11:10:52.560Z"
     },
     {
       "id": "usr-member-9",
@@ -168,7 +168,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 261-2077",
       "avatar_url": "https://images.unsplash.com/photo-1500000700000?w=400",
-      "created_at": "2026-09-04T09:53:51.825Z"
+      "created_at": "2026-09-11T11:10:52.560Z"
     },
     {
       "id": "usr-member-10",
@@ -178,7 +178,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 284-2088",
       "avatar_url": "https://images.unsplash.com/photo-1500000800000?w=400",
-      "created_at": "2026-09-01T09:53:51.825Z"
+      "created_at": "2026-09-08T11:10:52.560Z"
     },
     {
       "id": "usr-member-11",
@@ -188,7 +188,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 307-2099",
       "avatar_url": "https://images.unsplash.com/photo-1500000900000?w=400",
-      "created_at": "2026-08-29T09:53:51.825Z"
+      "created_at": "2026-09-05T11:10:52.560Z"
     },
     {
       "id": "usr-member-12",
@@ -198,7 +198,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 330-2110",
       "avatar_url": "https://images.unsplash.com/photo-1500001000000?w=400",
-      "created_at": "2026-08-26T09:53:51.825Z"
+      "created_at": "2026-09-02T11:10:52.560Z"
     },
     {
       "id": "usr-member-13",
@@ -208,7 +208,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 353-2121",
       "avatar_url": "https://images.unsplash.com/photo-1500001100000?w=400",
-      "created_at": "2026-08-23T09:53:51.825Z"
+      "created_at": "2026-08-30T11:10:52.560Z"
     },
     {
       "id": "usr-member-14",
@@ -218,7 +218,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 376-2132",
       "avatar_url": "https://images.unsplash.com/photo-1500001200000?w=400",
-      "created_at": "2026-08-20T09:53:51.825Z"
+      "created_at": "2026-08-27T11:10:52.560Z"
     },
     {
       "id": "usr-member-15",
@@ -228,7 +228,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 399-2143",
       "avatar_url": "https://images.unsplash.com/photo-1500001300000?w=400",
-      "created_at": "2026-08-17T09:53:51.825Z"
+      "created_at": "2026-08-24T11:10:52.560Z"
     },
     {
       "id": "usr-member-16",
@@ -238,7 +238,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 422-2154",
       "avatar_url": "https://images.unsplash.com/photo-1500001400000?w=400",
-      "created_at": "2026-08-14T09:53:51.825Z"
+      "created_at": "2026-08-21T11:10:52.560Z"
     },
     {
       "id": "usr-member-17",
@@ -248,7 +248,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 445-2165",
       "avatar_url": "https://images.unsplash.com/photo-1500001500000?w=400",
-      "created_at": "2026-08-11T09:53:51.825Z"
+      "created_at": "2026-08-18T11:10:52.560Z"
     },
     {
       "id": "usr-member-18",
@@ -258,7 +258,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 468-2176",
       "avatar_url": "https://images.unsplash.com/photo-1500001600000?w=400",
-      "created_at": "2026-08-08T09:53:51.825Z"
+      "created_at": "2026-08-15T11:10:52.560Z"
     },
     {
       "id": "usr-member-19",
@@ -268,7 +268,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 491-2187",
       "avatar_url": "https://images.unsplash.com/photo-1500001700000?w=400",
-      "created_at": "2026-08-05T09:53:51.825Z"
+      "created_at": "2026-08-12T11:10:52.560Z"
     },
     {
       "id": "usr-member-20",
@@ -278,7 +278,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 514-2198",
       "avatar_url": "https://images.unsplash.com/photo-1500001800000?w=400",
-      "created_at": "2026-08-02T09:53:51.825Z"
+      "created_at": "2026-08-09T11:10:52.560Z"
     },
     {
       "id": "usr-member-21",
@@ -288,7 +288,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 537-2209",
       "avatar_url": "https://images.unsplash.com/photo-1500001900000?w=400",
-      "created_at": "2026-07-30T09:53:51.825Z"
+      "created_at": "2026-08-06T11:10:52.560Z"
     },
     {
       "id": "usr-member-22",
@@ -298,7 +298,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 560-2220",
       "avatar_url": "https://images.unsplash.com/photo-1500002000000?w=400",
-      "created_at": "2026-07-27T09:53:51.825Z"
+      "created_at": "2026-08-03T11:10:52.560Z"
     },
     {
       "id": "usr-member-23",
@@ -308,7 +308,7 @@ export const initialMockDb = {
       "role": "MEMBER",
       "phone": "+1 (555) 583-2231",
       "avatar_url": "https://images.unsplash.com/photo-1500002100000?w=400",
-      "created_at": "2026-07-24T09:53:51.825Z"
+      "created_at": "2026-07-31T11:10:52.560Z"
     }
   ],
   "member_profiles": [
@@ -327,7 +327,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-002",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 1,
       "total_workouts": 12,
       "assigned_coach_id": "usr-coach-1"
@@ -337,7 +337,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-003",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 4,
       "total_workouts": 19,
       "assigned_coach_id": "usr-coach-3"
@@ -347,7 +347,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-004",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 7,
       "total_workouts": 26,
       "assigned_coach_id": "usr-coach-1"
@@ -357,7 +357,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-005",
       "status": "EXPIRING",
       "plan_id": "plan-basic",
-      "plan_expiry": "2026-10-02T09:53:51.825Z",
+      "plan_expiry": "2026-10-09T11:10:52.560Z",
       "streak_days": 10,
       "total_workouts": 33,
       "assigned_coach_id": "usr-coach-2"
@@ -367,7 +367,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-006",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 13,
       "total_workouts": 40,
       "assigned_coach_id": "usr-coach-1"
@@ -377,7 +377,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-007",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 16,
       "total_workouts": 47,
       "assigned_coach_id": "usr-coach-3"
@@ -387,7 +387,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-008",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 19,
       "total_workouts": 54,
       "assigned_coach_id": "usr-coach-1"
@@ -397,7 +397,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-009",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 1,
       "total_workouts": 61,
       "assigned_coach_id": "usr-coach-3"
@@ -407,7 +407,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-010",
       "status": "EXPIRING",
       "plan_id": "plan-elite",
-      "plan_expiry": "2026-10-02T09:53:51.825Z",
+      "plan_expiry": "2026-10-09T11:10:52.560Z",
       "streak_days": 4,
       "total_workouts": 68,
       "assigned_coach_id": "usr-coach-1"
@@ -417,7 +417,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-011",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 7,
       "total_workouts": 75,
       "assigned_coach_id": "usr-coach-2"
@@ -427,7 +427,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-012",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 10,
       "total_workouts": 82,
       "assigned_coach_id": "usr-coach-1"
@@ -437,7 +437,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-013",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 13,
       "total_workouts": 89,
       "assigned_coach_id": "usr-coach-3"
@@ -447,7 +447,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-014",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 16,
       "total_workouts": 96,
       "assigned_coach_id": "usr-coach-1"
@@ -457,7 +457,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-015",
       "status": "EXPIRING",
       "plan_id": "plan-pro",
-      "plan_expiry": "2026-10-02T09:53:51.825Z",
+      "plan_expiry": "2026-10-09T11:10:52.560Z",
       "streak_days": 19,
       "total_workouts": 103,
       "assigned_coach_id": "usr-coach-3"
@@ -467,7 +467,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-016",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 1,
       "total_workouts": 110,
       "assigned_coach_id": "usr-coach-1"
@@ -477,7 +477,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-017",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 4,
       "total_workouts": 117,
       "assigned_coach_id": "usr-coach-2"
@@ -487,7 +487,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-018",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 7,
       "total_workouts": 124,
       "assigned_coach_id": "usr-coach-1"
@@ -497,7 +497,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-019",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 10,
       "total_workouts": 131,
       "assigned_coach_id": "usr-coach-3"
@@ -507,7 +507,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-020",
       "status": "EXPIRING",
       "plan_id": "plan-basic",
-      "plan_expiry": "2026-10-02T09:53:51.825Z",
+      "plan_expiry": "2026-10-09T11:10:52.560Z",
       "streak_days": 13,
       "total_workouts": 138,
       "assigned_coach_id": "usr-coach-1"
@@ -517,7 +517,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-021",
       "status": "ACTIVE",
       "plan_id": "plan-pro",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 16,
       "total_workouts": 145,
       "assigned_coach_id": "usr-coach-3"
@@ -527,7 +527,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-022",
       "status": "ACTIVE",
       "plan_id": "plan-elite",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 19,
       "total_workouts": 152,
       "assigned_coach_id": "usr-coach-1"
@@ -537,7 +537,7 @@ export const initialMockDb = {
       "athlete_code": "GRC-ATH-023",
       "status": "ACTIVE",
       "plan_id": "plan-basic",
-      "plan_expiry": "2027-01-25T09:53:51.825Z",
+      "plan_expiry": "2027-02-01T11:10:52.560Z",
       "streak_days": 1,
       "total_workouts": 159,
       "assigned_coach_id": "usr-coach-2"
@@ -1489,7 +1489,7 @@ export const initialMockDb = {
       "member_name": "Marcus \"Titan\" Vance",
       "plan_id": "plan-elite",
       "plan_name": "TITAN ELITE OPS",
-      "amount": 5999,
+      "amount": 269,
       "date": "2026-09-01T08:00:00.000Z",
       "status": "SUCCESS",
       "receipt_no": "GRC-REC-90812"
@@ -1500,7 +1500,7 @@ export const initialMockDb = {
       "member_name": "Devon Ray",
       "plan_id": "plan-pro",
       "plan_name": "BLACK PROTOCOL",
-      "amount": 3499,
+      "amount": 159,
       "date": "2026-09-02T11:20:00.000Z",
       "status": "SUCCESS",
       "receipt_no": "GRC-REC-90813"
@@ -1511,7 +1511,7 @@ export const initialMockDb = {
       "member_name": "Carlos Morales",
       "plan_id": "plan-pro",
       "plan_name": "BLACK PROTOCOL",
-      "amount": 3499,
+      "amount": 159,
       "date": "2026-09-05T14:15:00.000Z",
       "status": "SUCCESS",
       "receipt_no": "GRC-REC-90814"
@@ -1522,7 +1522,7 @@ export const initialMockDb = {
       "member_name": "Hannah Abbott",
       "plan_id": "plan-basic",
       "plan_name": "STANDARD ARENA",
-      "amount": 1999,
+      "amount": 89,
       "date": "2026-09-10T16:45:00.000Z",
       "status": "SUCCESS",
       "receipt_no": "GRC-REC-90815"
@@ -1580,4 +1580,4 @@ export const initialMockDb = {
       "status": "ACTIVE"
     }
   ]
-};
+}

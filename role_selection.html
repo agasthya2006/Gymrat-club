@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>GymRat Club — Select Arena Role</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#E1601B',
+              orangeGlow: '#FF7728',
+              orangeLight: '#FFA055',
+              dark: '#070709',
+              surface: '#0D0D11',
+              card: '#14151C',
+              cardHigh: '#1E1F28',
+              border: '#27272A',
+            }
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; overscroll-behavior: none; }
+      ::-webkit-scrollbar { display: none; }
+    }
+    .active-card-glow {
+      box-shadow: 0 0 0 2px #E1601B, 0 10px 35px -5px rgba(225, 96, 27, 0.4) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#070709] text-white font-sans antialiased min-h-screen relative flex flex-col justify-between selection:bg-[#E1601B] selection:text-white select-none">
+
+  <!-- Ambient Glows & Subtle Grid -->
+  <div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(#27272A_1px,transparent_1px)] [background-size:28px_28px] opacity-20"></div>
+  <div class="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+    <div class="w-[700px] h-[500px] rounded-full bg-[#E1601B]/10 blur-[140px] animate-pulse"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col justify-between min-h-screen">
+    
+    <!-- 1. TOP SYSTEM TELEMETRY BAR -->
+    <header class="w-full flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-zinc-800/40">
+      <!-- Brand Lockup -->
+      <a href="index.html" class="flex items-center gap-3 group" title="Return to Portal">
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-[#14151C] border border-[#27272A] shadow-md overflow-hidden group-hover:border-[#E1601B] transition-colors">
+          <img src="gymrat_badge.png" alt="GymRat Mascot" class="w-9 h-9 object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"/>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-display text-lg tracking-wider uppercase text-white font-bold">GYMRAT</span>
+            <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#1E1F28] text-[#E1601B] border border-[#E1601B]/40 uppercase tracking-widest font-bold">PRO</span>
+          </div>
+          <span class="font-mono text-[10px] text-zinc-400 tracking-widest uppercase">PERFORMANCE PROTOCOL</span>
+        </div>
+      </a>
+
+      <!-- Step Counter / Progression HUD -->
+      <div class="flex flex-col items-center gap-2 w-full md:w-80">
+        <div class="flex items-center justify-between w-full font-mono text-[11px] text-zinc-400">
+          <span class="flex items-center gap-1.5 uppercase font-medium">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#E1601B] animate-ping"></span>
+            Stage 01 of 03
+          </span>
+          <span class="text-white font-semibold tracking-wider">Persona Protocol</span>
+        </div>
+        <!-- Progress Track (Stage 1 Active) -->
+        <div class="w-full h-1.5 bg-[#1E1F28] rounded-full overflow-hidden flex">
+          <div class="w-1/3 h-full bg-[#E1601B] rounded-full shadow-[0_0_12px_rgba(225,96,27,0.8)] transition-all duration-500"></div>
+          <div class="w-2/3 h-full bg-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-end gap-3 w-full md:w-auto">
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#14151C] hover:bg-[#1E1F28] text-zinc-400 hover:text-white font-mono text-xs border border-zinc-800 transition-colors" type="button">
+          <span class="material-symbols-outlined text-sm text-[#E1601B]">language</span>
+          <span>EN-US</span>
+        </button>
+        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#14151C] hover:bg-[#1E1F28] text-zinc-400 hover:text-white font-mono text-xs border border-zinc-800 transition-colors" type="button">
+          <span class="material-symbols-outlined text-sm text-[#E1601B]">help</span>
+          <span>SYS.HELP</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. MAIN HEADER & CONTEXT -->
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto pt-6 pb-4 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#14151C] border border-zinc-800 shadow-inner">
+        <span class="w-2 h-2 rounded-full bg-[#E1601B] animate-pulse"></span>
+        <span class="font-mono text-xs tracking-widest text-[#E1601B] uppercase font-semibold">Welcome to the Society</span>
+      </div>
+      
+      <h1 class="font-display text-5xl md:text-6xl uppercase tracking-tight text-white font-bold leading-none">
+        SELECT YOUR <span class="text-[#E1601B] drop-shadow-[0_0_28px_rgba(225,96,27,0.6)] [text-shadow:0_0_30px_rgba(225,96,27,0.7)]">ARENA ROLE</span>
+      </h1>
+      
+      <p class="font-sans text-sm md:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
+        Personalize your telemetry, scheduling matrix, athletic telemetry parameters, and gym terminal privileges.
+      </p>
+    </div>
+
+    <!-- 3. BENTO TACTICAL ROLE CARDS -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 relative my-auto py-4" id="role-selector-group">
+      
+      <!-- ROLE 1: MEMBER / ATHLETE (DEFAULT SELECTED) -->
+      <div class="role-card active-card-glow relative flex flex-col justify-between p-6 sm:p-8 rounded-xl bg-[#1E1F28] border border-[#E1601B]/50 cursor-pointer shadow-xl transition-all duration-300 transform lg:-translate-y-2 group" id="card-athlete" onclick="selectRole('athlete')">
+        <div class="absolute top-3 right-3 flex gap-1">
+          <span class="text-xs font-mono text-[#E1601B] font-bold">#01</span>
+        </div>
+        
+        <div>
+          <!-- Top Badging & Icon Row -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-[#14151C] border border-[#27272A] flex items-center justify-center text-[#E1601B] shadow-md group-hover:border-[#E1601B]/60 transition-colors">
+              <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1601B] text-white font-mono text-xs tracking-widest uppercase font-bold shadow-md shadow-[#E1601B]/30" id="badge-athlete">
+              <span class="material-symbols-outlined text-sm font-bold">check_circle</span>
+              Selected
+            </span>
+          </div>
+
+          <!-- Role Titles -->
+          <h2 class="font-display text-2xl uppercase text-white tracking-wide mb-1 font-bold">
+            Member / Athlete
+          </h2>
+          <p class="font-sans text-sm text-[#E1601B] font-medium mb-6">
+            Crush goals, log PRs &amp; book private coaches.
+          </p>
+
+          <!-- Feature Bullet Modules -->
+          <div class="space-y-3.5 mb-8 text-sm">
+            <div class="flex items-start gap-3 text-zinc-300">
+              <span class="material-symbols-outlined text-[#E1601B] text-lg mt-0.5">monitoring</span>
+              <span class="leading-tight">Daily kinetic workout telemetry &amp; PR load curves</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-300">
+              <span class="material-symbols-outlined text-[#E1601B] text-lg mt-0.5">nfc</span>
+              <span class="leading-tight">1-Tap ultra-speed RFID turnstile check-in</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-300">
+              <span class="material-symbols-outlined text-[#E1601B] text-lg mt-0.5">lock_clock</span>
+              <span class="leading-tight">Olympic rack &amp; recovery suite reservations</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-300">
+              <span class="material-symbols-outlined text-[#E1601B] text-lg mt-0.5">vital_signs</span>
+              <span class="leading-tight">Biometric sync via SmartBand &amp; Apple Health</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Micro Metric Preview -->
+        <div class="pt-4 bg-[#0D0D11]/70 -mx-6 sm:-mx-8 -mb-6 sm:-mb-8 p-6 rounded-b-xl flex items-center justify-between border-t border-zinc-800/60">
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-400">Current PR Streak</span>
+            <p class="font-display text-lg text-white font-bold">24 SESSIONS</p>
+          </div>
+          <div class="flex items-center text-[#E1601B] font-mono text-xs uppercase tracking-wider font-semibold">
+            Ready <span class="material-symbols-outlined text-base ml-1">chevron_right</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLE 2: COACH / TRAINER -->
+      <div class="role-card relative flex flex-col justify-between p-6 sm:p-8 rounded-xl bg-[#14151C] border border-[#27272A] hover:border-zinc-700 cursor-pointer shadow-lg transition-all duration-300 group" id="card-coach" onclick="selectRole('coach')">
+        <div class="absolute top-3 right-3 flex gap-1">
+          <span class="text-xs font-mono text-zinc-500">#02</span>
+        </div>
+
+        <div>
+          <!-- Top Badging & Icon Row -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-[#1E1F28] border border-[#27272A] flex items-center justify-center text-zinc-300 shadow-md group-hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-3xl">sports</span>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1F28] text-zinc-400 font-mono text-xs tracking-widest uppercase font-semibold" id="badge-coach">
+              Select
+            </span>
+          </div>
+
+          <!-- Role Titles -->
+          <h2 class="font-display text-2xl uppercase text-white tracking-wide mb-1 font-bold">
+            Certified Coach
+          </h2>
+          <p class="font-sans text-sm text-zinc-400 font-medium mb-6">
+            Manage client roster, build regimens &amp; log feedback.
+          </p>
+
+          <!-- Feature Bullet Modules -->
+          <div class="space-y-3.5 mb-8 text-sm">
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">calendar_month</span>
+              <span class="leading-tight">Automated booking diary &amp; real-time athlete sync</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">edit_note</span>
+              <span class="leading-tight">Pro program builder with dynamic RPE presets</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">chat</span>
+              <span class="leading-tight">Direct client line &amp; encrypted form check media</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">payments</span>
+              <span class="leading-tight">Automatic trainer commission &amp; payout ledger</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Micro Metric Preview -->
+        <div class="pt-4 bg-[#0D0D11]/40 -mx-6 sm:-mx-8 -mb-6 sm:-mb-8 p-6 rounded-b-xl flex items-center justify-between border-t border-zinc-800/40">
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-500">Active Roster Limit</span>
+            <p class="font-display text-lg text-white font-bold">45 ATHLETES</p>
+          </div>
+          <div class="flex items-center text-zinc-400 font-mono text-xs uppercase tracking-wider font-semibold">
+            Select <span class="material-symbols-outlined text-base ml-1">chevron_right</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLE 3: CLUB MANAGEMENT -->
+      <div class="role-card relative flex flex-col justify-between p-6 sm:p-8 rounded-xl bg-[#14151C] border border-[#27272A] hover:border-zinc-700 cursor-pointer shadow-lg transition-all duration-300 group" id="card-owner" onclick="selectRole('owner')">
+        <div class="absolute top-3 right-3 flex gap-1">
+          <span class="text-xs font-mono text-zinc-500">#03</span>
+        </div>
+
+        <div>
+          <!-- Top Badging & Icon Row -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-[#1E1F28] border border-[#27272A] flex items-center justify-center text-zinc-300 shadow-md group-hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1F28] text-zinc-400 font-mono text-xs tracking-widest uppercase font-semibold" id="badge-owner">
+              Select
+            </span>
+          </div>
+
+          <!-- Role Titles -->
+          <h2 class="font-display text-2xl uppercase text-white tracking-wide mb-1 font-bold">
+            Club Management
+          </h2>
+          <p class="font-sans text-sm text-zinc-400 font-medium mb-6">
+            Facility access hardware, staff rosters &amp; finances.
+          </p>
+
+          <!-- Feature Bullet Modules -->
+          <div class="space-y-3.5 mb-8 text-sm">
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">router</span>
+              <span class="leading-tight">IoT turnstile integration &amp; live occupancy radar</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">analytics</span>
+              <span class="leading-tight">ARR analytics, churn heatmaps &amp; recovery metrics</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">badge</span>
+              <span class="leading-tight">Floor supervisor scheduling &amp; security tiers</span>
+            </div>
+            <div class="flex items-start gap-3 text-zinc-400 group-hover:text-zinc-300 transition-colors">
+              <span class="material-symbols-outlined text-zinc-400 text-lg mt-0.5">point_of_sale</span>
+              <span class="leading-tight">Point of Sale &amp; automated beverage/gear inventory</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Micro Metric Preview -->
+        <div class="pt-4 bg-[#0D0D11]/40 -mx-6 sm:-mx-8 -mb-6 sm:-mb-8 p-6 rounded-b-xl flex items-center justify-between border-t border-zinc-800/40">
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-wider text-zinc-500">Multi-Venue Link</span>
+            <p class="font-display text-lg text-white font-bold">UNLIMITED HUBS</p>
+          </div>
+          <div class="flex items-center text-zinc-400 font-mono text-xs uppercase tracking-wider font-semibold">
+            Select <span class="material-symbols-outlined text-base ml-1">chevron_right</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. ACTION FOOTER & CALL TO ACTION -->
+    <footer class="w-full flex flex-col items-center gap-5 pt-4 pb-4">
+      <div class="w-full max-w-md flex flex-col items-center gap-3">
+        <button onclick="continueRoleAction()" class="w-full py-4 px-8 rounded-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] hover:from-[#F06A22] hover:to-[#FF8838] text-white font-display text-lg uppercase tracking-wider font-bold transition-all duration-200 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(225,96,27,0.5)] hover:shadow-[0_0_45px_rgba(225,96,27,0.7)] active:scale-[0.98] cursor-pointer" id="cta-button" type="button">
+          <span>Continue As Member Athlete</span>
+          <span class="material-symbols-outlined text-xl font-bold">arrow_forward</span>
+        </button>
+        
+        <div class="font-sans text-xs text-zinc-400 flex items-center gap-1.5">
+          <span>Already registered in the terminal?</span>
+          <a href="#signin" class="text-[#E1601B] font-semibold underline underline-offset-4 hover:text-[#FFA055] transition-colors">Sign in directly</a>
+        </div>
+      </div>
+
+      <!-- Trust Ledger Indicator -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-zinc-500 font-mono text-[11px] uppercase tracking-wider pt-2 border-t border-zinc-800/40 w-full">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[#E1601B] text-sm">verified</span>
+          <span>120,000+ Dedicated Athletes</span>
+        </div>
+        <span class="text-zinc-700">•</span>
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[#E1601B] text-sm">location_on</span>
+          <span>45 Global Training Arenas</span>
+        </div>
+        <span class="text-zinc-700">•</span>
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[#E1601B] text-sm">lock</span>
+          <span>End-to-End Cryptographic Telemetry</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT: INTERACTIVE SELECTION LOGIC -->
+  <script>
+    let currentSelected = 'athlete';
+
+    const roleConfig = {
+      athlete: {
+        buttonText: 'Continue As Member Athlete',
+      },
+      coach: {
+        buttonText: 'Continue As Certified Coach',
+      },
+      owner: {
+        buttonText: 'Continue As Club Management',
+      }
+    };
+
+    function selectRole(role) {
+      if (currentSelected === role) return;
+
+      // 1. Reset previous active card
+      const prevCard = document.getElementById(`card-${currentSelected}`);
+      const prevBadge = document.getElementById(`badge-${currentSelected}`);
+      if (prevCard && prevBadge) {
+        prevCard.classList.remove('active-card-glow', 'lg:-translate-y-2', 'bg-[#1E1F28]', 'border-[#E1601B]/50');
+        prevCard.classList.add('bg-[#14151C]', 'border-[#27272A]');
+
+        prevBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1F28] text-zinc-400 font-mono text-xs tracking-widest uppercase font-semibold';
+        prevBadge.innerHTML = 'Select';
+
+        const prevIcon = prevCard.querySelector('.w-14');
+        if (prevIcon) {
+          prevIcon.classList.remove('text-[#E1601B]');
+          prevIcon.classList.add('text-zinc-300');
+        }
+      }
+
+      // 2. Set new active card
+      currentSelected = role;
+      const newCard = document.getElementById(`card-${role}`);
+      const newBadge = document.getElementById(`badge-${role}`);
+      const ctaButton = document.getElementById('cta-button');
+
+      if (newCard && newBadge) {
+        newCard.classList.add('active-card-glow', 'lg:-translate-y-2', 'bg-[#1E1F28]', 'border-[#E1601B]/50');
+        newCard.classList.remove('bg-[#14151C]', 'border-[#27272A]');
+
+        newBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E1601B] text-white font-mono text-xs tracking-widest uppercase font-bold shadow-md shadow-[#E1601B]/30';
+        newBadge.innerHTML = '<span class="material-symbols-outlined text-sm font-bold">check_circle</span> Selected';
+
+        const newIcon = newCard.querySelector('.w-14');
+        if (newIcon) {
+          newIcon.classList.add('text-[#E1601B]');
+          newIcon.classList.remove('text-zinc-300');
+        }
+      }
+
+      // 3. Update main CTA button text
+      if (ctaButton) {
+        ctaButton.querySelector('span:first-child').innerText = roleConfig[role].buttonText;
+      }
+    }
+
+    function continueRoleAction() {
+      const overlay = document.getElementById('loader-overlay');
+      const bar = document.getElementById('loading-bar');
+      const status = document.getElementById('loading-status');
+      const video = document.getElementById('loader-video');
+
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      if (video) video.play();
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 12;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(interval);
+          bar.style.width = '100%';
+          status.innerText = 'ROLE CONFIGURED // LOADING STAGE 02 MATRIX...';
+          status.classList.add('text-[#E1601B]', 'font-bold');
+
+          setTimeout(() => {
+            if (currentSelected === 'owner') {
+              window.location.href = 'admin_access.html';
+            } else if (currentSelected === 'athlete') {
+              window.location.href = 'athlete_onboarding.html';
+            } else if (currentSelected === 'coach') {
+              window.location.href = 'coach_onboarding.html';
+            }
+          }, 500);
+        } else {
+          bar.style.width = progress + '%';
+          status.innerText = 'CONFIGURING ' + currentSelected.toUpperCase() + ' PRIVILEGES... ' + progress + '%';
+        }
+      }, 120);
+    }
+  </script>
+
+  <!-- FULLSCREEN TACTICAL 3D DUMBBELL LOADING OVERLAY -->
+  <div id="loader-overlay" class="fixed inset-0 z-50 bg-[#070709]/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative flex flex-col items-center justify-center">
+      <div class="w-48 h-48 rounded-full border-2 border-dashed border-[#E1601B]/50 animate-spin p-2 flex items-center justify-center">
+        <div class="w-full h-full rounded-full border-2 border-[#E1601B] shadow-[0_0_40px_rgba(225,96,27,0.7)] overflow-hidden bg-white flex items-center justify-center relative p-3">
+          <video id="loader-video" class="w-full h-full object-contain" autoplay loop muted playsinline>
+            <source src="dumbbell_loader.mp4" type="video/mp4">
+            <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/dumbbell-animation-gif-download-8083241.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col items-center gap-2.5 text-center">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-[#E1601B] animate-ping"></span>
+          <span class="font-display text-lg tracking-[0.2em] text-white uppercase font-bold">SYNCHRONIZING ARENA ROLE</span>
+        </div>
+        <div class="w-64 h-1.5 bg-[#1E1F28] rounded-full overflow-hidden mt-1 border border-zinc-800">
+          <div id="loading-bar" class="h-full bg-gradient-to-r from-[#E1601B] to-[#FF7728] shadow-[0_0_12px_#E1601B] transition-all duration-150 w-0"></div>
+        </div>
+        <span id="loading-status" class="font-mono text-xs text-zinc-400 tracking-widest mt-1">ESTABLISHING TELEMETRY... 0%</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
