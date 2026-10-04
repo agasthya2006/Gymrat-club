@@ -15,7 +15,7 @@
 
 <br/>
 
-**[🌐 Live Web App](https://gymrat-club-04.web.app)** • **[🚀 Quickstart](#-getting-started-locally)** • **[🔑 Verified Demo Credentials](#-verified-demo-credentials)** • **[📈 Development Architecture](#-development-milestones--commit-history)** • **[⚡ Implemented Features](#-implemented-features-all-phases-complete)**
+**[🌐 Live Web App](https://gymrat-club-04.web.app)** • **[🚀 Quickstart](#-getting-started-locally)** • **[🔑 Verified Demo Credentials](#-verified-demo-credentials)** • **[📈 Development Architecture](#-development-milestones--commit-history)** • **[⚡ Implemented Features](#-implemented-features-parts-17-complete)**
 
 <br/>
 
@@ -25,7 +25,7 @@
 
 ## 📖 Executive Overview
 
-**GYMRAT CLUB** is a full-stack, enterprise-grade multi-gym fitness operating system engineered to eliminate fragmentation across the fitness ecosystem. Built for serious lifters, certified strength coaches, and multi-location facility operators, it unifies fragmented single-gym memberships into a distributed multi-arena network.
+**GYMRAT CLUB** is a full-stack, enterprise-grade multi-gym fitness operating system engineered to eliminate fragmentation across the modern fitness ecosystem. Built for dedicated athletes, certified strength coaches, and multi-location facility operators, it unifies fragmented single-gym memberships into a distributed multi-arena network.
 
 The platform fuses a **Tactical Dark Void HUD aesthetic** with **zero dead buttons**, live turnstile attendance telemetry, certified equipment maintenance logs, ISO cleanliness auditing, dual Firebase/Supabase authentication, and multi-tier memberships denominated in Indian Rupees (`₹`).
 
@@ -51,7 +51,7 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
 | **Phase 4** | [`bb01cd8`](https://github.com/agasthya2006/Gymrat-club/commit/bb01cd8) | Completed | **Member Portal & QR Check-In**: Reactive demo pub/sub store, HUD navigation shell, athlete onboarding, member dashboard with live crowd radar, workout stopwatch logger, optical QR scanner. |
 | **Phase 5** | [`0c9d391`](https://github.com/agasthya2006/Gymrat-club/commit/0c9d391) | Completed | **Gamification & Passes**: Streak calculation engine, achievement badges, tiered pass purchasing (₹1,499 - ₹7,999), and class scheduling. |
 | **Phase 6** | [`0d5cc03`](https://github.com/agasthya2006/Gymrat-club/commit/0d5cc03) | Completed | **Coach & Admin Command Centers, Backend REST Engine & Coach Akhil 2-Way Booking Notifications**: Express.js REST backend, Supabase & Firebase auth, Coach & Owner portals, and private session booking with instant confirmation dispatch. |
-| **Phase 7** | [`7e798fd`](https://github.com/agasthya2006/Gymrat-club/commit/7e798fd) | Completed | **Production Cloud Deployment, Privacy-First Auth, Dynamic Personalization & Notification Segregation**: Live Firebase Hosting, zero autofill login security, athlete Agasthya Gade binding, recursive duplicate notification elimination, and clean role segregation across coaches and members. |
+| **Phase 7** | [`340efae`](https://github.com/agasthya2006/Gymrat-club/commit/340efae) | Completed | **Production Cloud Deployment, Privacy-First Auth, Dynamic Personalization & Notification Segregation**: Live Firebase Hosting, zero autofill login security, athlete Agasthya Gade binding, recursive duplicate notification elimination, and clean role segregation across coaches and members. |
 
 ---
 
@@ -84,6 +84,7 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
 - **Supabase Integration**: Connected to live Supabase backend (`dhbbcholdqlblmktuidv.supabase.co`) with persistent database client.
 - **Firebase Authentication**: Integrated Google OAuth Sign-in flow with non-blocking fallback mechanisms.
 - **Role-Based Guards**: Strict multi-cohort session provider (`AuthContext.tsx`) with instant role-switching across Athlete, Coach, and Facility Owner.
+- **Privacy-First Zero Autofill**: Form fields start completely blank with decoy anti-autofill handlers to prevent browser credential leakage.
 
 ### 4. ⚡ Athlete Command Center (Member Portal Core)
 - **Biometric Telemetry HUD**: Track active tier, weekly session consistency (`4/5 SESSIONS`), streak counter with active flame telemetry, and power index scores (`87/100`).
@@ -105,7 +106,7 @@ GYMRAT CLUB is engineered following an organic, modular architecture separated i
   - `CoachProfile.tsx` & `CoachSettings.tsx` — Credentials and profile configuration.
 - **2-Way Booking & Confirmation Engine**:
   - When an athlete books a session, Coach Akhil receives an instant dispatch (`🔥 New Session Booked: [Athlete Name]`).
-  - Clicking **"MARK AS READ & CONFIRM"** immediately dispatches a confirmed notification (`✅ Session Confirmed by Coach Akhil Gandloji`) directly to the member's notification hub.
+  - Clicking **"CONFIRM"** immediately dispatches a confirmed notification (`✅ Session Confirmed by Coach Akhil Gandloji`) directly to the member's notification hub.
 
 ### 6. 🏛️ Gym Owner / Admin Command Center (Owner Rohan Alluri)
 - **Comprehensive Facility Suite (11 Pages)**:
@@ -171,13 +172,14 @@ GYMRAT CLUB features a **Cyber-Athletic HUD Design Language**:
 
 ---
 
-## 💻 Tech Stack (Parts 1–6)
+## 💻 Tech Stack (Parts 1–7)
 
 - **Frontend Framework**: React 18 (TypeScript 5.7)
 - **Build System**: Vite 6.0 (Hot Module Replacement, ultra-fast builds)
 - **Styling**: Tailwind CSS 3.4 with custom tactical color extensions and CSS Grid
 - **Backend Runtime**: Node.js & Express 4.21
 - **Cloud Databases & Auth**: Google Firebase Auth & Supabase Database
+- **Cloud Hosting**: Firebase Hosting CDN (`https://gymrat-club-04.web.app`)
 - **Iconography**: Lucide React Icons (Tactical icon suite)
 - **Routing**: React Router DOM v6 with role-based Route Guards
 - **State Architecture**: Reactive Pub/Sub Store (`mockStore.ts`) + REST API Context (`GymDataContext.tsx`)
@@ -215,9 +217,15 @@ npm run build
 ```
 Generates optimized, minified production assets in `/dist`.
 
+### 5. Deploy to Firebase
+```bash
+firebase deploy --only hosting
+```
+Deploys the static distribution directory directly to Google Firebase Hosting.
+
 ---
 
-## 📁 Project Structure (Parts 1–6)
+## 📁 Project Structure (Parts 1–7)
 
 ```text
 Gymrat-club/
@@ -251,6 +259,7 @@ Gymrat-club/
 │   ├── types/                     # Core TypeScript interfaces & domain types
 │   ├── main.tsx                   # React root entry
 │   └── index.css                  # Custom tactical styling & scrollbars
+├── firebase.json                  # Firebase hosting configuration
 ├── package.json                   # Dependencies and scripts
 ├── tailwind.config.js             # Tactical color palette & typography
 ├── tsconfig.json                  # TypeScript compiler settings
