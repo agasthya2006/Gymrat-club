@@ -8,8 +8,8 @@ export const LoginPage: React.FC = () => {
   const { login, register, loginWithGoogle, user, isAuthenticated, isLoading: authLoading } = useAuth();
   const [isRegisterMode, setIsRegisterMode] = useState(false);
   const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('akhilgandloji789@gmail.com');
-  const [password, setPassword] = useState('akhil@8998');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
@@ -256,7 +256,7 @@ export const LoginPage: React.FC = () => {
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="name@gmail.com"
+                  placeholder="Enter your email (e.g. name@gmail.com)"
                   required
                   className="w-full bg-[#0D0D11] border border-zinc-800 focus:border-[#FF5500] rounded-xl pl-10 pr-3.5 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF5500] transition-colors"
                 />
@@ -277,7 +277,7 @@ export const LoginPage: React.FC = () => {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  placeholder="Enter password"
+                  placeholder="Enter your password"
                   required
                   className="w-full bg-[#0D0D11] border border-zinc-800 focus:border-[#FF5500] rounded-xl pl-10 pr-11 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:ring-1 focus:ring-[#FF5500] transition-colors"
                 />
